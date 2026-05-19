@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMI AI Training — Self-Coaching Prompt Handout</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --g:#49C18E; --n:#17335E; --o:#F15A26;
+    --lg:#E8F8F1; --ln:#EAF0F8; --lo:#FEF0EA;
+    --bd:#E2E8F0; --t:#1F2933; --m:#5B6B7F; --bg:#F5F8FB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Noto Sans Lao',Arial,sans-serif;background:var(--bg);color:var(--t);font-size:13pt;line-height:1.75}
+  .lao{font-family:'Noto Sans Lao',Arial,sans-serif}
+
+  /* ── HEADER ── */
+  .header{background:var(--n);color:#fff;padding:28px 36px 0;position:relative;overflow:hidden}
+  .header::before{content:'';position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(73,193,142,.12)}
+  .header-accent{height:5px;background:linear-gradient(90deg,var(--g),rgba(73,193,142,.3))}
+  .header-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-bottom:24px;position:relative;z-index:2}
+  .logo-mark{width:52px;height:52px;border-radius:14px;background:var(--g);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;letter-spacing:1px;flex-shrink:0}
+  .header-text{flex:1}
+  .header-text .tag{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--g);margin-bottom:6px}
+  .header-text h1{font-size:22pt;font-weight:800;line-height:1.2;color:#fff;margin-bottom:4px}
+  .header-text .sub{font-size:12pt;color:rgba(255,255,255,.7)}
+  .header-badge{background:rgba(73,193,142,.18);border:1px solid rgba(73,193,142,.4);color:var(--g);padding:8px 16px;border-radius:10px;font-size:11pt;font-weight:600;text-align:center;flex-shrink:0}
+  .header-badge .big{font-size:28pt;font-weight:800;display:block;line-height:1;color:#fff}
+
+  /* ── MAIN ── */
+  .page{max-width:960px;margin:0 auto;padding:32px 24px 60px}
+
+  /* ── INTRO CARD ── */
+  .intro{background:#fff;border-radius:14px;padding:24px 28px;margin-bottom:28px;box-shadow:0 2px 10px rgba(23,51,94,.07);border-left:5px solid var(--g)}
+  .intro h2{color:var(--n);font-size:16pt;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .intro h2 .ico{width:30px;height:30px;background:var(--g);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13pt;font-weight:700;flex-shrink:0}
+  .intro p{color:var(--m);font-size:12.5pt;margin-bottom:8px}
+  .intro p:last-child{margin-bottom:0}
+  .intro .en{font-style:italic;font-size:11pt;color:#8A99A8}
+  .step-row{display:flex;gap:14px;align-items:flex-start;margin-top:16px;padding:14px 16px;background:var(--lg);border-radius:10px}
+  .step-num{width:32px;height:32px;background:var(--n);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13pt;flex-shrink:0}
+  .step-text{flex:1;font-size:12pt;color:var(--t);line-height:1.7}
+  .step-text .en{font-size:10.5pt;color:var(--m);font-style:italic;margin-top:2px}
+
+  /* ── PROMPT CARD ── */
+  .prompt-card{background:#fff;border-radius:14px;overflow:hidden;margin-bottom:28px;box-shadow:0 2px 10px rgba(23,51,94,.07)}
+  .prompt-head{padding:16px 24px;display:flex;align-items:center;gap:14px}
+  .prompt-head.a1{background:var(--n)}
+  .prompt-head.a2{background:linear-gradient(135deg,var(--n) 60%,#1a4872)}
+  .prompt-head.any{background:linear-gradient(135deg,#1a3a2a,#2a5a40)}
+  .prompt-head .ph-icon{width:44px;height:44px;border-radius:12px;background:var(--g);display:flex;align-items:center;justify-content:center;font-size:20pt;font-weight:800;color:#fff;flex-shrink:0}
+  .prompt-head .ph-text strong{display:block;font-size:15pt;font-weight:700;color:#fff}
+  .prompt-head .ph-text span{font-size:10.5pt;color:rgba(255,255,255,.7)}
+  .prompt-body{padding:20px 24px}
+
+  /* ── HOW TO USE ── */
+  .how-to{display:flex;gap:10px;background:var(--ln);border-radius:10px;padding:12px 16px;margin-bottom:16px;align-items:flex-start}
+  .how-to .ht-label{font-size:9.5pt;font-weight:700;color:var(--n);text-transform:uppercase;letter-spacing:.8px;white-space:nowrap;padding-top:2px}
+  .how-to .ht-text{font-size:11.5pt;color:var(--t);line-height:1.6}
+
+  /* ── PROMPT BOX ── */
+  .prompt-box{background:#1a1a2e;border-radius:12px;padding:20px 22px;position:relative;margin-top:4px}
+  .prompt-box .copy-label{position:absolute;top:10px;right:14px;font-size:9pt;color:rgba(255,255,255,.4);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+  .prompt-text{font-family:'Inter',monospace;font-size:11pt;color:#e2e8f0;line-height:1.85;white-space:pre-wrap;word-break:break-word}
+  .prompt-text .highlight{color:#49C18E;font-weight:700}
+  .prompt-text .placeholder{color:#F15A26;font-weight:600}
+  .prompt-text .comment{color:rgba(255,255,255,.35);font-style:italic}
+
+  /* ── TIPS ── */
+  .tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+  .tip-card{background:#fff;border-radius:12px;padding:18px 20px;box-shadow:0 2px 8px rgba(23,51,94,.06);border-top:4px solid var(--g)}
+  .tip-card.orange{border-top-color:var(--o)}
+  .tip-card h4{color:var(--n);font-size:12.5pt;font-weight:700;margin-bottom:8px}
+  .tip-card p{font-size:11.5pt;color:var(--m);line-height:1.65}
+  .tip-card .en{font-size:10.5pt;color:#a0aab4;font-style:italic;margin-top:4px}
+
+  /* ── WHY ── */
+  .why-box{background:linear-gradient(135deg,var(--n) 0%,#1a4872 100%);border-radius:14px;padding:24px 28px;margin-top:28px;color:#fff}
+  .why-box h3{font-size:15pt;font-weight:700;color:var(--g);margin-bottom:12px}
+  .why-item{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+  .why-item:last-child{margin-bottom:0}
+  .why-dot{width:8px;height:8px;border-radius:50%;background:var(--g);flex-shrink:0;margin-top:7px}
+  .why-text{font-size:12pt;line-height:1.7;color:rgba(255,255,255,.9)}
+  .why-text .en{font-size:10.5pt;color:rgba(255,255,255,.55);font-style:italic;margin-top:2px}
+
+  /* ── FOOTER ── */
+  .footer{margin-top:36px;text-align:center;padding:20px;background:var(--n);border-radius:14px;color:#fff;font-size:11pt}
+  .footer strong{color:var(--g)}
+  .footer .tag{display:inline-block;background:rgba(73,193,142,.18);border-radius:999px;padding:4px 14px;margin-top:8px;font-weight:500}
+
+  /* ── PRINT ── */
+  @media print{
+    body{background:#fff;font-size:10.5pt}
+    .page{padding:10px 16px 20px;max-width:100%}
+    .header{border-radius:0}
+    .prompt-card,.intro,.tips-grid,.why-box{page-break-inside:avoid}
+    .tips-grid{grid-template-columns:1fr 1fr}
+    .footer{border-radius:0}
+    .prompt-box{background:#1a1a2e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+  @media(max-width:680px){
+    .tips-grid{grid-template-columns:1fr}
+    .header-inner{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-accent"></div>
+  <div class="header-inner">
+    <div style="display:flex;align-items:center;gap:16px;flex:1">
+      <div class="logo-mark">EMI</div>
+      <div class="header-text">
+        <div class="tag">EMI Claude AI Training · 1st Batch · In-Person Session</div>
+        <h1 class="lao">Self-Coaching Prompt<br><span style="font-size:14pt;font-weight:600;opacity:.85">ຄູ່ມື Prompt ທົບທວນຕົນເອງ</span></h1>
+        <div class="sub lao">ໃຊ້ Claude ເປັນ Coach ທົບທວນວຽກຂອງທ່ານ — ທຸກເວລາ, ທຸກ Assignment</div>
+      </div>
+    </div>
+    <div class="header-badge">
+      <span class="big">AI</span>
+      <span class="lao" style="font-size:10pt">Coach ສ່ວນຕົວ</span>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro">
+    <h2><span class="ico">?</span> <span class="lao">ນີ້ຄືຫຍັງ?</span></h2>
+    <p class="lao">ເມື່ອທ່ານ <strong>ເປີດ Chat Claude ໃໝ່</strong> ແລ້ວ ວາງ Prompt ຂ້າງລຸ່ມ + ວຽກຂອງທ່ານ — Claude ຈະກາຍເປັນ <strong>Coach ສ່ວນຕົວ</strong> ທີ່ ກວດ, ໃຫ້ຄະແນນ ແລະ ໃຫ້ຄຳແນະນຳ ໂດຍສະເພາະ ສຳລັບ EMI.</p>
+    <p class="en">Open a <strong>new Claude chat</strong>, paste the prompt below + your work — Claude becomes your <strong>personal coach</strong> that reviews, scores, and gives specific advice for your EMI assignment.</p>
+
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <span class="lao">ເປີດ <strong>claude.ai</strong> ໃນ Browser ຫຼື App → ກົດ <strong>New Chat</strong></span>
+        <div class="en">Open claude.ai → click New Chat (a fresh start every time, no memory from before)</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <span class="lao"><strong>ສຳເນົາ Prompt</strong> ຈາກໜ້ານີ້ → ວາງໃສ່ Chat → ຕື່ມ <span style="color:var(--o);font-weight:700">[ຂໍ້ຄວາມສີສົ້ມ]</span> ດ້ວຍຂໍ້ມູນຂອງທ່ານ</span>
+        <div class="en">Copy the prompt → paste into chat → fill in the <span style="color:var(--o);font-weight:700">[orange brackets]</span> with your own details</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <span class="lao"><strong>ວາງວຽກຂອງທ່ານ</strong> ຫຼັງ Prompt (Copy HTML code ຫຼື ສ່ຽງເນື້ອຫາ) → ກົດ Send → ອ່ານ Feedback ແລ້ວ <strong>ປັບປຸງ</strong></span>
+        <div class="en">Paste your work after the prompt (HTML code or content) → Send → read the feedback → <strong>improve your work</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMPT: ASSIGNMENT 1 -->
+  <div class="prompt-card">
+    <div class="prompt-head a1">
+      <div class="ph-icon">A1</div>
+      <div class="ph-text">
+        <strong class="lao">Assignment 1 — ແຜນການເຮັດວຽກ (Work Plan)</strong>
+        <span class="lao">ໃຊ້ Prompt ນີ້ ທົບທວນ ຕາຕະລາງ ວຽກ ລາຍວັນ/ອາທິດ/ເດືອນ ຂອງທ່ານ</span>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="how-to">
+        <div class="ht-label lao">ວິທີໃຊ້</div>
+        <div class="ht-text lao">ວາງ Prompt ນີ້ ໃສ່ New Chat → ຕື່ມ [ຂໍ້ຄວາມ] → ວາງ HTML ຫຼື ເນື້ອຫາ Work Plan ຕໍ່ທ້າຍ → Send</div>
+      </div>
+      <div class="prompt-box">
+        <div class="copy-label">COPY &amp; PASTE</div>
+        <div class="prompt-text"><span class="highlight">ສະບາຍດີ Claude!</span> ຂ້ອຍ <span class="placeholder">[ຊື່ທ່ານ]</span> ຕຳແໜ່ງ <span class="placeholder">[ຕຳແໜ່ງ]</span> ພະແນກ <span class="placeholder">[ພະແນກ]</span> ທີ່ <span class="highlight">EMI (Ekphatthana Microfinance Institution)</span>, ສປປ ລາວ.
+
+ຂ້ອຍຢາກໃຫ້ທ່ານ <span class="highlight">ທຳຕົວເປັນ Coach</span> ທົບທວນ Assignment 1 (Work Plan) ຂອງຂ້ອຍ ຕາມ ເກນຂອງ EMI Claude AI Training 1st Batch.
+
+<span class="highlight">ກວດໂດຍໃຊ້ 7 ເກນນີ້:</span>
+1. ພາສາລາວ ສ່ວນໃຫຍ່ ແລະ ອ່ານງ່າຍ
+2. ສີ EMI: Green #49C18E ແລະ Navy #17335E
+3. Font: Noto Sans Lao
+4. 3 ໝວດ: ລາຍວັນ / ລາຍອາທິດ / ລາຍເດືອນ
+5. ຄົບ Header: ຊື່, ຕຳແໜ່ງ, ພະແນກ
+6. ໝວດ "ຂ້ອຍໃຊ້ Claude ຊ່ວຍແນວໃດ" (AI Help section)
+7. ຊື່ໄຟລ໌: Assignment-01-WorkPlan-<span class="placeholder">[ຊື່]</span>.html
+
+<span class="highlight">ຂ້ອຍຢາກຮູ້:</span>
+- ຄະແນນລວມ /100 ແລະ Grade (A / B+ / B / C+)
+- 3 ຈຸດທີ່ດີທີ່ສຸດໃນວຽກຂ້ອຍ
+- 2-3 ຈຸດທີ່ຄວນປັບປຸງ ພ້ອມຄຳສັ່ງ Code ຫຼື ຄຳແນະນຳ ສະເພາະ
+- ຄຳແນະນຳ 1 ຂໍ້ ສຳລັບ Assignment ຕໍ່ໄປ
+
+<span class="comment">-- ວຽກ Assignment 1 ຂອງຂ້ອຍ: --</span>
+<span class="placeholder">[ວາງ HTML code ຫຼື ເນື້ອຫາ Work Plan ຂອງທ່ານທີ່ນີ້]</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMPT: ASSIGNMENT 2 -->
+  <div class="prompt-card">
+    <div class="prompt-head a2">
+      <div class="ph-icon">A2</div>
+      <div class="ph-text">
+        <strong class="lao">Assignment 2 — ໃບກຳນົດໜ້າທີ່ (Job Description)</strong>
+        <span class="lao">ໃຊ້ Prompt ນີ້ ທົບທວນ JD ທີ່ທ່ານສ້າງ ໃຫ້ ໄດ້ A</span>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="how-to">
+        <div class="ht-label lao">ວິທີໃຊ້</div>
+        <div class="ht-text lao">ວາງ Prompt ນີ້ ໃສ່ New Chat → ຕື່ມ [ຂໍ້ຄວາມ] → ວາງ HTML ຂອງ JD ຕໍ່ທ້າຍ → Send → ຮັບ Coach Feedback</div>
+      </div>
+      <div class="prompt-box">
+        <div class="copy-label">COPY &amp; PASTE</div>
+        <div class="prompt-text"><span class="highlight">ສະບາຍດີ Claude!</span> ຂ້ອຍ <span class="placeholder">[ຊື່ທ່ານ]</span> ຕຳແໜ່ງ <span class="placeholder">[ຕຳແໜ່ງ]</span> ພະແນກ <span class="placeholder">[ພະແນກ]</span> ທີ່ <span class="highlight">EMI (Ekphatthana Microfinance Institution)</span>, ສປປ ລາວ.
+
+ຂ້ອຍຢາກໃຫ້ທ່ານ <span class="highlight">ທຳຕົວເປັນ Coach ດ້ານ HR</span> ທົບທວນ Job Description (Assignment 2) ຂອງຂ້ອຍ.
+
+<span class="highlight">ກວດໂດຍໃຊ້ 7 ເກນຂອງ EMI Training:</span>
+1. 9 ໝວດ JD ຄົບ ແລະ ມີໝາຍເລກ 1–9
+2. ຄຳກຳມະ (Action Verbs) ໃນໜ້າທີ່ຮັບຜິດຊອບທຸກຂໍ້
+3. ຂອບເຂດການຕັດສິນໃຈ ທີ່ຊັດ — ລວມ threshold ກີບ ຫຼື ລາຍການ ສະເພາະ
+4. ຄວາມສຳພັນ ພາຍໃນ ແລະ ພາຍນອກ (ລວມ ADA, ICCAP ຖ້າ relevant)
+5. ສີ EMI: Green #49C18E ແລະ Navy #17335E + Font Noto Sans Lao
+6. ຊື່ໄຟລ໌: Assignment-02-JD-<span class="placeholder">[ຊື່]</span>.html
+7. Footer ລະບຸຊື່ຜູ້ສ້າງ (ຊື່ຂ້ອຍ — ບໍ່ແມ່ນ "Created by Claude")
+
+<span class="comment">ໝາຍເຫດ: ADA = Austrian Development Agency (ບໍ່ແມ່ນ ADB)</span>
+<span class="comment">ICCAP = ໂຄງການ Capacity Building ພາຍໃຕ້ ADA — ລະບຸແຍກກັນ</span>
+
+<span class="highlight">ຂ້ອຍຢາກຮູ້:</span>
+- ຄະແນນ /100 ແລະ Grade ສຳລັບທຸກເກນ (ຕາຕະລາງ)
+- 3–5 ຈຸດທີ່ດີ ທີ່ Specific ກັບ JD ຂ້ອຍ (ບໍ່ Generic)
+- 2–3 ຈຸດຕ້ອງປ່ຽນ ພ້ອມຕົວຢ່າງ Code ຫຼື ຂໍ້ຄວາມ ສຳລັບແກ້ໄຂ
+- Grade ລວມ ແລະ ຄຳສຸດທ້າຍ 1 ປະໂຫຍກ
+
+<span class="comment">-- JD ຂອງຂ້ອຍ: --</span>
+<span class="placeholder">[ວາງ HTML code ຂອງ JD ທ່ານທີ່ນີ້]</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMPT: ANY WORK -->
+  <div class="prompt-card">
+    <div class="prompt-head any">
+      <div class="ph-icon" style="font-size:22pt">∞</div>
+      <div class="ph-text">
+        <strong class="lao">ທຸກ Assignment ໃໝ່ — Universal Coach Prompt</strong>
+        <span class="lao">ໃຊ້ Prompt ນີ້ ສຳລັບວຽກໃດ ກໍ່ຕາມ ຫຼັງ Training ນີ້ — ຕລອດຊີວິດ</span>
+      </div>
+    </div>
+    <div class="prompt-body">
+      <div class="how-to">
+        <div class="ht-label lao">ວິທີໃຊ້</div>
+        <div class="ht-text lao">ໃຊ້ Prompt ນີ້ ສຳລັບ ເອກະສານ, ລາຍງານ, Presentation ໃດ ກໍ່ຕາມ ທີ່ທ່ານສ້າງ ໃນ EMI ຫຼື ໃນຊີວິດວຽກ</div>
+      </div>
+      <div class="prompt-box">
+        <div class="copy-label">COPY &amp; PASTE</div>
+        <div class="prompt-text"><span class="highlight">ສະບາຍດີ Claude!</span> ຂ້ອຍ <span class="placeholder">[ຊື່ທ່ານ]</span> ຕຳແໜ່ງ <span class="placeholder">[ຕຳແໜ່ງ]</span> ທີ່ <span class="highlight">EMI</span>.
+
+ຂ້ອຍຢາກໃຊ້ທ່ານເປັນ <span class="highlight">Coach ສ່ວນຕົວ</span> ທົບທວນວຽກຂ້ອຍ.
+
+<span class="highlight">ວຽກທີ່ຂ້ອຍສ້າງ:</span> <span class="placeholder">[ອະທິບາຍວ່ານີ້ຄືຫຍັງ ຕົວຢ່າງ: ລາຍງານ, Proposal, Email, Presentation]</span>
+<span class="highlight">ຈຸດປະສົງ:</span> <span class="placeholder">[ໃຜຈະອ່ານ? ເພື່ອຫຍັງ?]</span>
+<span class="highlight">ສິ່ງທີ່ຂ້ອຍຢາກໃຫ້ກວດ:</span> <span class="placeholder">[ຄວາມຊັດເຈນ / ຄວາມຖືກຕ້ອງ / Format / ພາສາ / ອື່ນໆ]</span>
+
+<span class="highlight">ກະລຸນາ:</span>
+1. ໃຫ້ຄະແນນ /10 ສຳລັບ: ເນື້ອຫາ, ໂຄງສ້າງ, ພາສາ, ຜົນກະທົບ
+2. ບອກ 3 ສິ່ງທີ່ດີ — <span class="highlight">ສະເພາະ</span>, ບໍ່ Generic
+3. ບອກ 2–3 ສິ່ງຕ້ອງ ປ່ຽນ — ພ້ອມ <span class="highlight">ຕົວຢ່າງ</span> ທີ່ດີກວ່າ
+4. ຄຳແນະນຳ 1 ຂໍ້ ສຳລັບ ຄົນທີ່ຢາກ <span class="highlight">ພັດທະນາໄວ</span>
+
+<span class="comment">-- ວຽກຂ້ອຍ: --</span>
+<span class="placeholder">[ວາງວຽກຂອງທ່ານທີ່ນີ້]</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS GRID -->
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h4 class="lao">ໃຊ້ New Chat ທຸກຄັ້ງ</h4>
+      <p class="lao">ສ້າງ Chat ໃໝ່ (New Chat) ທຸກຄັ້ງທີ່ທ່ານທົບທວນວຽກ — Claude ໃນ Chat ໃໝ່ ຈະ Focus 100% ກັບວຽກຂ້ອຍ ໂດຍບໍ່ມີ Context ເກົ່າ ສັບສົນ</p>
+      <div class="en">Always start a New Chat — a fresh session means Claude's full attention on your current work with no distracting history.</div>
+    </div>
+    <div class="tip-card">
+      <h4 class="lao">ຂໍ Revision ໃໝ່ ຖ້າບໍ່ພໍໃຈ</h4>
+      <p class="lao">ຖ້າ Feedback ບໍ່ Clear — ຂໍໄດ້ເລີຍ: <em>"ຕົວຢ່າງ Code ສຳລັບຈຸດທີ 2 ໄດ້ບໍ?"</em> ຫຼື <em>"ເຮັດໃໝ່ ຊັດກວ່ານີ້"</em></p>
+      <div class="en">If feedback is unclear, just ask: "Give me the actual code fix for point 2" or "Be more specific" — Claude will sharpen the answer.</div>
+    </div>
+    <div class="tip-card orange">
+      <h4 class="lao">ກ່ອນ Submit ທຸກຄັ້ງ</h4>
+      <p class="lao">ສ້າງ Habit: ກ່ອນ Submit ວຽກ ໃດ ກໍ່ຕາມ — ທົບທວນ ໃຫ້ Claude Coach ໜຶ່ງຮອບ ກ່ອນ. ນີ້ ຄື Loop Learning ທີ່ ໄວທີ່ສຸດ</p>
+      <div class="en">Build the habit: before submitting any work, run one coaching round with Claude first. This is the fastest learning loop available.</div>
+    </div>
+    <div class="tip-card orange">
+      <h4 class="lao">ເກັບ Prompt ໄວ້ໃຊ້ອີກ</h4>
+      <p class="lao">Save ໜ້ານີ້ ໄວ້ໃນ Favourites ຫຼື ຖ່າຍຮູບ QR / Prompt — ທ່ານໃຊ້ Prompts ເຫຼົ່ານີ້ ໄດ້ ຕລອດຊີວິດ ບໍ່ຈຳກັດ Assignment</p>
+      <div class="en">Save this page or photograph the prompts — you can use these coaching prompts for any work, for life, not just this training.</div>
+    </div>
+  </div>
+
+  <!-- WHY BOX -->
+  <div class="why-box">
+    <h3 class="lao">ເປັນຫຍັງ Self-Coaching ຈຶ່ງສຳຄັນ?<br><span style="font-size:12pt;color:rgba(255,255,255,.6);font-weight:400">Why Self-Coaching Matters</span></h3>
+    <div class="why-item">
+      <div class="why-dot"></div>
+      <div class="why-text">
+        <span class="lao"><strong style="color:var(--g)">ການຮຽນຮູ້ທີ່ດີທີ່ສຸດ ແມ່ນ ການຕອບຄຳຖາມຕົນເອງ:</strong> ເມື່ອທ່ານຖາມວ່າ "ຈຸດໃດໃນວຽກຂ້ອຍ ດີ?" ທ່ານ ລາຍລະອຽດ ຄິດ ຫຼາຍ ກ່ວາ ການລໍຖ້າ ຄົນອື່ນ ໃຫ້ຄຳເຫັນ</span>
+        <div class="en">The best learning is self-questioning: asking "what's strong in my work?" forces deeper thinking than waiting for someone else's feedback.</div>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-dot"></div>
+      <div class="why-text">
+        <span class="lao"><strong style="color:var(--g)">AI ບໍ່ຢ້ານ Honest:</strong> Claude ຈະບອກ ທ່ານ ສິ່ງທີ່ ຕ້ອງປ່ຽນ ໂດຍບໍ່ ຄິດ ຫາ ຄວາມຮູ້ສຶກ — ຜູ້ Coach ທີ່ ດີ ທີ່ສຸດ ຄືຄົນທີ່ ຊື່ສັດ</span>
+        <div class="en">AI gives honest feedback without worrying about feelings — the best coach is always the most honest one.</div>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-dot"></div>
+      <div class="why-text">
+        <span class="lao"><strong style="color:var(--g)">ທຸກຄົນ ໃຊ້ Coach ໄດ້ 24/7:</strong> ທ່ານ ບໍ່ ຕ້ອງລໍຖ້າ ການ Training ຄັ້ງ ຕໍ່ໄປ — ເປີດ Claude ໄດ້ ທຸກເວລາ ທີ່ ທ່ານ ສ້າງ ວຽກ ໃໝ່</span>
+        <div class="en">Everyone has a 24/7 coach now — no need to wait for the next training session, open Claude whenever you create new work.</div>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-dot"></div>
+      <div class="why-text">
+        <span class="lao"><strong style="color:var(--g)">Lifelong Learning = Loop:</strong> ສ້າງ → Coach → ປ່ຽນ → ສ້າງໃໝ່ → Coach ອີກ. Loop ນີ້ ຄື skill ທີ່ ສຳຄັນ ທີ່ສຸດ ໃນ AI Era</span>
+        <div class="en">Lifelong learning is a loop: Create → Coach → Improve → Create again → Coach again. This loop is the most valuable skill in the AI era.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <strong>EMI Claude AI Training · 1st Batch · Self-Coaching Handout</strong><br>
+    <span class="lao">Ekphatthana Deposit-Taking Microfinance Institution Co., Ltd · Better Together · ດີໄປຮ່ວມກັນ</span>
+    <div class="tag lao">claude.ai · ໃຊ້ໄດ້ ທຸກເວລາ · ຟຣີ</div>
+  </div>
+
+</div>
+</body>
+</html>

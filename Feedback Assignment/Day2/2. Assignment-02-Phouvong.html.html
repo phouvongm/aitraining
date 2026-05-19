@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment 02 · Job Description · Phouvong Meksavanh · Head of IT Department · EMI</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --emi-green:#49C18E;
+    --emi-navy:#17335E;
+    --emi-orange:#F15A26;
+    --emi-bg:#F5F8FB;
+    --emi-card:#FFFFFF;
+    --emi-border:#E2E8F0;
+    --emi-soft-green:#E8F8F1;
+    --emi-soft-navy:#EAF0F8;
+    --emi-text:#1F2933;
+    --emi-muted:#5B6B7F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Noto Sans Lao','Inter',Arial,sans-serif;background:var(--emi-bg);color:var(--emi-text);line-height:1.7;font-size:14pt}
+  .lao{font-family:'Noto Sans Lao',Arial,sans-serif}
+  .page{max-width:1320px;margin:0 auto;padding:32px 24px 60px}
+
+  /* LAYOUT — Sidebar + Main Content */
+  .layout{display:grid;grid-template-columns:260px 1fr;gap:22px;margin-top:22px;align-items:start}
+  @media (max-width:900px){.layout{grid-template-columns:1fr}}
+
+  /* SIDEBAR */
+  .sidebar{position:sticky;top:20px;background:var(--emi-card);border-radius:14px;padding:18px 14px;box-shadow:0 4px 16px rgba(23,51,94,.08);max-height:calc(100vh - 40px);overflow-y:auto;border-top:4px solid var(--emi-green)}
+  .sidebar-title{color:var(--emi-navy);font-size:11pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:0 8px 12px;border-bottom:2px solid var(--emi-soft-green);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .sidebar-title::before{content:"";width:14px;height:14px;background:var(--emi-green);border-radius:4px;display:inline-block}
+  .sidebar nav{display:flex;flex-direction:column;gap:2px}
+  .sidebar nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:var(--emi-text);text-decoration:none;font-size:11pt;transition:all .2s;border-left:3px solid transparent;line-height:1.4}
+  .sidebar nav a:hover{background:var(--emi-soft-green);color:var(--emi-navy)}
+  .sidebar nav a.active{background:var(--emi-soft-green);color:var(--emi-navy);font-weight:600;border-left:3px solid var(--emi-green)}
+  .sidebar nav a .num{display:inline-flex;width:26px;height:26px;background:var(--emi-soft-navy);color:var(--emi-navy);border-radius:6px;font-weight:700;font-size:10pt;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+  .sidebar nav a.active .num{background:var(--emi-green);color:#fff}
+  .sidebar nav a.special{margin-top:8px;padding-top:14px;border-top:1px dashed var(--emi-border)}
+  .sidebar nav a.special .num{background:var(--emi-navy);color:#fff}
+  .btn-top{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;padding:10px;background:var(--emi-navy);color:#fff;text-decoration:none;border-radius:8px;font-size:10.5pt;font-weight:600;transition:background .2s}
+  .btn-top:hover{background:var(--emi-green)}
+
+  /* CONTENT */
+  .content{min-width:0}
+  .content section{margin-top:0;margin-bottom:22px}
+  .content section:first-child{margin-top:0}
+  section[id]{scroll-margin-top:20px}
+
+  /* MOBILE: Sidebar becomes horizontal nav */
+  @media (max-width:900px){
+    .sidebar{position:static;max-height:none;margin-top:22px}
+    .sidebar nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:4px}
+    .sidebar nav a.special{margin-top:0;padding-top:10px;border-top:none}
+  }
+
+  /* TOPBAR */
+  .topbar{background:var(--emi-navy);color:#fff;padding:18px 28px;border-radius:14px 14px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand-mark{width:48px;height:48px;border-radius:12px;background:var(--emi-green);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;letter-spacing:1px}
+  .brand-text strong{display:block;font-size:16pt}
+  .brand-text span{font-size:11pt;opacity:.85}
+  .topbar .meta{font-size:11pt;opacity:.9;text-align:right}
+
+  /* HERO */
+  .hero{background:var(--emi-card);padding:32px 28px;border-left:6px solid var(--emi-green);border-radius:0 0 14px 14px;box-shadow:0 1px 3px rgba(23,51,94,.06)}
+  .badge{display:inline-block;background:var(--emi-soft-green);color:var(--emi-navy);padding:5px 14px;border-radius:999px;font-size:11pt;font-weight:600;margin-bottom:10px}
+  h1{color:var(--emi-navy);font-size:24pt;font-weight:700;line-height:1.25;margin-bottom:8px}
+  .hero .sub{color:var(--emi-navy);font-size:14pt;font-weight:500;margin-bottom:10px}
+  .meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px}
+  .meta-item{background:var(--emi-soft-navy);padding:10px 14px;border-radius:10px;font-size:11.5pt}
+  .meta-item .k{color:var(--emi-muted);font-size:10pt;display:block;margin-bottom:2px}
+  .meta-item .v{color:var(--emi-navy);font-weight:600}
+
+  /* SECTIONS */
+  section{background:var(--emi-card);border-radius:14px;padding:26px 28px;margin-top:22px;box-shadow:0 1px 3px rgba(23,51,94,.05)}
+  h2{color:var(--emi-navy);font-size:18pt;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  h2 .ico{width:34px;height:34px;border-radius:8px;background:var(--emi-green);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14pt;font-weight:700;flex-shrink:0}
+  h3{color:var(--emi-navy);font-size:14pt;font-weight:700;margin-top:14px;margin-bottom:8px}
+  p{margin-bottom:10px}
+
+  /* TABLE */
+  table.info{width:100%;border-collapse:collapse;font-size:12pt;margin-top:6px}
+  table.info th{background:var(--emi-navy);color:#fff;font-weight:600;font-size:11.5pt;padding:10px 14px;text-align:left}
+  table.info td{padding:11px 14px;border-bottom:1px solid var(--emi-border);vertical-align:top}
+  table.info tr:nth-child(even) td{background:#FAFBFD}
+  table.info tr:last-child td{border-bottom:none}
+  table.info .k{font-weight:600;color:var(--emi-navy);width:32%}
+  table.info .accent{color:var(--emi-green);font-weight:600}
+
+  /* RESPONSIBILITY LIST */
+  ol.resp{margin:6px 0 0 0;padding:0;list-style:none;counter-reset:rcount}
+  ol.resp li{counter-increment:rcount;background:#fff;border:1px solid var(--emi-border);border-radius:10px;padding:14px 16px 14px 60px;margin-bottom:10px;position:relative;font-size:12pt}
+  ol.resp li::before{content:counter(rcount);position:absolute;left:14px;top:14px;width:32px;height:32px;background:var(--emi-navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12pt}
+  ol.resp li strong{color:var(--emi-navy);font-size:12.5pt;display:block;margin-bottom:4px}
+  ol.resp li .verb{color:var(--emi-green);font-weight:700}
+  ol.resp li .sub{font-size:11pt;color:var(--emi-text);line-height:1.6}
+
+  /* QUAL GRID */
+  .qual-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  @media (max-width:700px){.qual-grid{grid-template-columns:1fr}}
+  .qual-card{background:#fff;border:1px solid var(--emi-border);border-radius:12px;padding:16px}
+  .qual-card.req{border-top:4px solid var(--emi-navy)}
+  .qual-card.pref{border-top:4px solid var(--emi-green)}
+  .qual-card h4{color:var(--emi-navy);font-size:13pt;margin-bottom:8px}
+  .qual-card ul{margin-left:18px;font-size:11.5pt}
+  .qual-card ul li{margin-bottom:4px}
+
+  /* SKILL GRID */
+  .skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  @media (max-width:700px){.skill-grid{grid-template-columns:1fr}}
+  .skill-card{background:#fff;border:1px solid var(--emi-border);border-radius:12px;padding:16px}
+  .skill-card.tech{border-left:4px solid var(--emi-navy)}
+  .skill-card.soft{border-left:4px solid var(--emi-green)}
+  .skill-card h4{color:var(--emi-navy);font-size:13pt;margin-bottom:8px}
+  .pill{display:inline-block;padding:5px 12px;margin:3px 4px 3px 0;border-radius:999px;font-size:10.5pt;font-weight:500}
+  .pill.adv{background:var(--emi-soft-green);color:#0f6e4a;border:1px solid #9CDDC0}
+  .pill.int{background:var(--emi-soft-navy);color:var(--emi-navy);border:1px solid #B8C8E0}
+
+  /* AUTHORITY */
+  table.auth{width:100%;border-collapse:collapse;font-size:11.5pt;margin-top:6px}
+  table.auth th{background:var(--emi-navy);color:#fff;font-weight:600;padding:10px 14px;text-align:left}
+  table.auth th.green{background:var(--emi-green)}
+  table.auth td{padding:10px 14px;border-bottom:1px solid var(--emi-border);vertical-align:top}
+  table.auth tr:last-child td{border-bottom:none}
+  table.auth .cat{font-weight:600;color:var(--emi-navy);width:30%}
+  table.auth .num{font-weight:700;color:var(--emi-orange)}
+
+  /* RELATIONSHIPS */
+  .rel-box{background:var(--emi-soft-navy);padding:14px 18px;border-radius:10px;margin-bottom:10px}
+  .rel-box h4{color:var(--emi-navy);font-size:13pt;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .rel-box h4 .tag{background:var(--emi-green);color:#fff;font-size:9pt;padding:2px 8px;border-radius:6px;font-weight:600}
+  .rel-box ul{margin-left:20px;font-size:11.5pt}
+  .rel-box ul li{margin-bottom:4px}
+  .rel-box ul li strong{color:var(--emi-navy)}
+
+  /* CALLOUT */
+  .callout{background:var(--emi-soft-green);border-left:4px solid var(--emi-green);padding:14px 18px;border-radius:8px;margin-top:14px;font-size:12pt}
+  .callout strong{color:var(--emi-navy)}
+
+  /* SIGN */
+  .sign-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px}
+  @media (max-width:700px){.sign-grid{grid-template-columns:1fr}}
+  .sign-card{background:#fff;border:1px solid var(--emi-border);border-radius:12px;padding:18px;text-align:center}
+  .sign-card .role{color:var(--emi-navy);font-weight:700;font-size:12pt;margin-bottom:30px}
+  .sign-card .line{border-top:1px dashed #94A3B8;padding-top:8px;font-size:11pt;color:var(--emi-muted)}
+
+  /* FOOTER */
+  footer{margin-top:30px;padding:22px;background:var(--emi-navy);color:#fff;border-radius:14px;text-align:center;font-size:11pt}
+  footer strong{color:var(--emi-green)}
+  footer .tag{display:inline-block;padding:4px 12px;background:rgba(73,193,142,.18);border-radius:999px;margin-top:8px;color:#fff;font-weight:500}
+
+  @media print{
+    body{background:#fff;font-size:11pt}
+    .page{padding:0;max-width:100%}
+    .layout{grid-template-columns:1fr !important;gap:0}
+    .sidebar{display:none}
+    section{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid}
+    .topbar,.hero,footer{border-radius:0}
+  }
+</style>
+</head>
+<body>
+<div class="page" id="top">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-mark">EMI</div>
+      <div class="brand-text">
+        <strong>Ekphatthana Microfinance Institution (EMI)</strong>
+        <span class="lao">ສະຖາບັນການເງິນຈຸລະພາກທີ່ຮັບເງິນຝາກ ເອກພັດທະນາ</span>
+      </div>
+    </div>
+    <div class="meta">
+      <div>Claude Training · 1st Batch</div>
+      <div class="lao">Assignment 2 · Day 2 · Job Description</div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="badge">Assignment 02 · Job Description (JD)</span>
+    <h1 class="lao">ໜ້າວຽກ — ຫົວໜ້າພະແນກເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ</h1>
+    <div class="sub">Job Description — Head of IT Department</div>
+    <p class="lao"><strong>ຜູ້ສ້າງ:</strong> ທ່ານ ພູວົງ ເມັກສະຫວັນ (Phouvong Meksavanh) · <strong>ວັນທີ:</strong> ວັນອັງຄານ ທີ 19 ພຶດສະພາ 2026 · <strong>Version:</strong> 1.0</p>
+
+    <div class="meta-grid">
+      <div class="meta-item"><span class="k">ສະຖາບັນ</span><span class="v lao">Ekphatthana Microfinance Institution (EMI)</span></div>
+      <div class="meta-item"><span class="k">ປະເພດ</span><span class="v">Deposit-Taking MFI · ໃຕ້ການກວດກາ BOL</span></div>
+      <div class="meta-item"><span class="k">Office</span><span class="v lao">ສຳນັກງານໃຫຍ່ · ນະຄອນຫຼວງວຽງຈັນ</span></div>
+      <div class="meta-item"><span class="k">Version</span><span class="v">1.0 · ມີນາ 2026</span></div>
+    </div>
+  </div>
+
+  <!-- ========== LAYOUT WITH SIDEBAR + CONTENT ========== -->
+  <div class="layout">
+
+    <!-- ===== SIDEBAR NAVIGATION ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-title lao">ໜ້າຫຼັກ · Contents</div>
+      <nav>
+        <a href="#sec1" class="lao"><span class="num">1</span>ຂໍ້ມູນຕຳແໜ່ງ</a>
+        <a href="#sec2" class="lao"><span class="num">2</span>ສາຍການລາຍງານ</a>
+        <a href="#sec3" class="lao"><span class="num">3</span>ຈຸດປະສົງຂອງຕຳແໜ່ງ</a>
+        <a href="#sec4" class="lao"><span class="num">4</span>ຄວາມຮັບຜິດຊອບຫຼັກ</a>
+        <a href="#sec5" class="lao"><span class="num">5</span>ຄຸນສົມບັດທີ່ຕ້ອງການ</a>
+        <a href="#sec6" class="lao"><span class="num">6</span>ທັກສະທີ່ຕ້ອງການ</a>
+        <a href="#sec7" class="lao"><span class="num">7</span>ຄວາມສຳພັນໃນການເຮັດວຽກ</a>
+        <a href="#sec8" class="lao"><span class="num">8</span>ຂອບເຂດການຕັດສິນໃຈ</a>
+        <a href="#sec9" class="lao"><span class="num">9</span>ສະຖານທີ່ ແລະ ການເດີນທາງ</a>
+        <a href="#sec-sign" class="special lao"><span class="num">✓</span>ການຮັບຮອງ</a>
+      </nav>
+      <a href="#top" class="btn-top lao">↑ ກັບໄປເທິງ</a>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="content">
+
+  <!-- ========== SECTION 1 — POSITION INFO ========== -->
+  <section id="sec1">
+    <h2><span class="ico">1</span><span class="lao">ຂໍ້ມູນຕຳແໜ່ງ · Position Information</span></h2>
+    <table class="info">
+      <tr><td class="k lao">ຊື່ຕຳແໜ່ງ (ລາວ)</td><td class="lao">ຫົວໜ້າພະແນກເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ</td></tr>
+      <tr><td class="k">Job Title (English)</td><td><strong>Head of IT Department</strong></td></tr>
+      <tr><td class="k lao">ພະແນກ / ໜ່ວຍງານ</td><td class="lao">ພະແນກເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ (IT Department)</td></tr>
+      <tr><td class="k lao">ສຳນັກງານ</td><td class="lao">ສຳນັກງານໃຫຍ່, ນະຄອນຫຼວງວຽງຈັນ</td></tr>
+      <tr><td class="k lao">ລະດັບຕຳແໜ່ງ</td><td><span class="accent">M3 — Senior Manager Level</span></td></tr>
+      <tr><td class="k lao">ປະເພດການຈ້າງງານ</td><td class="lao">ພະນັກງານປະຈຳ (Full-time, Permanent)</td></tr>
+      <tr><td class="k lao">ສະຖານທີ່ປະຈຳການ</td><td class="lao">ສຳນັກງານໃຫຍ່ ນະຄອນຫຼວງວຽງຈັນ · ເດີນທາງສາຂາຕ່າງແຂວງເປັນຄັ້ງຄາວ</td></tr>
+      <tr><td class="k">Direct Reports</td><td class="lao">2–4 ຄົນ (System/Network Admin, Helpdesk, Security Officer)</td></tr>
+    </table>
+  </section>
+
+  <!-- ========== SECTION 2 — REPORTING LINE ========== -->
+  <section id="sec2">
+    <h2><span class="ico">2</span><span class="lao">ສາຍການລາຍງານ · Reporting Line</span></h2>
+    <table class="info">
+      <tr><th style="width:34%">ຄວາມສຳພັນ · Relationship</th><th>ຕຳແໜ່ງ · Position</th></tr>
+      <tr><td class="k lao">ລາຍງານໂດຍກົງຕໍ່ (Solid line)</td><td class="lao"><strong>ຄະນະອຳນວຍການ (Executive Management Committee)</strong></td></tr>
+      <tr><td class="k lao">ສາຍລາຍງານທີສອງ (Dotted line)</td><td class="lao">ຄະນະກຳມະການຄຸ້ມຄອງຄວາມສ່ຽງ ແລະ ການປະຕິບັດຕາມກົດໝາຍ (Risk &amp; Compliance Committee) — ສຳລັບ Cybersecurity, BCP/DRP, ການລາຍງານ BOL</td></tr>
+      <tr><td class="k lao">ຜູ້ໃຕ້ບັງຄັບບັນຊາໂດຍກົງ</td><td class="lao">2–4 ຄົນ: System/Network Administrator, IT Helpdesk Officers, Security Officer</td></tr>
+      <tr><td class="k lao">ສະມາຊິກຄະນະບໍລິຫານ</td><td class="lao">ເຂົ້າຮ່ວມ Management Committee (ການປະຊຸມຄະນະບໍລິຫານປະຈຳເດືອນ)</td></tr>
+    </table>
+  </section>
+
+  <!-- ========== SECTION 3 — JOB PURPOSE ========== -->
+  <section id="sec3">
+    <h2><span class="ico">3</span><span class="lao">ຈຸດປະສົງຂອງຕຳແໜ່ງ · Job Purpose</span></h2>
+    <p class="lao">
+      <strong>ນຳພາ</strong> ພະແນກເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານຂອງ EMI ໃນການວາງແຜນ, ບໍລິຫານຈັດການ ແລະ ສະໜອງໂຄງລ່າງດິຈິຕ້ອນ
+      ທີ່ມີສະຖຽນລະພາບ, ປອດໄພ ແລະ ສາມາດຮອງຮັບການເຕີບໃຫຍ່ຂອງສະຖາບັນ.
+    </p>
+    <p class="lao">
+      <strong>ຮັບປະກັນ</strong> ວ່າລະບົບເຕັກໂນໂລຊີຫຼັກ (Optimal Core Banking, Odoo ERP, AWS Cloud, Network, Email)
+      ສະໜັບສະໜູນຍຸດທະສາດ EMI Pathway 2030 ແລະ ສອດຄ່ອງກັບມາດຕະຖານການກວດກາຂອງທະນາຄານແຫ່ງ ສປປ ລາວ (BOL).
+    </p>
+    <p class="lao">
+      <strong>ປົກປ້ອງ</strong> ຂໍ້ມູນຂອງລູກຄ້າ ແລະ ສະຖາບັນຈາກໄພຄຸກຄາມທາງໄຊເບີ ໂດຍຜ່ານກອບຄວາມປອດໄພ NIST CSF ແລະ
+      ການທົດສອບແຜນກູ້ຄືນລະບົບ (DRP) ປະຈຳປີ ເພື່ອຮັບປະກັນຄວາມຕໍ່ເນື່ອງຂອງທຸລະກິດ.
+    </p>
+  </section>
+
+  <!-- ========== SECTION 4 — KEY RESPONSIBILITIES ========== -->
+  <section id="sec4">
+    <h2><span class="ico">4</span><span class="lao">ຄວາມຮັບຜິດຊອບຫຼັກ · Key Responsibilities</span></h2>
+    <p class="lao">ໜ້າທີ່ຫຼັກ 8 ດ້ານ ໂດຍແບ່ງ % ນ້ຳໜັກວຽກ ລວມ = 100%:</p>
+    <ol class="resp">
+      <li>
+        <strong><span class="verb">ບໍລິຫານ</span> ໂຄງລ່າງ IT ແລະ ການເຮັດວຽກປະຈຳວັນ (25%)</strong>
+        <span class="sub lao"><span class="verb">ກວດສອບ</span> ສຸຂະພາບລະບົບປະຈຳວັນ (Daily Health Check) ຂອງເຄືອຂ່າຍ, AWS EC2, Windows Servers; <span class="verb">ຄຸ້ມຄອງ</span> Backup ປະຈຳວັນ ແລະ ການກູ້ຄືນຂໍ້ມູນ. KPI: Uptime ≥ 99.5%/ເດືອນ, Backup success ≥ 99%.</span>
+      </li>
+      <li>
+        <strong><span class="verb">ປົກປ້ອງ</span> ຄວາມປອດໄພທາງໄຊເບີ ແລະ ບໍລິຫານຄວາມສ່ຽງ (20%)</strong>
+        <span class="sub lao"><span class="verb">ປະຕິບັດ</span> ກອບຄວາມປອດໄພ NIST CSF Lite; <span class="verb">ດຳເນີນ</span> Vulnerability Assessment 2 ຮອບ/ປີ; <span class="verb">ຝຶກອົບຮົມ</span> Security Awareness ສຳລັບພະນັກງານທັງໝົດ; <span class="verb">ລາຍງານ</span> ເຫດການທີ່ກ່ຽວຂ້ອງຕໍ່ Risk Committee ແລະ BOL.</span>
+      </li>
+      <li>
+        <strong><span class="verb">ບໍລິການ</span> IT Helpdesk ແລະ ສະໜັບສະໜູນຜູ້ໃຊ້ (15%)</strong>
+        <span class="sub lao"><span class="verb">ຄຸ້ມຄອງ</span> IT Helpdesk ສຳລັບ 50–80 ຜູ້ໃຊ້ + 70–100 devices; <span class="verb">ອະນຸມັດ</span> ສິດການເຂົ້າເຖິງ (User Access Control); <span class="verb">ບໍລິຫານ</span> ລະບົບ Email; <span class="verb">ແກ້ໄຂ</span> ບັນຫາທີ່ສັບສົນ. KPI: Response ≤ 2 ຊມ, Resolution ≤ 24 ຊມ, CSAT ≥ 4.0/5.</span>
+      </li>
+      <li>
+        <strong><span class="verb">ນຳພາ</span> ໂຄງການຍຸດທະສາດ IT — Pathway 2030 (20%)</strong>
+        <span class="sub lao"><span class="verb">ດຳເນີນ</span> 3 Strategic Priorities ໃນປີ 2026: (1) AWS Cloud Optimization &amp; DRP Maturity, (2) Cybersecurity Framework Implementation, (3) Digital Channel Foundation (API-ready integration: Optimal ↔ Odoo ↔ Digital channels).</span>
+      </li>
+      <li>
+        <strong><span class="verb">ບໍລິຫານ</span> ງົບປະມານ, ການຈັດຊື້ ແລະ ການປະຕິບັດຕາມກົດໝາຍ (10%)</strong>
+        <span class="sub lao"><span class="verb">ວາງແຜນ</span> ງົບປະມານ IT ປະຈຳປີ; <span class="verb">ກວດສອບ</span> ຄ່າໃຊ້ຈ່າຍ AWS (ເປົ້າຫຼຸດ 15%/ປີ); <span class="verb">ສ້າງ</span> ບົດລາຍງານປະຈຳເດືອນຕໍ່ Board; <span class="verb">ປະສານ</span> ການກວດສອບ BOL.</span>
+      </li>
+      <li>
+        <strong><span class="verb">ນຳພາ</span> ທີມງານ ແລະ ພັດທະນາບຸກຄະລາກອນ (10%)</strong>
+        <span class="sub lao"><span class="verb">ບໍລິຫານ</span> ທີມ IT 2–4 ຄົນ; <span class="verb">ຈັດ</span> Stand-up Meeting ປະຈຳເຊົ້າ; <span class="verb">ປະເມີນ</span> ຜົນງານ; <span class="verb">ວາງແຜນ</span> Upskilling ≥ 40 ຊມ/ຄົນ/ປີ.</span>
+      </li>
+      <li>
+        <strong><span class="verb">ປະສານງານ</span> ກັບ ຄູ່ຮ່ວມງານພາຍນອກ ດ້ານກົດໝາຍ, ການເງິນ, ໂທລະຄົມ ແລະ ໂຄງການ</strong>
+        <span class="sub lao"><span class="verb">ປະສານ</span> ກັບ <strong>BOL, ກົມຊຳລະ, ກົມເຕັກໂນໂລຊີ, JITS, IT Technical Consultant, BCEL, LDB, ETL, LTC, Unitel ແລະ ICCAP</strong> ໃນການລາຍງານ, ການເຊື່ອມຕໍ່ລະບົບ, ການຊຳລະເງິນ, ການເຊື່ອມຕໍ່ Internet/MPLS ແລະ ໂຄງການຄູ່ຮ່ວມງານ.</span>
+      </li>
+      <li>
+        <strong><span class="verb">ທົດສອບ</span> ແຜນກູ້ຄືນລະບົບ (DRP Testing) ປະຈຳໄຕມາດ — 4 ຄັ້ງ/ປີ</strong>
+        <span class="sub lao"><span class="verb">ທົບທວນ</span> ແລະ <span class="verb">ທົດສອບ</span> Disaster Recovery Plan ທຸກໆ 3 ເດືອນ; <span class="verb">ກວດສອບ</span> ການ Failover; <span class="verb">ບັນທຶກ</span> ຜົນການທົດສອບເພື່ອລາຍງານ Risk Committee ແລະ BOL ຕາມມາດຕະຖານ Business Continuity Plan.</span>
+      </li>
+    </ol>
+    <div class="callout lao"><strong>ໝາຍເຫດ:</strong> ທຸກຄຳກຳມະທີ່ໝາຍສີຂຽວ (<span style="color:#0f6e4a;font-weight:700">ກວດສອບ, ບໍລິຫານ, ນຳພາ, ປະຕິບັດ, ປະສານງານ ...</span>) ແມ່ນ action verbs ສະເພາະ — ບໍ່ໃຊ້ຄຳກວ້າງເຊັ່ນ "ຊ່ວຍ" ຫຼື "ສະໜັບສະໜູນ".</div>
+  </section>
+
+  <!-- ========== SECTION 5 — QUALIFICATIONS ========== -->
+  <section id="sec5">
+    <h2><span class="ico">5</span><span class="lao">ຄຸນສົມບັດທີ່ຕ້ອງການ · Qualifications</span></h2>
+    <p class="lao">ການສຶກສາ, ໃບປະກາດ ແລະ ປະສົບການທີ່ຕ້ອງການສຳລັບຕຳແໜ່ງນີ້ — ແບ່ງເປັນຂັ້ນຕ່ຳ (Required) ແລະ ສະເພາະ (Preferred).</p>
+    <div class="qual-grid">
+      <div class="qual-card req">
+        <h4 class="lao">ຂັ້ນຕ່ຳ · Required</h4>
+        <ul class="lao">
+          <li><strong>ການສຶກສາ:</strong> ປະລິນຍາຕີ ສາຂາ Computer Science / Information Technology / Computer Engineering / MIS ຫຼື ສາຂາທີ່ກ່ຽວຂ້ອງ</li>
+          <li><strong>ປະສົບການລວມ:</strong> ຢ່າງໜ້ອຍ <span style="color:var(--emi-green);font-weight:700">8 ປີ</span> ໃນວຽກ IT</li>
+          <li><strong>ປະສົບການຄຸ້ມຄອງ:</strong> ຢ່າງໜ້ອຍ <span style="color:var(--emi-green);font-weight:700">3 ປີ</span> ໃນບົດບາດນຳພາທີມ IT</li>
+          <li><strong>ໃບປະກາດພື້ນຖານ:</strong> ITIL Foundation ຫຼື ໃບປະກາດການຄຸ້ມຄອງ IT ທີ່ທຽບເທົ່າ</li>
+          <li><strong>ພາສາ:</strong> ລາວ (ດີຫຼາຍ) + ອັງກິດ (Working level — Reading/Writing)</li>
+          <li><strong>ຄວາມຮູ້ດ້ານອຸດສາຫະກຳ:</strong> ເຂົ້າໃຈກອບການເງິນຈຸລະພາກ, ກົດໝາຍ BOL ສຳລັບ Deposit-Taking MFI</li>
+        </ul>
+      </div>
+      <div class="qual-card pref">
+        <h4 class="lao">ສະເພາະ · Preferred</h4>
+        <ul class="lao">
+          <li><strong>ການສຶກສາ:</strong> ປະລິນຍາໂທ ສາຂາ IT Management, Cybersecurity, Information Systems ຫຼື MBA</li>
+          <li><strong>ປະສົບການລວມ:</strong> <span style="color:var(--emi-green);font-weight:700">10+ ປີ</span> ໃນວຽກ IT</li>
+          <li><strong>ປະສົບການອຸດສາຫະກຳ:</strong> <span style="color:var(--emi-green);font-weight:700">3+ ປີ</span> ໃນ ທະນາຄານ / MFI / Fintech</li>
+          <li><strong>ໃບປະກາດ Security:</strong> CISM ຫຼື CISSP (Information Security Management)</li>
+          <li><strong>ໃບປະກາດ Cloud:</strong> AWS Certified Solutions Architect (Associate ຫຼື Professional)</li>
+          <li><strong>ໃບປະກາດ Project:</strong> PMP, Prince2 ຫຼື Agile/Scrum Master</li>
+          <li><strong>ພາສາ:</strong> ອັງກິດ Business level (ສາມາດນຳພາປະຊຸມກັບ vendors ສາກົນ ແລະ ໂຄງການ ADA, ICCAP)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout lao"><strong>ໝາຍເຫດ:</strong> ໃບປະກາດໃນສ່ວນ "ສະເພາະ" ບໍ່ບັງຄັບໃນຕອນເລີ່ມຕົ້ນ — ແຕ່ EMI ສະໜັບສະໜູນໃຫ້ຜູ້ດຳລົງຕຳແໜ່ງສຶກສາເພີ່ມເຕີມພາຍໃນ 2 ປີ ໂດຍຜ່ານໂຄງການພັດທະນາບຸກຄະລາກອນ.</div>
+  </section>
+
+  <!-- ========== SECTION 6 — SKILLS ========== -->
+  <section id="sec6">
+    <h2><span class="ico">6</span><span class="lao">ທັກສະທີ່ຕ້ອງການ · Required Skills</span></h2>
+    <div class="skill-grid">
+      <div class="skill-card tech">
+        <h4 class="lao">ທັກສະດ້ານວິຊາການ · Technical Skills</h4>
+        <span class="pill adv">Cloud Infrastructure (AWS) · Advanced</span>
+        <span class="pill adv">Network &amp; System Administration · Advanced</span>
+        <span class="pill int">Cybersecurity (NIST CSF / ISO 27001) · Intermediate</span>
+        <span class="pill int">Core Banking Systems (Optimal) · Intermediate</span>
+        <span class="pill int">Disaster Recovery / BCP · Intermediate</span>
+        <span class="pill adv">IT Project Management · Advanced</span>
+        <span class="pill int">Vendor &amp; Contract Management · Intermediate</span>
+        <span class="pill int">Data Privacy &amp; Compliance · Intermediate</span>
+      </div>
+      <div class="skill-card soft">
+        <h4 class="lao">ທັກສະສ່ວນຕົວ · Soft Skills</h4>
+        <span class="pill adv">Leadership &amp; Team Management · Advanced</span>
+        <span class="pill adv">Strategic Thinking · Advanced</span>
+        <span class="pill adv">Decision Making under Risk · Advanced</span>
+        <span class="pill adv">Communication (Lao + English) · Advanced</span>
+        <span class="pill adv">Stakeholder Management · Advanced</span>
+        <span class="pill adv">Problem Solving · Advanced</span>
+        <span class="pill int">Change Management · Intermediate</span>
+        <span class="pill adv">Integrity &amp; Confidentiality · Advanced</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 7 — WORKING RELATIONSHIPS ========== -->
+  <section id="sec7">
+    <h2><span class="ico">7</span><span class="lao">ຄວາມສຳພັນໃນການເຮັດວຽກ · Working Relationships</span></h2>
+
+    <div class="rel-box">
+      <h4 class="lao">ພາຍໃນອົງກອນ <span class="tag">INTERNAL</span></h4>
+      <ul class="lao">
+        <li><strong>CEO:</strong> ລາຍງານໂດຍກົງ, ການວາງແຜນຍຸດທະສາດ, ການອະນຸມັດງົບປະມານ</li>
+        <li><strong>Risk &amp; Compliance Committee:</strong> ການລາຍງານ Cyber Risk, BCP/DRP, ການກວດສອບພາຍໃນ</li>
+        <li><strong>ພະແນກ Operations:</strong> ການສະໜັບສະໜູນ Optimal Core Banking, ການເຮັດວຽກປະຈຳວັນ</li>
+        <li><strong>ພະແນກ Finance &amp; Accounting:</strong> ການວາງແຜນງົບປະມານ, AWS Cost Management, IT procurement</li>
+        <li><strong>ພະແນກ HR:</strong> ການຈ້າງງານ, ການປະເມີນຜົນງານ, Training Plan, User Account onboarding/offboarding</li>
+        <li><strong>ພະແນກ Internal Audit:</strong> ການກວດສອບລະບົບ IT, ການປະຕິບັດຕາມນະໂຍບາຍ</li>
+        <li><strong>ຫົວໜ້າສາຂາ + ໜ່ວຍບໍລິການ:</strong> ການໃຫ້ບໍລິການ IT Support, ການແກ້ໄຂບັນຫາ remote</li>
+      </ul>
+    </div>
+
+    <div class="rel-box">
+      <h4 class="lao">ພາຍນອກອົງກອນ — ດ້ານກົດໝາຍ ແລະ ກວດກາ <span class="tag" style="background:var(--emi-orange)">REGULATORS</span></h4>
+      <ul class="lao">
+        <li><strong>ທະນາຄານແຫ່ງ ສປປ ລາວ (BOL):</strong> ການລາຍງານ IT, ການກວດສອບການປະຕິບັດຕາມກົດໝາຍ Deposit-Taking MFI</li>
+        <li><strong>ກົມຊຳລະ (Payment System Department — BOL):</strong> ການເຊື່ອມຕໍ່ລະບົບຊຳລະເງິນ, ການລາຍງານທຸລະກຳ</li>
+        <li><strong>ກົມເຕັກໂນໂລຊີ (Technology Department — BOL):</strong> ການລາຍງານໂຄງລ່າງ IT, ການອະນຸມັດເຕັກໂນໂລຊີໃໝ່</li>
+      </ul>
+    </div>
+
+    <div class="rel-box">
+      <h4 class="lao">ພາຍນອກອົງກອນ — ໂຄງການ ແລະ ທີ່ປຶກສາ <span class="tag">PROJECTS</span></h4>
+      <ul class="lao">
+        <li><strong>ADA (Appui au Développement Autonome):</strong> ໂຄງການ Digital Transformation, SPI4 reporting, ການພັດທະນາ Social Performance Management</li>
+        <li><strong>ICCAP:</strong> ໂຄງການຄູ່ຮ່ວມງານ, ການລາຍງານ Social Performance, ການສະໜັບສະໜູນ Digital Transformation</li>
+        <li><strong>JITS:</strong> ການປະສານງານດ້ານລະບົບ IT, ການເຊື່ອມຕໍ່ບໍລິການ</li>
+        <li><strong>IT Technical Consultant:</strong> ການໃຫ້ຄຳປຶກສາທາງເຕັກນິກ, Architecture review, Security advisory</li>
+      </ul>
+    </div>
+
+    <div class="rel-box">
+      <h4 class="lao">ພາຍນອກອົງກອນ — ສະຖາບັນການເງິນ ແລະ ໂທລະຄົມ <span class="tag" style="background:var(--emi-orange)">PARTNERS</span></h4>
+      <ul class="lao">
+        <li><strong>BCEL (ທະນາຄານການຄ້າຕ່າງປະເທດລາວ):</strong> ການເຊື່ອມຕໍ່ການຊຳລະເງິນ, Inter-bank transfer, Payment gateway</li>
+        <li><strong>LDB (ທະນາຄານພັດທະນາລາວ):</strong> ການເຊື່ອມຕໍ່ການຊຳລະເງິນ, ການຮ່ວມມືດ້ານທຸລະກຳ</li>
+        <li><strong>ETL (ບໍລິສັດໂທລະຄົມລາວ):</strong> ການເຊື່ອມຕໍ່ Internet, MPLS, Leased lines ສຳລັບສຳນັກງານໃຫຍ່ ແລະ ສາຂາ</li>
+        <li><strong>LTC (ບໍລິສັດ ລາວໂທລະຄົມ):</strong> Backup connectivity, ການເຊື່ອມຕໍ່ສຳຮອງສຳລັບສາຂາຕ່າງແຂວງ</li>
+        <li><strong>Unitel:</strong> Mobile data, USSD services, ການເຊື່ອມຕໍ່ສຳຮອງ</li>
+      </ul>
+    </div>
+
+    <div class="rel-box">
+      <h4 class="lao">ພາຍນອກອົງກອນ — Vendors ແລະ Auditors <span class="tag">VENDORS</span></h4>
+      <ul class="lao">
+        <li><strong>AWS / Cloud Vendor:</strong> ການຄຸ້ມຄອງ Cloud Infrastructure, Cost Management, Technical support</li>
+        <li><strong>Optimal Core Banking Vendor:</strong> ການບຳລຸງຮັກສາ, ການອັບເດດ, ການແກ້ໄຂບັນຫາ Core Banking</li>
+        <li><strong>External IT Auditors:</strong> IT Audit, Cybersecurity Assessment ປະຈຳປີ</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 8 — AUTHORITY LIMITS ========== -->
+  <section id="sec8">
+    <h2><span class="ico">8</span><span class="lao">ຂອບເຂດການຕັດສິນໃຈ · Decision Authority</span></h2>
+    <table class="auth">
+      <tr>
+        <th class="lao">ປະເພດການຕັດສິນໃຈ</th>
+        <th class="green lao">ສິດຕັດສິນໃຈເອງ</th>
+        <th class="lao">ຕ້ອງສະເໜີ / ອະນຸມັດຈາກ</th>
+      </tr>
+      <tr><td class="cat lao">ງົບປະມານປະຈຳເດືອນ (Operating)</td><td class="lao">ສູງສຸດ <span class="num">20 ລ້ານກີບ</span> / ການອະນຸມັດ</td><td class="lao">&gt; 20 ລ້ານ → CEO / Procurement Committee</td></tr>
+      <tr><td class="cat lao">ງົບປະມານ Capital / Project</td><td class="lao">ບໍ່ມີສິດ</td><td class="lao">ທຸກກໍລະນີ → Board approval</td></tr>
+      <tr><td class="cat lao">ການເຊັນສັນຍາ Vendor</td><td class="lao">≤ <span class="num">50 ລ້ານກີບ</span>/ປີ ຫຼື &lt; 12 ເດືອນ</td><td class="lao">&gt; 50 ລ້ານ ຫຼື ≥ 12 ເດືອນ → CEO co-sign</td></tr>
+      <tr><td class="cat lao">ການອະນຸມັດສິດຜູ້ໃຊ້ – ທົ່ວໄປ</td><td class="lao">ມີສິດອະນຸມັດເອງ</td><td class="lao">—</td></tr>
+      <tr><td class="cat lao">ການອະນຸມັດສິດຜູ້ໃຊ້ – Admin/Privileged</td><td class="lao">ບໍ່ມີສິດ</td><td class="lao">CEO + Risk Committee</td></tr>
+      <tr><td class="cat lao">System Change – ບໍ່ກະທົບ Production</td><td class="lao">ມີສິດອະນຸມັດເອງ</td><td class="lao">—</td></tr>
+      <tr><td class="cat lao">System Change – ກະທົບ Production / Customer data</td><td class="lao">ບໍ່ມີສິດ</td><td class="lao">Change Advisory Board (CAB)</td></tr>
+      <tr><td class="cat lao">Cyber Incident (4 ຊມ ທຳອິດ)</td><td class="lao">ມີສິດເຕັມ — containment &amp; isolation</td><td class="lao">ຫຼັງ 4 ຊມ → ລາຍງານ CEO + Risk Committee</td></tr>
+      <tr><td class="cat lao">ການຈ້າງງານທີມ IT</td><td class="lao">ສະເໜີ + ສຳພາດ + ໃຫ້ຄະແນນ</td><td class="lao">ການອະນຸມັດສຸດທ້າຍ → HR + CEO</td></tr>
+      <tr><td class="cat lao">ການລົງໂທດ / ໄລ່ອອກ</td><td class="lao">ບໍ່ມີສິດ</td><td class="lao">HR + CEO</td></tr>
+      <tr><td class="cat lao">ການລາຍງານຕໍ່ BOL</td><td class="lao">ກະກຽມເອກະສານ</td><td class="lao">CEO co-sign ກ່ອນສົ່ງ</td></tr>
+    </table>
+  </section>
+
+  <!-- ========== SECTION 9 — LOCATION & TRAVEL ========== -->
+  <section id="sec9">
+    <h2><span class="ico">9</span><span class="lao">ສະຖານທີ່ ແລະ ການເດີນທາງ · Location &amp; Travel</span></h2>
+    <table class="info">
+      <tr><td class="k lao">ສະຖານທີ່ປະຈຳການ</td><td class="lao">ສຳນັກງານໃຫຍ່ EMI · ນະຄອນຫຼວງວຽງຈັນ</td></tr>
+      <tr><td class="k lao">ການເຮັດວຽກປະຈຳວັນ</td><td class="lao">ເຮັດວຽກໃນສຳນັກງານ 80% · Remote / On-call ສຳລັບ Cyber incidents 20%</td></tr>
+      <tr><td class="k lao">ການເດີນທາງສາຂາ</td><td class="lao">ປະມານ <span class="accent">2–4 ຄັ້ງ/ປີ</span> ໄປເບິ່ງສາຂາໃນຕ່າງແຂວງ (1–3 ມື້/ຄັ້ງ) ສຳລັບການຕິດຕັ້ງລະບົບ, ການກວດສອບ, ການຝຶກອົບຮົມ</td></tr>
+      <tr><td class="k lao">ການເດີນທາງຕ່າງປະເທດ</td><td class="lao">ປະມານ <span class="accent">1–2 ຄັ້ງ/ປີ</span> ສຳລັບການຝຶກອົບຮົມ vendors, conferences, ໂຄງການ ICCAP ແລະ ການປະຊຸມຄູ່ຮ່ວມງານສາກົນ (ຕາມຄວາມຈຳເປັນ)</td></tr>
+      <tr><td class="k lao">On-call Duty</td><td class="lao">24/7 standby ສຳລັບ Critical incidents (ສະຫຼັບກັບທີມຜ່ານ Rotation Schedule)</td></tr>
+      <tr><td class="k lao">ເງື່ອນໄຂການເຮັດວຽກພິເສດ</td><td class="lao">ອາດເຮັດວຽກນອກເວລາໃນກໍລະນີ System maintenance, Cyber incident response ຫຼື DRP testing</td></tr>
+    </table>
+  </section>
+
+  <!-- ========== SIGNATURE ========== -->
+  <section id="sec-sign">
+    <h2><span class="ico">✓</span><span class="lao">ການຮັບຮອງ · Acknowledgement</span></h2>
+    <p class="lao">
+      ຂ້າພະເຈົ້າຮັບຮູ້ ແລະ ເຫັນດີກັບໜ້າທີ່ຄວາມຮັບຜິດຊອບ, ຕົວຊີ້ວັດຜົນງານ, ສະມັດຖະພາບ ແລະ ຂອບເຂດອຳນາດທີ່ໄດ້ກຳນົດໄວ້ໃນ JD ສະບັບນີ້.
+      ຂ້າພະເຈົ້າຈະປະຕິບັດໜ້າທີ່ດ້ວຍຄວາມຮັບຜິດຊອບ, ສຸພາບ ແລະ ໂປ່ງໃສ ຕາມຄຸນຄ່າຂອງ EMI — "Better Together · ດີໄປຮ່ວມກັນ".
+    </p>
+    <div class="sign-grid">
+      <div class="sign-card">
+        <div class="role lao">ຜູ້ດຳລົງຕຳແໜ່ງ<br>Incumbent</div>
+        <div class="line lao">ຊື່: ____________________<br>ລາຍເຊັນ: ________________<br>ວັນທີ: __________________</div>
+      </div>
+      <div class="sign-card">
+        <div class="role lao">ຜູ້ບັງຄັບບັນຊາໂດຍກົງ<br>ຄະນະອຳນວຍການ</div>
+        <div class="line lao">ຊື່: ____________________<br>ລາຍເຊັນ: ________________<br>ວັນທີ: __________________</div>
+      </div>
+      <div class="sign-card">
+        <div class="role lao">ຫົວໜ້າພະແນກ HR<br>Head of HR</div>
+        <div class="line lao">ຊື່: ____________________<br>ລາຍເຊັນ: ________________<br>ວັນທີ: __________________</div>
+      </div>
+    </div>
+  </section>
+
+    </main>
+  </div>
+  <!-- ========== END LAYOUT ========== -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div><strong>EMI Claude Training · 1st Batch · Assignment 2 · Day 2</strong></div>
+    <div class="lao">Job Description · ຫົວໜ້າພະແນກເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ · 19 May 2026</div>
+    <div style="margin-top:6px">Submitted by: Phouvong Meksavanh · Emi-ai@emimfi.com</div>
+    <div class="tag lao">Better Together · ດີໄປຮ່ວມກັນ</div>
+  </footer>
+
+</div>
+
+<script>
+  // ===== Scroll-Spy: highlight active section in sidebar as user scrolls =====
+  (function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sidebar nav a[href^="#sec"]');
+
+    if (!sections.length || !navLinks.length) return;
+
+    function setActive(id) {
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        link.classList.toggle('active', href === '#' + id);
+      });
+    }
+
+    // Use IntersectionObserver for performance
+    const observer = new IntersectionObserver((entries) => {
+      // Find the entry closest to top that is intersecting
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible.length > 0) {
+        setActive(visible[0].target.id);
+      }
+    }, {
+      rootMargin: '-15% 0px -60% 0px',
+      threshold: [0, 0.1, 0.5]
+    });
+
+    sections.forEach(sec => observer.observe(sec));
+
+    // Set first section active on load
+    if (sections[0]) setActive(sections[0].id);
+
+    // Smooth scroll for navigation clicks (fallback for browsers that ignore CSS smooth-scroll)
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActive(targetId);
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

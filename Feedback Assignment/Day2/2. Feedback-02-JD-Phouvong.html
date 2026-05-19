@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Assignment 2 — ທ່ານ ພູວົງ ເມັກສະຫວັນ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--emi-green:#49C18E;--emi-navy:#17335E;--emi-orange:#F15A26;--emi-bg:#F5F8FB;--emi-card:#FFFFFF;--emi-border:#E2E8F0;--emi-soft-green:#E8F8F1;--emi-soft-navy:#EAF0F8;--emi-text:#1F2933;--emi-muted:#5B6B7F}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Noto Sans Lao',Arial,sans-serif;background:var(--emi-bg);color:var(--emi-text);line-height:1.7;font-size:14pt}
+  .lao{font-family:'Noto Sans Lao',Arial,sans-serif}
+  .page{max-width:920px;margin:0 auto;padding:32px 24px 60px}
+  .topbar{background:var(--emi-navy);color:#fff;padding:18px 28px;border-radius:14px 14px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand-mark{width:48px;height:48px;border-radius:12px;background:var(--emi-green);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;letter-spacing:1px}
+  .brand-text strong{display:block;font-size:16pt}
+  .brand-text span{font-size:11pt;opacity:.85}
+  .topbar .meta{font-size:11pt;opacity:.9;text-align:right}
+  .hero{background:var(--emi-card);padding:28px;border-left:6px solid var(--emi-green);border-radius:0 0 14px 14px;box-shadow:0 1px 3px rgba(23,51,94,.06)}
+  .badge{display:inline-block;background:var(--emi-soft-green);color:var(--emi-navy);padding:5px 14px;border-radius:999px;font-size:11pt;font-weight:600;margin-bottom:10px}
+  h1{color:var(--emi-navy);font-size:22pt;font-weight:700;line-height:1.25;margin-bottom:6px}
+  .sub{color:var(--emi-muted);font-size:13pt;margin-bottom:14px}
+  .id-strip{background:var(--emi-soft-navy);border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+  .id-strip .item .l{font-size:10pt;color:var(--emi-muted);text-transform:uppercase;letter-spacing:.5px}
+  .id-strip .item .v{color:var(--emi-navy);font-weight:600;font-size:13pt}
+  .grade-card{margin-top:18px;display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,#E8F8F1 0%,#EAF0F8 100%);border:1px solid var(--emi-green);border-radius:12px;padding:18px 22px}
+  .grade-letter{width:72px;height:72px;border-radius:18px;background:var(--emi-green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:36pt;font-weight:700;flex-shrink:0}
+  .grade-card .title{font-size:14pt;font-weight:700;color:var(--emi-navy)}
+  .grade-card .score{font-size:12pt;color:var(--emi-muted);margin-top:2px}
+  section{background:var(--emi-card);border-radius:14px;padding:24px 28px;margin-top:20px;box-shadow:0 1px 3px rgba(23,51,94,.05)}
+  h2{color:var(--emi-navy);font-size:18pt;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  h2 .ico{width:32px;height:32px;border-radius:8px;background:var(--emi-green);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14pt;font-weight:700;flex-shrink:0}
+  h2.improve .ico{background:var(--emi-orange)}
+  h2.next .ico{background:var(--emi-navy)}
+  .point{padding:14px 16px;border:1px solid var(--emi-border);border-radius:10px;margin-bottom:10px;background:#fff}
+  .point.strength{border-left:4px solid var(--emi-green)}
+  .point.improve{border-left:4px solid var(--emi-orange)}
+  .point.next{border-left:4px solid var(--emi-navy)}
+  .point .lao{font-size:13pt;color:var(--emi-text);margin-bottom:4px}
+  .point .en{font-size:11pt;color:var(--emi-muted);font-style:italic}
+  table.rubric{width:100%;border-collapse:collapse;font-size:12pt;margin-top:8px}
+  table.rubric th,table.rubric td{padding:10px 12px;border-bottom:1px solid var(--emi-border);text-align:left;vertical-align:middle}
+  table.rubric th{background:var(--emi-soft-navy);color:var(--emi-navy);font-weight:600;font-size:11pt}
+  .check{color:var(--emi-green);font-weight:700;font-size:14pt}
+  .partial{color:var(--emi-orange);font-weight:700;font-size:14pt}
+  footer{margin-top:26px;padding:20px;background:var(--emi-navy);color:#fff;border-radius:14px;text-align:center;font-size:11pt}
+  footer strong{color:var(--emi-green)}
+  footer .tag{display:inline-block;padding:4px 12px;background:rgba(73,193,142,.18);border-radius:999px;margin-top:8px;font-weight:500}
+  @media print{body{background:#fff;font-size:11pt}.page{padding:0}section{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid}.topbar,.hero,footer{border-radius:0}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-mark">EMI</div>
+      <div class="brand-text">
+        <strong>Ekphatthana Microfinance Institution</strong>
+        <span class="lao">ສະຖາບັນການເງິນຈຸລະພາກ ເອັກພັດທະນາ</span>
+      </div>
+    </div>
+    <div class="meta">
+      <div>Claude AI Training · 1st Batch</div>
+      <div class="lao">Feedback · ບົດປະເມີນ</div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="badge">Assignment 2 · Day 2 · Job Description · Feedback</span>
+    <h1 class="lao">ບົດປະເມີນ ບົດຝຶກທີ 2 — ທ່ານ ພູວົງ ເມັກສະຫວັນ</h1>
+    <div class="sub">Assignment 2 Feedback — Mr. Phouvong Meksavanh · Head of IT Department</div>
+
+    <div class="id-strip">
+      <div class="item"><div class="l">Name / ຊື່</div><div class="v lao">ທ່ານ ພູວົງ ເມັກສະຫວັນ</div></div>
+      <div class="item"><div class="l">Position / ຕຳແໜ່ງ</div><div class="v lao">ຫົວໜ້າພະແນກ IT</div></div>
+      <div class="item"><div class="l">Level / ລະດັບ</div><div class="v">M3 — Senior Manager</div></div>
+      <div class="item"><div class="l">Submitted / ວັນທີ</div><div class="v">19 May 2026</div></div>
+    </div>
+
+    <div class="grade-card">
+      <div class="grade-letter">A</div>
+      <div>
+        <div class="title lao">ດີເລີດ — ຄຸນນະພາບສູງ</div>
+        <div class="score">95 / 100 · Grade A</div>
+        <div class="score lao" style="margin-top:4px">JD ທີ່ສົມບູນ, ຄວາມສຳພັນພາຍນອກລາຍລະອຽດດີທີ່ສຸດໃນ Batch — ຜ່ານທຸກເກນ</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RUBRIC -->
+  <section>
+    <h2><span class="ico">R</span> <span class="lao">ຕາຕະລາງຄະແນນ · Rubric Scorecard</span></h2>
+    <table class="rubric">
+      <thead>
+        <tr>
+          <th class="lao">ເກນການປະເມີນ · Criterion</th>
+          <th class="lao">ຜົນ · Result</th>
+          <th class="lao">ໝາຍເຫດ · Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="lao">9 ໝວດ JD ຄົບ ແລະ ມີໝາຍເລກ</td>
+          <td><span class="check">✓</span></td>
+          <td class="lao">ໝວດ 1–9 ຄົບ + Acknowledgement; Sidebar navigation ຄລິກໄດ້</td>
+        </tr>
+        <tr>
+          <td class="lao">ຄຳກຳມະ (Action Verbs) ໃນໜ້າທີ່ຮັບຜິດຊອບ</td>
+          <td><span class="check">✓</span></td>
+          <td class="lao">ol.resp ໃຊ້ .verb class ສຳລັບຄຳກຳມະ: ວາງແຜນ, ຄຸ້ມຄອງ, ນຳພາ, ຮັບປະກັນ, ສ້າງ</td>
+        </tr>
+        <tr>
+          <td class="lao">ຂອບເຂດການຕັດສິນໃຈ ທີ່ຊັດເຈນ</td>
+          <td><span class="check">✓</span></td>
+          <td class="lao">ຕາຕະລາງ 11 ລາຍການ: threshold 20M ກີບ (Operating), 50M ກີບ (Vendor), Cyber 4h Rule</td>
+        </tr>
+        <tr>
+          <td class="lao">ຄວາມສຳພັນພາຍໃນ/ພາຍນອກ</td>
+          <td><span class="check">✓</span></td>
+          <td class="lao">5 ກຸ່ມ: Internal, Regulators (BOL), Projects (ADA/ICCAP), Financial Partners (BCEL/LDB), Vendors (AWS/Optimal)</td>
+        </tr>
+        <tr>
+          <td class="lao">ສີ EMI ແລະ Noto Sans Lao</td>
+          <td><span class="check">✓</span></td>
+          <td class="lao">Green #49C18E, Navy #17335E, Orange #F15A26 ຖືກຕ້ອງ; Noto Sans Lao + Inter ✓</td>
+        </tr>
+        <tr>
+          <td class="lao">ຊື່ໄຟລ໌ຖືກຕ້ອງ</td>
+          <td><span class="check">✓</span></td>
+          <td class="lao">Assignment-02-JD-Phouvong.html — ມີ -JD- ແລະ ຊື່ ✓</td>
+        </tr>
+        <tr>
+          <td class="lao">Footer ໃຫ້ເຄຣດິດຜູ້ສ້າງ</td>
+          <td><span class="check">✓</span></td>
+          <td class="lao">Submitted by: Phouvong Meksavanh · Emi-ai@emimfi.com ✓</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- STRENGTHS -->
+  <section>
+    <h2><span class="ico">S</span> <span class="lao">ຈຸດເດັ່ນ · Strengths</span></h2>
+
+    <div class="point strength">
+      <div class="lao">ໝວດ 8 (Decision Authority) ເປັນ JD ທີ່ລາຍລະອຽດດີທີ່ສຸດໃນ Batch: 11 ລາຍການ ລະບຸ threshold ຊັດ — ງົບ Operating ≤20 ລ້ານ/Approval, Vendor Contract ≤50 ລ້ານ, Cyber Incident 4 ຊົ່ວໂມງທຳອິດຕັດສິນໃຈໄດ້ເຕັມ. ໂຄງສ້າງນີ້ ຕອບຄຳຖາມ "ຮູ້ຈັກຂອບເຂດຂອງຕົນ" ໄດ້ທຸກກໍລະນີ</div>
+      <div class="en">Section 8 Decision Authority is the most detailed in the batch: 11 items with clear thresholds — Operating budget ≤20M kip, Vendor contracts ≤50M, full authority in first 4 hours of a cyber incident. This structure answers "know your boundaries" for every scenario.</div>
+    </div>
+
+    <div class="point strength">
+      <div class="lao">ໝວດ 7 (Working Relationships) ມີ 5 ກຸ່ມ ຄອບຄຸມທຸກມິຕິ: ພາຍໃນ (CEO, Risk, Operations, Finance, HR, Audit, Branches), ການກຳກັບ (BOL, Payment System, Tech Dept), ໂຄງການ (ADA, ICCAP, JITS), ສຖາບັນການເງິນ (BCEL, LDB), Telecom (ETL, LTC, Unitel), Vendors (AWS, Optimal, External Auditors) — ນີ້ຄືແຜນທີ່ Network ທີ່ Head of IT ຕ້ອງຮູ້</div>
+      <div class="en">Section 7 Working Relationships spans 5 groups covering every dimension: internal leadership, BOL regulators, development partners (ADA/ICCAP), banking partners (BCEL/LDB), telecoms (ETL/LTC/Unitel), and vendors — a complete network map for the Head of IT role.</div>
+    </div>
+
+    <div class="point strength">
+      <div class="lao">ສະເພາະດ້ານ IT ສູງ ແລະ ຖືກຕ້ອງກັບ EMI: ລວມທັງ MPLS, Leased lines, USSD services, Optimal Core Banking, AWS Cost Management, NIST CSF / ISO 27001, CAB (Change Advisory Board), SPI4 reporting ສຳລັບ ADA — ທ່ານຂຽນຈາກຄວາມຮູ້ຈິງ ບໍ່ໃຊ້ Template ທົ່ວໄປ</div>
+      <div class="en">High domain specificity relevant to EMI: MPLS/leased lines for branch connectivity, USSD services, Optimal Core Banking, AWS Cost Management, NIST CSF, Change Advisory Board (CAB), and SPI4 reporting for ADA — written from genuine knowledge, not a generic IT template.</div>
+    </div>
+
+    <div class="point strength">
+      <div class="lao">ADA ແລະ ICCAP ຖືກຕ້ອງ 100%: "ADA (Appui au Développement Autonome)" ລະບຸຊື່ເຕັມ, ຈຳແນກ ADA ອອກຈາກ ICCAP ເປັນໂຄງການຕ່າງຫາກ ແລະ ກ່າວ SPI4 reporting — ໃຜທີ່ຂຽນ "ADB" ໃຫ້ໝາຍໝາຍສໍ່ເປີ ຜ່ານ</div>
+      <div class="en">ADA and ICCAP attribution is 100% correct: full French name "Appui au Développement Autonome", ICCAP listed as a separate program, and SPI4 Social Performance reporting mentioned — not a single ADB mistake.</div>
+    </div>
+
+    <div class="point strength">
+      <div class="lao">ການອອກແບບ Sidebar Scroll-Spy ທີ່ Interactive: Sidebar navigation ຕິດຕາມ Active Section ຂະນະ Scroll ໂດຍໃຊ້ IntersectionObserver — ໃນ JD ພາຍໃນ ໂດຍທົ່ວໄປ ຈະບໍ່ມີ Feature ນີ້ ສະແດງໃຫ້ເຫັນທັດສະນະ "ຜູ້ໃຊ້" ທີ່ຄາດຄິດ</div>
+      <div class="en">Interactive sidebar with scroll-spy using IntersectionObserver — highlights the active section as the reader scrolls. This kind of UX thinking in an internal document shows a user-first mindset that stands out.</div>
+    </div>
+  </section>
+
+  <!-- IMPROVEMENTS -->
+  <section>
+    <h2 class="improve"><span class="ico">I</span> <span class="lao">ຈຸດທີ່ຄວນປັບປຸງ · Areas to Improve</span></h2>
+
+    <div class="point improve">
+      <div class="lao">ວັນທີ Version ບໍ່ກົງກັບຄວາມເປັນຈິງ: Document metadata ລະບຸ "Version 1.0 · ມີນາ 2026" ທັ້ງທີ່ JD ຖືກສ້າງ ແລະ ສົ່ງໃນ ເດືອນພຶດສະພາ 2026 — ໃນເອກະສານທາງການ ຄວາມຖືກຕ້ອງຂອງວັນທີ ແມ່ນເລື່ອງສຳຄັນ</div>
+      <div class="en">Document version date is incorrect: metadata says "Version 1.0 · March 2026" but the JD was created and submitted in May 2026. In official HR documents, date accuracy matters for audit trails.</div>
+    </div>
+
+    <div class="point improve">
+      <div class="lao">ໜ້າທີ່ຮັບຜິດຊອບ (ໝວດ 4) ສາມາດເພີ່ມ Sub-bullet ຂອງ Outcome ໄດ້: ປັດຈຸບັນ ໜ້າທີ່ຂຽນໃນຮູບ "ສິ່ງທີ່ຕ້ອງເຮັດ" — ຖ້າເພີ່ມ ຄ່ານ KPI ຕາງໜ້າ (ເຊັ່ນ: System Uptime ≥99.5%, Incident Response ≤4h) ໃນ Responsibility ນັ້ນ ຈະ Link ລະຫວ່າງ ໜ້າທີ່ ↔ KPI ໄດ້ ຊັດຂຶ້ນ</div>
+      <div class="en">Section 4 responsibilities describe activities but not outcomes — adding an expected KPI or result to each responsibility (e.g., uptime ≥99.5%, incident response ≤4h) would link duties to accountability more clearly.</div>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section>
+    <h2 class="next"><span class="ico">N</span> <span class="lao">ຂັ້ນຕໍ່ໄປ · Next Steps</span></h2>
+
+    <div class="point next">
+      <div class="lao">ແກ້ໄຂ Version Date ໃຫ້ຖືກຕ້ອງ: ປ່ຽນ "ມີນາ 2026" → "ພຶດສະພາ 2026" ທັງໃນ metadata ແລະ Hero section — ເຮັດເປັນນິໄສ Double-Check ວັນທີ ທຸກຄັ້ງກ່ອນ Submit ເອກະສານ HR</div>
+      <div class="en">Fix the version date: change "March 2026" → "May 2026" in both the metadata block and the hero sub-line — build the habit of double-checking dates before submitting any HR document.</div>
+    </div>
+
+    <div class="point next">
+      <div class="lao">ໃຊ້ JD ນີ້ເປັນ Reference ສຳລັບ ໂຄງການ IT Capacity Building ຂອງ EMI: Decision Authority Matrix ທີ່ທ່ານສ້າງ ສາມາດນຳໃຊ້ເປັນ Template ສຳລັບ JD ຂອງ Team IT ທຸກຕຳແໜ່ງ (System Admin, Helpdesk, Security Officer) ໃຫ້ Role Clarity ຄົບ</div>
+      <div class="en">Use this JD as a template for EMI's IT team JDs: the Decision Authority Matrix framework you created can be replicated for System Admin, Helpdesk, and Security Officer roles to bring consistent role clarity across the IT department.</div>
+    </div>
+
+    <div class="point next">
+      <div class="lao">ສຳລັບ Assignment ຕໍ່ໄປ: ທ່ານຢູ່ໃນລະດັບ A ແລ້ວ — ທ້າທາຍຕໍ່ໄປ ຄືການ ນຳ AI ເຂົ້າໃຊ້ໃນ IT Workflow ຂອງ EMI ຈິງ (ຕົວຢ່າງ: AI Monitoring Alerts, Automated Backup Reporting) ແລ້ວ Document ໃຫ້ Stakeholder ເຂົ້າໃຈ</div>
+      <div class="en">For future assignments: you're already at Grade A — the next challenge is documenting how AI can be embedded into EMI's real IT workflows (e.g., AI-powered monitoring alerts, automated backup reporting) in a way non-technical stakeholders can understand.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>EMI Claude AI Training · 1st Batch · Assignment 2 · Feedback</strong><br>
+    <span class="lao">ຈັດທຳໂດຍ: ທ່ານ ພູວົງ ເມັກສະຫວັນ · ຫົວໜ້າພະແນກ IT · ເດືອນພຶດສະພາ 2026</span>
+    <div class="tag">Better Together · ດີໄປຮ່ວມກັນ</div>
+  </footer>
+
+</div>
+</body>
+</html>

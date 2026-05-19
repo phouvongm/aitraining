@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Assignment 1 — ທ່ານ ພູວົງ ເມກສະຫວັນ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--emi-green:#49C18E;--emi-navy:#17335E;--emi-orange:#F15A26;--emi-bg:#F5F8FB;--emi-card:#FFFFFF;--emi-border:#E2E8F0;--emi-soft-green:#E8F8F1;--emi-soft-navy:#EAF0F8;--emi-text:#1F2933;--emi-muted:#5B6B7F}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Noto Sans Lao',Arial,sans-serif;background:var(--emi-bg);color:var(--emi-text);line-height:1.7;font-size:14pt}
+  .lao{font-family:'Noto Sans Lao',Arial,sans-serif}
+  .page{max-width:920px;margin:0 auto;padding:32px 24px 60px}
+  .topbar{background:var(--emi-navy);color:#fff;padding:18px 28px;border-radius:14px 14px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand-mark{width:48px;height:48px;border-radius:12px;background:var(--emi-green);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;letter-spacing:1px}
+  .brand-text strong{display:block;font-size:16pt}
+  .brand-text span{font-size:11pt;opacity:.85}
+  .topbar .meta{font-size:11pt;opacity:.9;text-align:right}
+  .hero{background:var(--emi-card);padding:28px;border-left:6px solid var(--emi-green);border-radius:0 0 14px 14px;box-shadow:0 1px 3px rgba(23,51,94,.06)}
+  .badge{display:inline-block;background:var(--emi-soft-green);color:var(--emi-navy);padding:5px 14px;border-radius:999px;font-size:11pt;font-weight:600;margin-bottom:10px}
+  h1{color:var(--emi-navy);font-size:22pt;font-weight:700;line-height:1.25;margin-bottom:6px}
+  .sub{color:var(--emi-muted);font-size:13pt;margin-bottom:14px}
+  .id-strip{background:var(--emi-soft-navy);border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+  .id-strip .item .l{font-size:10pt;color:var(--emi-muted);text-transform:uppercase;letter-spacing:.5px}
+  .id-strip .item .v{color:var(--emi-navy);font-weight:600;font-size:13pt}
+  .grade-card{margin-top:18px;display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,#E8F8F1 0%,#EAF0F8 100%);border:1px solid var(--emi-green);border-radius:12px;padding:18px 22px}
+  .grade-letter{width:72px;height:72px;border-radius:18px;background:var(--emi-green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:36pt;font-weight:700;flex-shrink:0}
+  .grade-card .title{font-size:14pt;font-weight:700;color:var(--emi-navy)}
+  .grade-card .score{font-size:12pt;color:var(--emi-muted);margin-top:2px}
+  section{background:var(--emi-card);border-radius:14px;padding:24px 28px;margin-top:20px;box-shadow:0 1px 3px rgba(23,51,94,.05)}
+  h2{color:var(--emi-navy);font-size:18pt;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  h2 .ico{width:32px;height:32px;border-radius:8px;background:var(--emi-green);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14pt;font-weight:700;flex-shrink:0}
+  h2.improve .ico{background:var(--emi-orange)}
+  h2.next .ico{background:var(--emi-navy)}
+  .point{padding:14px 16px;border:1px solid var(--emi-border);border-radius:10px;margin-bottom:10px;background:#fff}
+  .point.strength{border-left:4px solid var(--emi-green)}
+  .point.improve{border-left:4px solid var(--emi-orange)}
+  .point.next{border-left:4px solid var(--emi-navy)}
+  .point .lao{font-size:13pt;color:var(--emi-text);margin-bottom:4px}
+  .point .en{font-size:11pt;color:var(--emi-muted);font-style:italic}
+  table.rubric{width:100%;border-collapse:collapse;font-size:12pt;margin-top:8px}
+  table.rubric th,table.rubric td{padding:10px 12px;border-bottom:1px solid var(--emi-border);text-align:left;vertical-align:middle}
+  table.rubric th{background:var(--emi-soft-navy);color:var(--emi-navy);font-weight:600;font-size:11pt}
+  .check{color:var(--emi-green);font-weight:700;font-size:14pt}
+  .partial{color:var(--emi-orange);font-weight:700;font-size:14pt}
+  .cross{color:var(--emi-orange);font-weight:700;font-size:14pt}
+  footer{margin-top:26px;padding:20px;background:var(--emi-navy);color:#fff;border-radius:14px;text-align:center;font-size:11pt}
+  footer strong{color:var(--emi-green)}
+  footer .tag{display:inline-block;padding:4px 12px;background:rgba(73,193,142,.18);border-radius:999px;margin-top:8px;font-weight:500}
+  @media print{body{background:#fff;font-size:11pt}.page{padding:0}section{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid}.topbar,.hero,footer{border-radius:0}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-mark">EMI</div>
+      <div class="brand-text">
+        <strong>Ekphatthana Microfinance Institution</strong>
+        <span class="lao">ສະຖາບັນການເງິນຈຸລະພາກ ເອັກພັດທະນາ</span>
+      </div>
+    </div>
+    <div class="meta">
+      <div>Claude AI Training · 1st Batch</div>
+      <div class="lao">Feedback · ບົດປະເມີນ</div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="badge">Assignment 1 · Feedback · Late Submission</span>
+    <h1 class="lao">ບົດປະເມີນ ບົດຝຶກທີ 1 — ທ່ານ ພູວົງ ເມກສະຫວັນ</h1>
+    <div class="sub">Assignment 1 Feedback — Mr. Phouvong Meksavanh · Head of IT</div>
+
+    <div class="id-strip">
+      <div class="item"><div class="l">Name / ຊື່</div><div class="v lao">ທ່ານ ພູວົງ ເມກສະຫວັນ</div></div>
+      <div class="item"><div class="l">Position / ຕຳແໜ່ງ</div><div class="v lao">ຫົວໜ້າ ໜ່ວຍງານ IT</div></div>
+      <div class="item"><div class="l">Department / ພະແນກ</div><div class="v lao">ໜ່ວຍງານ IT</div></div>
+      <div class="item"><div class="l">Submitted / ສົ່ງເມື່ອ</div><div class="v">18 May 2026</div></div>
+    </div>
+
+    <div class="grade-card">
+      <div class="grade-letter">A</div>
+      <div>
+        <div class="title lao">ດີເລີດ — ເກີນຄາດໝາຍ</div>
+        <div class="score">Excellent — exceeded expectations · Score 93 / 100</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RUBRIC -->
+  <section>
+    <h2><span class="ico">✓</span><span class="lao">ການກວດຕາມ Checklist</span> · Rubric check</h2>
+    <table class="rubric">
+      <tr>
+        <th style="width:62%" class="lao">ເງື່ອນໄຂ · Criterion</th>
+        <th class="lao">ຜົນ · Result</th>
+      </tr>
+      <tr>
+        <td class="lao">ໃຊ້ ພາສາລາວ ທັງໝົດ · Lao language throughout</td>
+        <td><span class="check">✓</span> <span class="lao" style="font-size:11pt;color:var(--emi-muted)">(ຄຳ ໄອທີ ເປັນ ພາສາ ອັງກິດ — ຖືກ ຕ້ອງ)</span></td>
+      </tr>
+      <tr>
+        <td class="lao">ສີ EMI Green #49C18E ແລະ Navy #17335E · EMI brand colors</td>
+        <td><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="lao">ມີ 3 ສ່ວນ ປະຈຳວັນ/ອາທິດ/ເດືອນ · 3 sections present</td>
+        <td><span class="check">✓</span> <span class="lao" style="font-size:11pt;color:var(--emi-green);font-weight:600">(4 ໜ້າວຽກ ຕໍ່ ສ່ວນ — ຄົບ ຖ້ວນ)</span></td>
+      </tr>
+      <tr>
+        <td class="lao">ມີ ສ່ວນ "Claude ສາມາດ ຊ່ວຍ" · "How Claude can help" section</td>
+        <td><span class="check">✓</span> <span class="lao" style="font-size:11pt;color:var(--emi-green);font-weight:600">(6 use case ສະເພາະ)</span></td>
+      </tr>
+      <tr>
+        <td class="lao">ມີ ສ່ວນຫົວ ບອກ ຊື່, ຕຳແໜ່ງ, ພະແນກ · Header with name/role/dept</td>
+        <td><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="lao">ສຳນວນ ສຸພາບ ແບບ EMI · Polite EMI tone</td>
+        <td><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="lao">Noto Sans Lao font</td>
+        <td><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="lao">ສ່ວນ ຂໍ້ ຫຍຸ້ງຍາກ / ໃຊ້ ເວລາ ຫຼາຍ · Pain points / hardest tasks</td>
+        <td><span class="partial">~</span> <span class="lao" style="font-size:11pt;color:var(--emi-muted)">(ບໍ່ ໄດ້ ລະບຸ ໂດຍ ກົງ)</span></td>
+      </tr>
+      <tr>
+        <td class="lao">ບັນທຶກ ໄຟລ໌ ດ້ວຍ ຊື່ ທີ່ ກຳນົດ Assignment-01-[Name].html · Filename per spec</td>
+        <td><span class="cross">✗</span> <span class="lao" style="font-size:11pt;color:var(--emi-muted)">(ໃຊ້ "Phouvong MEKSAVANH.html" — ຄາດໝາຍ "Assignment-01-Phouvong.html")</span></td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- STRENGTHS -->
+  <section>
+    <h2><span class="ico">★</span><span class="lao">ຈຸດເດັ່ນ</span> · Strengths</h2>
+
+    <div class="point strength">
+      <div class="lao"><strong>ການ ອອກ ແບບ Sidebar Navigation ດີ ທີ່ ສຸດ ໃນ ຊຸດ IT.</strong> ທ່ານ ສ້າງ ລະບົບ ການ ນຳ ທາງ ດ້ວຍ Panel ສະຫຼັບ ໂດຍ JavaScript — ກົດ "ວຽກ ປະ ຈຳ ວັນ", "ອາທິດ", "ເດືອນ" ໃນ Sidebar ໄດ້ ທັນທີ ໂດຍ ບໍ່ ຕ້ອງ Scroll ຍາວ. ທ່ານ ຍັງ ເພີ່ມ Keyboard Shortcuts (1–5) ແລະ Mobile Responsive ອີກ ດ້ວຍ — ນີ້ ຄື ລະດັບ ຊ່ຽວ ຊານ ທີ່ ແທ້ ຈິງ.</div>
+      <div class="en">The interactive sidebar navigation with JavaScript panel switching is the most technically sophisticated UI in the batch. Clicking Daily/Weekly/Monthly switches panels instantly — no scrolling. You also added keyboard shortcuts (1–5 keys) and full mobile responsiveness. This shows real frontend skill beyond the assignment requirements.</div>
+    </div>
+
+    <div class="point strength">
+      <div class="lao"><strong>ເນື້ອ ຫາ IT ມີ ຄວາມ ເລິກ ສູງ ແລະ ສະ ທ້ອນ ຄວາມ ຈິງ.</strong> ທ່ານ ລະ ບຸ ສິ່ງ ສະ ເພາະ ທີ່ ພຽງ ທ່ານ ຮູ້: AWS EC2, Windows Server, DRP Testing (RTO/RPO), SLA Compliance, Cyber Security Logs, Patch Management, User Access Control. ນີ້ ບໍ່ ແມ່ນ ການ ຂຽນ ກວ້າງ — ມັນ ຊ່ວຍ ໃຫ້ Claude ສາ ມາດ ຕອບ ໂຈ ດ ງານ IT ຂອງ EMI ໄດ້ ໂດຍ ກົງ.</div>
+      <div class="en">The tasks reference real EMI IT specifics: AWS EC2, DRP/RTO/RPO testing, SLA compliance, Security Log reviews, User Access Control. This level of domain specificity is exactly what makes Claude useful — it can now assist on real EMI IT tasks, not just generic IT work.</div>
+    </div>
+
+    <div class="point strength">
+      <div class="lao"><strong>ສ່ວນ "Claude ຊ່ວຍ" ມີ 6 use case ທີ່ ປ່ຽນ ໃຊ້ ໄດ້ ຈິງ ທັນທີ.</strong> ທ່ານ ລະ ບຸ: ລາຍ ງານ IT Board, Template DRP, ວິ ເຄາະ ງົບ AWS, ສ ະຫຼຸ ບ Security Logs, ເອ ກ ະ ສານ ພ ະ ນັ ກ ງານ, KPI Helpdesk — ທຸກ ຢ່າງ ນີ້ ສາ ມາດ ຂໍ ໃຫ້ Claude ດຳ ເນີນ ການ ໄດ້ ເດີ ລຈ ້ ຳ. ທ່ານ ຍັງ mark ອັນ ທຳ ອິດ "ສຳ ເລັດ ແລ້ວ" — ສະ ແດງ ວ່າ ທ່ານ ໄດ້ ລອງ ໃຊ້ Claude ກ່ອນ ສົ່ງ ວຽກ ນີ້ ແລ້ວ.</div>
+      <div class="en">Six specific, immediately-actionable Claude use cases: Board Report, DRP Template, AWS Budget Analysis, Security Logs Summary, Staff Documents, Helpdesk KPI. Notably, you marked the Board Report as already completed — showing you had already applied Claude to a real task before submitting this assignment. That is the goal of the training.</div>
+    </div>
+
+    <div class="point strength">
+      <div class="lao"><strong>ການ ສະ ທ້ອນ EMI Pathway 2030 ໃນ ການ ລາຍ ງານ ປະ ຈຳ ເດືອນ.</strong> ໃນ ວຽກ ເດືອນ ລາຍ ງານ Board ທ່ານ ຂຽນ ວ່າ "ເພື່ອ ສ ະ ແດງ ເຖິງ ຄວາມ ພ້ອມ ໃນ ການ ຮອງ ຮັບ ຍຸດ ທ ະ ສາດ EMI Pathway 2030" — ນີ້ ສ ະ ແດງ ວ່າ ທ່ານ ເຂົ້າ ໃຈ ວ່າ IT ບໍ່ ໄດ້ ມີ ຢູ່ ໂດ ດ ດ່ຽວ — ມັນ ຕ້ອງ ສ ົ ດ ຄ່ອງ ກັ ບ ທິດ ທາງ ຍຸດ ທ ະ ສາດ ຂອງ ອົ ງ ກ ອນ.</div>
+      <div class="en">Linking monthly Board reporting to "supporting EMI Pathway 2030" shows strategic alignment — IT is framed not as a cost centre but as an enabler of institutional strategy. This is exactly the mindset that distinguishes an IT head from an IT technician.</div>
+    </div>
+  </section>
+
+  <!-- AREAS TO IMPROVE -->
+  <section>
+    <h2 class="improve"><span class="ico">!</span><span class="lao">ຈຸດທີ່ ສາມາດ ປັບປຸງ</span> · Areas to improve</h2>
+
+    <div class="point improve">
+      <div class="lao"><strong>ຊື່ ໄຟລ໌ ຕ້ອງ ໃຊ້ ຮູບ ແບບ ທີ່ ກຳ ນົດ.</strong> ໄຟລ໌ ຊື່ "Phouvong MEKSAVANH.html" — ທຸ ກ ຄ ນ ໃ ນ ຊຸດ ນ ີ້ ໃ ຊ້ ຮ ູ ບ ແ ບ ບ: <code style="background:#f0f4f8;padding:2px 6px;border-radius:4px;font-size:11pt;">Assignment-01-Phouvong.html</code>. ຊ ື່ ໄ ຟ ລ໌ ທ ີ່ ຖ ື ກ ຕ້ ອ ງ ຊ ່ ວ ຍ ໃ ຫ້ ທ ີ ມ ງ ານ ຈ ັ ດ ເ ກ ັ ບ ແ ລ ະ ດ ຶ ງ ຂ ໍ້ ມ ູ ນ ໄ ດ້ ງ່ າ ຍ. ໃ ນ Assignment 2 ໃ ຫ້ ໃ ຊ້: <code style="background:#f0f4f8;padding:2px 6px;border-radius:4px;font-size:11pt;">Assignment-02-JD-Phouvong.html</code>.</div>
+      <div class="en">File is named "Phouvong MEKSAVANH.html" — the required format for all participants is <code>Assignment-01-Phouvong.html</code>. Consistent naming lets the program team file, review, and reference submissions without ambiguity. For Assignment 2, use: <code>Assignment-02-JD-Phouvong.html</code>.</div>
+    </div>
+
+    <div class="point improve">
+      <div class="lao"><strong>ຂາດ ສ່ວນ "ສິ່ງ ທ້ າ ທ າ ຍ / ໃ ຊ້ ເ ວ ລ າ ຫ ລ າ ຍ".</strong> Assignment 1 ຂໍ ໃ ຫ້ ລ ະ ບ ຸ ວ ່ າ ວ ຽ ກ ໃ ດ ຍ າ ກ ທ ີ່ ສ ຸ ດ ຫ ລ ື ໃ ຊ້ ເ ວ ລ າ ຫ ລ າ ຍ ທ ີ່ ສ ຸ ດ — ທ ່ ານ ບ ໍ່ ໄ ດ້ ຕ ອ ບ ຈ ຸ ດ ນ ີ້ ໂ ດ ຍ ກ ົ ງ. ຕ ົ ວ ຢ່ າ ງ: ໃ ຊ້ ເ ວ ລ າ ຫ ລ າ ຍ ກ ັ ບ DRP Testing ຫ ລ ື User Access Management? ສ ່ ວ ນ ນ ີ້ ຊ ່ ວ ຍ ໃ ຫ້ Claude ຮ ູ້ ວ ່ າ ຕ ້ ອ ງ ຊ ່ ວ ຍ ທ ່ ານ ທ ີ່ ໃ ດ ກ ່ ອ ນ.</div>
+      <div class="en">The assignment asked what tasks are hardest or most time-consuming — this wasn't addressed directly. Naming the specific pain points (e.g., DRP testing coordination? Cross-department user access requests?) helps Claude prioritise which parts of your role to assist with first.</div>
+    </div>
+
+    <div class="point improve">
+      <div class="lao"><strong>Footer ບໍ່ ໄດ້ ລ ະ ບ ຸ ຊ ື່ ຜ ູ້ ສ ້ າ ງ ໂ ດ ຍ ກ ົ ງ.</strong> Footer ຂ ຽ ນ ວ ່ າ "EMI Pathway 2030 · Digital Transformation Initiative" — ຄ ວ ນ ໃ ສ ່ ຊ ື່ ທ ່ ານ: "ສ ້ າ ງ ໂ ດ ຍ ທ ່ ານ ພ ູ ວ ົ ງ ເ ມ ກ ສ ະ ຫ ວ ັ ນ." ນ ີ້ ວ ຽ ກ ຂ ອ ງ ທ ່ ານ — Claude ພ ຽ ງ ສ ະ ໜ ັ ບ ສ ະ ໜ ູ ນ.</div>
+      <div class="en">The footer credits "EMI Pathway 2030" but not the author. Add: "Created by Phouvong Meksavanh." This is your work — Claude only assisted. All submissions should carry the participant's name, not a system or project label.</div>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section>
+    <h2 class="next"><span class="ico">→</span><span class="lao">ຂັ້ນຕໍ່ໄປ</span> · Next steps</h2>
+
+    <div class="point next">
+      <div class="lao"><strong>Assignment 2 — ສ ້ າ ງ JD ຂ ອ ງ ທ ່ ານ ໃ ນ ຖ ານ ະ ຫ ົ ວ ໜ້ າ IT.</strong> ໃ ຊ້ ໂ ຄ ງ ສ ້ າ ງ ທ ີ່ ທ ່ ານ ວ າ ງ ໃ ນ Assignment 1 ເ ປ ັ ນ ພ ື້ ນ ຖ ານ. ໃ ສ ່ 9 ສ ່ ວ ນ: ຈ ຸ ດ ປ ະ ສ ົ ງ, ຄ ວ າ ມ ຮ ັ ບ ຜ ິ ດ ຊ ອ ບ (ນ ຳ ດ້ ວ ຍ action verb), ອ ຳ ນ າ ດ ຕ ັ ດ ສ ິ ນ ໃ ຈ, ຄ ວ າ ມ ສ ຳ ພ ັ ນ ທ ັ ງ ພ າ ຍ ໃ ນ ແ ລ ະ ພ າ ຍ ນ ອ ກ. ຊ ື່ ໄ ຟ ລ໌: <code style="background:#f0f4f8;padding:2px 6px;border-radius:4px;font-size:11pt;">Assignment-02-JD-Phouvong.html</code>.</div>
+      <div class="en">For Assignment 2, use your A1 task list as the raw material for a full Job Description. Add all 9 sections, start each responsibility with a specific action verb, and define what decisions you can make independently vs. what needs escalation. Filename: <code>Assignment-02-JD-Phouvong.html</code>.</div>
+    </div>
+
+    <div class="point next">
+      <div class="lao"><strong>ເ ພ ີ່ ມ ຂ ໍ້ ມ ູ ນ cross-department scope ຂ ອ ງ ທ ່ ານ ໃ ຫ້ ຊ ັ ດ ເ ຈ ນ.</strong> ໃ ນ ຖ ານ ະ ຫ ົ ວ ໜ້ າ IT ທ ່ ານ ສ ະ ໜ ັ ບ ສ ະ ໜ ູ ນ ທ ຸ ກ ພ ະ ແ ນ ກ — Accounting, HR, Marketing, Admin, Internal Audit. ໃ ນ JD (Assignment 2) ໃ ຫ້ ລ ະ ບ ຸ ສ ິ່ ງ ນ ີ້ ໂ ດ ຍ ກ ົ ງ ໃ ນ ສ ່ ວ ນ "ຄ ວ າ ມ ສ ຳ ພ ັ ນ ພ າ ຍ ໃ ນ" — ເ ພ າ ະ scope ຂ ອ ງ ທ ່ ານ ໃ ຫຍ່ ກ ວ ່ າ ຫ ົ ວ ໜ້ າ ໜ ່ ວ ຍ ງ ານ ທ ົ່ ວ ໄ ປ.</div>
+      <div class="en">Your IT role spans every department at EMI — Accounting, HR, Marketing, Admin, Internal Audit. The JD should explicitly list all these as internal relationships. This makes your cross-functional scope visible and ensures Claude understands you as a shared-services function, not just an IT silo.</div>
+    </div>
+
+    <div class="point next">
+      <div class="lao"><strong>ທ ົ ດ ລ ອ ງ ຂໍ ໃ ຫ້ Claude ສ ້ າ ງ DRP Testing Template ດ ຽ ວ ນ ີ້.</strong> ທ ່ ານ ລ ະ ບ ຸ ຢ ູ່ ໃ ນ ສ ່ ວ ນ "Claude ຊ ່ ວ ຍ" ແ ຕ່ ຍ ັ ງ ບ ໍ່ ໄ ດ້ mark ວ ່ າ ສ ຳ ເ ລ ັ ດ. ລ ອ ງ prompt ນ ີ້: "ຊ ່ ວ ຍ ສ ້ າ ງ Disaster Recovery Plan Testing Template ສ ຳ ລ ັ ບ EMI ທ ີ່ ມ ີ RTO 4 ຊ ົ່ ວ ໂ ມ ງ ແ ລ ະ RPO 1 ຊ ົ່ ວ ໂ ມ ງ, ຮ ອ ງ ຮ ັ ບ Optimal Core Banking ແ ລ ະ AWS Cloud" — ແ ລ ະ ສ ົ່ ງ ຜ ົ ນ ໃ ຫ້ ທ ີ ມ ງ ານ ເ ບ ິ່ ງ.</div>
+      <div class="en">You listed "DRP Testing Template" as a Claude use case but hadn't marked it done. Try this prompt now: "Create a Disaster Recovery Plan Testing Template for EMI with a 4-hour RTO and 1-hour RPO, covering Optimal Core Banking and AWS Cloud." Share the result with your team as a practical demonstration of what Claude can do.</div>
+    </div>
+  </section>
+
+  <footer>
+    ທ່ານ ໄດ້ ຮັບ ການ ປະ ເມີນ ໂດຍ <strong>Somphone Si</strong> · ໂຄງການ ຝຶກ ອົບ ຮົມ Claude AI · 1st Batch · EMI Ekphatthana Deposit-Taking MFI
+    <div class="tag lao">Better Together · ດີກວ່າ ເມື່ອ ຮ່ວມ ມື ກັນ</div>
+  </footer>
+
+</div>
+</body>
+</html>

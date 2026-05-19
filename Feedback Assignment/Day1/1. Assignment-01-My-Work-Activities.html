@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMI Claude Training — Assignment 1 · ວຽກປະຈຳວັນ ປະຈຳອາທິດ ປະຈຳເດືອນ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --emi-green:#49C18E;
+    --emi-navy:#17335E;
+    --emi-black:#000000;
+    --emi-white:#FFFFFF;
+    --emi-orange:#F15A26;
+    --emi-bg:#F5F8FB;
+    --emi-card:#FFFFFF;
+    --emi-border:#E2E8F0;
+    --emi-soft-green:#E8F8F1;
+    --emi-soft-navy:#EAF0F8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter','Noto Sans Lao',Arial,sans-serif;
+    background:var(--emi-bg);
+    color:var(--emi-black);
+    line-height:1.6;
+    font-size:14pt;
+    padding:0;
+  }
+  .lao{font-family:'Noto Sans Lao',Arial,sans-serif}
+  .page{max-width:920px;margin:0 auto;padding:32px 24px 60px}
+
+  /* HEADER BAND */
+  .topbar{
+    background:var(--emi-navy);
+    color:#fff;
+    padding:18px 28px;
+    border-radius:14px 14px 0 0;
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:12px;
+  }
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand-mark{
+    width:48px;height:48px;border-radius:12px;
+    background:var(--emi-green);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:700;font-size:22px;letter-spacing:1px;
+  }
+  .brand-text strong{display:block;font-size:18pt;letter-spacing:.3px}
+  .brand-text span{font-size:12pt;opacity:.85}
+  .topbar .meta{font-size:11pt;opacity:.9;text-align:right}
+
+  /* TITLE CARD */
+  .hero{
+    background:var(--emi-card);
+    padding:32px 28px;
+    border-left:6px solid var(--emi-green);
+    border-radius:0 0 14px 14px;
+    box-shadow:0 1px 3px rgba(23,51,94,.06);
+  }
+  .badge{
+    display:inline-block;background:var(--emi-soft-green);color:var(--emi-navy);
+    padding:5px 14px;border-radius:999px;font-size:11pt;font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{color:var(--emi-navy);font-size:22pt;font-weight:700;line-height:1.25;margin-bottom:8px}
+  .hero .sub{color:var(--emi-navy);font-size:16pt;font-weight:500;margin-bottom:14px}
+  .hero .deadline{
+    margin-top:18px;background:var(--emi-soft-navy);
+    border-radius:10px;padding:14px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+  }
+  .deadline .dot{
+    width:12px;height:12px;border-radius:50%;background:var(--emi-orange);
+    box-shadow:0 0 0 4px rgba(241,90,38,.15);flex-shrink:0;
+  }
+  .deadline strong{color:var(--emi-navy)}
+
+  /* SECTIONS */
+  section{
+    background:var(--emi-card);
+    border-radius:14px;
+    padding:26px 28px;
+    margin-top:22px;
+    box-shadow:0 1px 3px rgba(23,51,94,.05);
+  }
+  h2{
+    color:var(--emi-navy);
+    font-size:18pt;font-weight:700;
+    margin-bottom:6px;
+    display:flex;align-items:center;gap:10px;
+  }
+  h2 .num{
+    width:32px;height:32px;border-radius:8px;
+    background:var(--emi-green);color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:14pt;font-weight:700;flex-shrink:0;
+  }
+  h3{color:var(--emi-navy);font-size:14pt;font-weight:600;margin:18px 0 8px}
+  p{margin-bottom:10px}
+  .muted{color:#475569;font-size:12pt}
+  ul,ol{margin:8px 0 8px 22px}
+  li{margin-bottom:6px}
+
+  /* GOAL CARDS */
+  .goal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px}
+  .goal{
+    border:1px solid var(--emi-border);border-radius:12px;padding:16px;
+    background:#fff;
+  }
+  .goal .ico{
+    width:36px;height:36px;border-radius:8px;
+    background:var(--emi-soft-green);color:var(--emi-navy);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;margin-bottom:10px;
+  }
+  .goal h4{color:var(--emi-navy);font-size:13pt;margin-bottom:4px}
+  .goal p{font-size:12pt;color:#334155;margin:0}
+
+  /* STEPS */
+  .step{
+    display:flex;gap:16px;padding:16px;
+    border-radius:12px;background:#fff;
+    border:1px solid var(--emi-border);
+    margin-bottom:12px;
+  }
+  .step .n{
+    width:36px;height:36px;border-radius:50%;
+    background:var(--emi-navy);color:#fff;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;font-size:14pt;
+  }
+  .step h4{color:var(--emi-navy);font-size:14pt;margin-bottom:4px}
+  .step p{font-size:13pt;color:#334155;margin:0}
+
+  /* PROMPT BOX */
+  .prompt-box{
+    background:var(--emi-navy);
+    color:#fff;border-radius:12px;
+    padding:18px 22px;margin:10px 0;
+    font-size:13pt;line-height:1.7;
+  }
+  .prompt-box .label{
+    display:inline-block;background:var(--emi-green);
+    color:#fff;padding:3px 10px;border-radius:6px;
+    font-size:10pt;font-weight:600;margin-bottom:10px;letter-spacing:.5px;
+  }
+  .prompt-box code{
+    display:block;font-family:'Courier New',monospace;font-size:12pt;
+    background:rgba(255,255,255,.08);padding:12px 14px;border-radius:8px;
+    white-space:pre-wrap;margin-top:6px;
+  }
+  .copy-tip{font-size:11pt;color:#94a3b8;margin-top:8px}
+
+  /* FORMULA */
+  .formula{
+    background:var(--emi-soft-green);border:1px dashed var(--emi-green);
+    border-radius:12px;padding:16px 20px;margin:12px 0;
+    font-size:13pt;color:var(--emi-navy);font-weight:600;text-align:center;
+  }
+
+  /* CHECKLIST */
+  .checklist{list-style:none;margin:0;padding:0}
+  .checklist li{
+    padding:10px 14px;margin-bottom:8px;
+    background:#fff;border:1px solid var(--emi-border);
+    border-radius:10px;display:flex;gap:12px;align-items:flex-start;
+  }
+  .checklist li::before{
+    content:"";display:inline-block;
+    width:20px;height:20px;border:2px solid var(--emi-green);
+    border-radius:5px;flex-shrink:0;margin-top:3px;
+  }
+
+  /* CALLOUT */
+  .callout{
+    background:var(--emi-soft-navy);border-left:4px solid var(--emi-navy);
+    padding:14px 18px;border-radius:8px;margin-top:14px;font-size:13pt;
+  }
+  .callout.tip{background:var(--emi-soft-green);border-left-color:var(--emi-green)}
+  .callout strong{color:var(--emi-navy)}
+
+  /* TABLE */
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12pt}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--emi-border);text-align:left;vertical-align:top}
+  th{background:var(--emi-soft-navy);color:var(--emi-navy);font-weight:600;font-size:12pt}
+
+  /* FOOTER */
+  footer{
+    margin-top:30px;padding:22px;
+    background:var(--emi-navy);color:#fff;border-radius:14px;
+    text-align:center;font-size:11pt;
+  }
+  footer strong{color:var(--emi-green)}
+  footer .tag{
+    display:inline-block;padding:4px 12px;background:rgba(73,193,142,.18);
+    border-radius:999px;margin-top:8px;color:#fff;font-weight:500;
+  }
+
+  @media print{
+    body{background:#fff;font-size:11pt}
+    .page{padding:0}
+    section{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid}
+    .topbar{border-radius:0}
+    .hero{border-radius:0}
+    footer{border-radius:0}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-mark">EMI</div>
+      <div class="brand-text">
+        <strong>Ekphatthana Microfinance Institution</strong>
+        <span class="lao">ສະຖາບັນການເງິນຈຸລະພາກ ເອັກພັດທະນາ</span>
+      </div>
+    </div>
+    <div class="meta">
+      <div>Claude AI Training · 1st Batch</div>
+      <div class="lao">ການຝຶກອົບຮົມ Claude · ຊຸດທີ 1</div>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <div class="hero">
+    <span class="badge">Day 1 · Assignment 1</span>
+    <h1 class="lao">ບົດຝຶກທີ 1: ບອກ Claude ກ່ຽວກັບ ວຽກປະຈຳວັນ, ປະຈຳອາທິດ ແລະ ປະຈຳເດືອນ ຂອງເຈົ້າ</h1>
+    <div class="sub">Assignment 1 — Tell Claude about your daily, weekly, and monthly activities</div>
+    <p class="muted lao">
+      ມື້ນີ້ເຮົາຈະເລີ່ມ ໃຊ້ <strong>Cowork</strong> (Claude ໃນຄອມພິວເຕີຂອງເຈົ້າ). ເຈົ້າຈະ ສົນທະນາ ກັບ Claude ເປັນ <strong>ພາສາລາວ</strong>
+      ແລະ ໃຫ້ Claude ສ້າງ ໄຟລ໌ HTML ໃນ ຮູບແບບ EMI ທີ່ ສະຫຼຸບ ວຽກ ຂອງເຈົ້າ.
+    </p>
+    <p class="muted">
+      Today you will start using <strong>Cowork</strong> (Claude on your computer). You will talk with Claude in <strong>Lao</strong>,
+      and Claude will produce an HTML file in EMI format that summarizes your work activities.
+    </p>
+
+    <div class="deadline">
+      <span class="dot"></span>
+      <div>
+        <strong class="lao">ກຳນົດສົ່ງ:</strong> <strong>ມື້ນີ້ ກ່ອນ 17:00</strong> (ວັນຈັນ ທີ 18 ພຶດສະພາ 2026)<br>
+        <span class="muted">Deadline: <strong>Today by 5:00 PM</strong> (Monday 18 May 2026) · Send the HTML file to Somphone via email or group chat.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WHY ===== -->
+  <section>
+    <h2><span class="num">i</span><span class="lao">ເປົ້າໝາຍ ຂອງ ບົດຝຶກນີ້</span> <span style="font-size:13pt;font-weight:400;color:#475569">· Why this matters</span></h2>
+    <p class="lao">
+      ກ່ອນ Claude ຈະ ຊ່ວຍ ເຈົ້າ ໄດ້ດີ ໃນ ວຽກ ປະຈຳວັນ, ມັນ ຕ້ອງ ຮູ້ຈັກ ເຈົ້າກ່ອນ.
+      ບົດຝຶກນີ້ ຈະ ຊ່ວຍ ໃຫ້ ເຈົ້າ ໄດ້ ຝຶກ 3 ສິ່ງ ໃນຄັ້ງດຽວ:
+    </p>
+    <div class="goal-grid">
+      <div class="goal">
+        <div class="ico">1</div>
+        <h4 class="lao">ໃຊ້ Cowork</h4>
+        <p class="lao">ເປີດ Claude ໃນ ຄອມພິວເຕີ ແລະ ສົນທະນາ ຄັ້ງທຳອິດ.</p>
+      </div>
+      <div class="goal">
+        <div class="ico">2</div>
+        <h4 class="lao">ສົນທະນາ ເປັນ ພາສາລາວ</h4>
+        <p class="lao">ຝຶກ ຂຽນ prompt ເປັນ ພາສາລາວ ແບບ ທຳມະຊາດ.</p>
+      </div>
+      <div class="goal">
+        <div class="ico">3</div>
+        <h4 class="lao">ສ້າງ ໄຟລ໌ HTML ຮູບແບບ EMI</h4>
+        <p class="lao">ໃຫ້ Claude ສ້າງ ເອກະສານ ທີ່ ໃຊ້ ສີ EMI Green ແລະ Navy Blue.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STEPS ===== -->
+  <section>
+    <h2><span class="num">1</span><span class="lao">ຂັ້ນຕອນ ການເຮັດ</span> · Steps</h2>
+
+    <div class="step">
+      <div class="n">1</div>
+      <div>
+        <h4 class="lao">ເປີດ Cowork (Claude desktop)</h4>
+        <p class="lao">ຄິກ icon Claude ໃນ ຄອມພິວເຕີ ຂອງເຈົ້າ. ຖ້າຍັງບໍ່ໄດ້ ຕິດຕັ້ງ, ໃຫ້ ໂທ ຫາ Somphone.</p>
+        <p class="muted">Open the Claude desktop app on your computer. If it's not installed yet, contact Somphone.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="n">2</div>
+      <div>
+        <h4 class="lao">ສ້າງ ການສົນທະນາ ໃໝ່ ແລະ ໃຊ້ prompt ດ້ານລຸ່ມ</h4>
+        <p class="lao">ສຳເນົາ (copy) prompt ໃນ ກ່ອງ ສີ ນຳ້ເງິນ ດ້ານລຸ່ມ, ປ່ຽນ ຂໍ້ມູນ ໃຫ້ ກົງກັບ ຕົວທ່ານ, ແລ້ວ ສົ່ງ ໃຫ້ Claude.</p>
+        <p class="muted">Start a new chat in Cowork. Copy the prompt below, replace the placeholders with your own details, and send it.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="n">3</div>
+      <div>
+        <h4 class="lao">ຕອບ ຄຳຖາມ ຂອງ Claude ເປັນ ພາສາລາວ</h4>
+        <p class="lao">Claude ຈະ ຖາມ ເຈົ້າ ກ່ຽວກັບ ວຽກ ປະຈຳວັນ, ປະຈຳອາທິດ, ປະຈຳເດືອນ. ຕອບ ໃຫ້ ລະອຽດ — ຍິ່ງ ລະອຽດ, ຍິ່ງ ດີ.</p>
+        <p class="muted">Claude will ask follow-up questions about your daily, weekly, and monthly work. Answer in Lao with as much detail as possible.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="n">4</div>
+      <div>
+        <h4 class="lao">ຂໍ ໃຫ້ Claude ສ້າງ ໄຟລ໌ HTML</h4>
+        <p class="lao">ເມື່ອ ເຈົ້າ ຕອບ ສຳເລັດ, ໃຫ້ ບອກ Claude ສ້າງ ໄຟລ໌ HTML ໃນ ຮູບແບບ EMI (ໃຊ້ ສີ EMI Green #49C18E ແລະ Navy Blue #17335E).</p>
+        <p class="muted">When done, ask Claude to generate an HTML file in EMI format (using EMI Green #49C18E and Navy Blue #17335E).</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="n">5</div>
+      <div>
+        <h4 class="lao">ບັນທຶກ ແລະ ສົ່ງ</h4>
+        <p class="lao">ບັນທຶກ ໄຟລ໌ ໃສ່ ຄອມພິວເຕີ ດ້ວຍ ຊື່: <code style="background:#eef2f7;padding:2px 8px;border-radius:5px">Assignment-01-[ຊື່ຂອງເຈົ້າ].html</code> ແລ້ວ ສົ່ງ ໃຫ້ Somphone ກ່ອນ 17:00 ມື້ນີ້.</p>
+        <p class="muted">Save the file as <code style="background:#eef2f7;padding:2px 8px;border-radius:5px">Assignment-01-[YourName].html</code> and send it to Somphone by 5:00 PM today.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== READY-TO-USE PROMPT ===== -->
+  <section>
+    <h2><span class="num">2</span><span class="lao">Prompt ພ້ອມໃຊ້ — ສຳເນົາ ແລະ ດັດແກ້</span> · Ready-to-use prompt</h2>
+    <p class="lao">Copy ກ່ອງລຸ່ມນີ້ ໃສ່ Cowork. <strong>ປ່ຽນ ສ່ວນ ສີເຫຼືອງ</strong> ໃຫ້ ກົງກັບ ຕົວທ່ານ.</p>
+
+    <div class="prompt-box">
+      <span class="label">PROMPT — ສຳເນົາທັງໝົດ</span>
+<code class="lao">ສະບາຍດີ Claude,
+
+ຂ້ອຍແມ່ນ [ຊື່-ນາມສະກຸນ] ເຮັດຕຳແໜ່ງ [ຕຳແໜ່ງ] ຢູ່ EMI
+(ສະຖາບັນການເງິນຈຸລະພາກ ເອັກພັດທະນາ — Ekphatthana MFI, ສປປ ລາວ).
+ຂະແໜງ/ພະແນກ ຂອງຂ້ອຍ ແມ່ນ [ຂະແໜງ/ພະແນກ].
+
+ມື້ນີ້ ຂ້ອຍ ກຳລັງ ຝຶກ ໃຊ້ Claude ເປັນຄັ້ງທຳອິດ.
+ຂ້ອຍຢາກ ໃຫ້ ເຈົ້າ ຮູ້ຈັກ ຂ້ອຍ ກ່ອນ ໂດຍຜ່ານ ການອະທິບາຍ
+ວຽກ ປະຈຳວັນ, ປະຈຳອາທິດ, ແລະ ປະຈຳເດືອນ ຂອງຂ້ອຍ.
+
+ກະລຸນາ ຖາມ ຄຳຖາມ ຂ້ອຍ ເທື່ອລະ 2-3 ຄຳຖາມ ເພື່ອ ເຂົ້າໃຈ:
+1) ວຽກ ປະຈຳວັນ — ກິດຈະກຳ ທີ່ ຂ້ອຍ ເຮັດ ທຸກວັນ
+2) ວຽກ ປະຈຳອາທິດ — ສິ່ງທີ່ ເຮັດ 1-2 ຄັ້ງ ຕໍ່ ອາທິດ
+3) ວຽກ ປະຈຳເດືອນ — ບົດລາຍງານ ຫຼ ໜ້າວຽກ ທີ່ ມາ ປະຈຳເດືອນ
+4) ສິ່ງທີ່ ຍາກ ຫຼ ໃຊ້ ເວລາ ຫຼາຍ
+5) ສິ່ງທີ່ ຂ້ອຍ ຫວັງ ໃຫ້ Claude ຊ່ວຍ
+
+ກະລຸນາ ສົນທະນາ ກັບ ຂ້ອຍ ເປັນ ພາສາລາວ ທັງໝົດ.
+ເມື່ອ ເຮົາ ຄຸຍ ສຳເລັດ, ກະລຸນາ ສ້າງ ໄຟລ໌ HTML ໜຶ່ງ ໜ້າ
+ໃນ ຮູບແບບ EMI ໂດຍ ໃຊ້:
+  - ສີ EMI Green: #49C18E
+  - ສີ Navy Blue: #17335E
+  - ສີ ພື້ນຫຼັງ: ຂາວ
+  - font: Noto Sans Lao
+  - ມີ ສ່ວນຫົວ (header) ບອກ ຊື່, ຕຳແໜ່ງ, ພະແນກ
+  - ມີ 3 ສ່ວນ: ປະຈຳວັນ / ປະຈຳອາທິດ / ປະຈຳເດືອນ
+  - ມີ ສ່ວນທ້າຍ "ສິ່ງທີ່ Claude ສາມາດ ຊ່ວຍ"
+  - ໃຊ້ ສຳນວນ ສຸພາບ ແບບ ທາງການ EMI
+
+ເລີ່ມ ໂດຍ ການ ຖາມ ຄຳຖາມ ຊຸດທີ 1 (ວຽກ ປະຈຳວັນ).</code>
+      <p class="copy-tip lao">ເຄັດລັບ: ຖ້າ Claude ຕອບ ເປັນ ພາສາອັງກິດ, ໃຫ້ ບອກ ມັນ: <em>"ກະລຸນາ ຕອບ ເປັນ ພາສາລາວ ທັງໝົດ"</em></p>
+    </div>
+  </section>
+
+  <!-- ===== FORMULA ===== -->
+  <section>
+    <h2><span class="num">3</span><span class="lao">ສູດ EMI Prompt</span> · The EMI prompt formula</h2>
+    <p class="lao">ທຸກ prompt ທີ່ ດີ ມີ 5 ສ່ວນ. ຈົດ ໃສ່ ໃຈ ສະເໝີ:</p>
+    <div class="formula lao">
+      [ ຂ້ອຍແມ່ນໃຜ ] + [ ຕ້ອງການຫຍັງ ] + [ ສຳລັບໃຜ ] + [ ຮູບແບບ ] + [ ພາສາ ]
+    </div>
+    <table>
+      <tr><th>WHO</th><td class="lao">ຂ້ອຍແມ່ນ [ຕຳແໜ່ງ] ຢູ່ EMI</td></tr>
+      <tr><th>WHAT</th><td class="lao">ຂ້ອຍຢາກ ໃຫ້ ເຈົ້າ ສ້າງ / ຂຽນ / ສະຫຼຸບ / ແປ...</td></tr>
+      <tr><th>AUDIENCE</th><td class="lao">ສຳລັບ ຫົວໜ້າ / ລູກຄ້າ / ບອດ / ສະຕາຟ</td></tr>
+      <tr><th>FORMAT</th><td class="lao">ເປັນ HTML / ຈົດໝາຍ / ບົດລາຍງານ / Facebook post</td></tr>
+      <tr><th>LANGUAGE</th><td class="lao">ເປັນ ພາສາລາວ ທາງການ ຫຼ ພາສາອັງກິດ</td></tr>
+    </table>
+  </section>
+
+  <!-- ===== EXAMPLES ===== -->
+  <section>
+    <h2><span class="num">4</span><span class="lao">ຕົວຢ່າງ ການຕອບ — ສຳລັບ 3 ຕຳແໜ່ງ</span> · Sample answers by role</h2>
+    <p class="lao">ນີ້ ແມ່ນ ຕົວຢ່າງ ສັ້ນໆ ເພື່ອ ໃຫ້ ເຫັນ ລະດັບ ຄວາມລະອຽດ ທີ່ ຄວນ ໃຫ້ Claude.</p>
+
+    <h3 class="lao">ຕົວຢ່າງ — Branch Manager</h3>
+    <ul class="lao">
+      <li><strong>ປະຈຳວັນ:</strong> ປະຊຸມ ສະຕາຟ ຕອນເຊົ້າ, ກວດ disbursement, ຕິດຕາມ ການເກັບ, ຂຽນ end-of-day report</li>
+      <li><strong>ປະຈຳອາທິດ:</strong> ປະຊຸມ ກັບ Area Manager, ກວດ PAR30, ຢ້ຽມຢາມ ລູກຄ້າ</li>
+      <li><strong>ປະຈຳເດືອນ:</strong> ບົດລາຍງານ ປະຈຳເດືອນ ໃຫ້ HQ, ການປະເມີນ ສະຕາຟ, ການ ວາງແຜນ ເດືອນ ໃໝ່</li>
+    </ul>
+
+    <h3 class="lao">ຕົວຢ່າງ — Head of Marketing</h3>
+    <ul class="lao">
+      <li><strong>ປະຈຳວັນ:</strong> ກວດ Facebook engagement, ຕອບ message ລູກຄ້າ, ຂຽນ caption</li>
+      <li><strong>ປະຈຳອາທິດ:</strong> ສ້າງ content plan, ບັນທຶກ podcast, ປະຊຸມ ກັບ ບອດ Marketing</li>
+      <li><strong>ປະຈຳເດືອນ:</strong> ບົດລາຍງານ campaign, ການ ວາງແຜນ campaign ໃໝ່, ການ ວິເຄາະ ຄູ່ແຂ່ງ</li>
+    </ul>
+
+    <h3 class="lao">ຕົວຢ່າງ — HR Staff</h3>
+    <ul class="lao">
+      <li><strong>ປະຈຳວັນ:</strong> ກວດ ບັນຊີ ການເຂົ້າ-ອອກ, ຕອບ ຄຳຖາມ ສະຕາຟ, ຈັດການ ເອກະສານ</li>
+      <li><strong>ປະຈຳອາທິດ:</strong> ການ ສຳພາດ ຜູ້ສະໝັກ, ການ ປະຊຸມ ກັບ ຫົວໜ້າ ພະແນກ</li>
+      <li><strong>ປະຈຳເດືອນ:</strong> ການ ຄິດໄລ່ ເງິນເດືອນ, ບົດລາຍງານ HR, ການ ປະຊຸມ training</li>
+    </ul>
+  </section>
+
+  <!-- ===== CHECKLIST ===== -->
+  <section>
+    <h2><span class="num">5</span><span class="lao">ກວດ ກ່ອນ ສົ່ງ</span> · Before you send</h2>
+    <ul class="checklist lao">
+      <li>ຂ້ອຍ ໄດ້ ເປີດ Cowork ແລະ ສົນທະນາ ກັບ Claude ສຳເລັດ</li>
+      <li>ຂ້ອຍ ໄດ້ ສົນທະນາ ເປັນ <strong>ພາສາລາວ</strong> ທັງໝົດ</li>
+      <li>ຂ້ອຍ ໄດ້ ບອກ Claude ກ່ຽວກັບ ວຽກ ປະຈຳວັນ / ປະຈຳອາທິດ / ປະຈຳເດືອນ</li>
+      <li>ໄຟລ໌ HTML ໃຊ້ ສີ EMI Green (#49C18E) ແລະ Navy Blue (#17335E)</li>
+      <li>ຊື່ໄຟລ໌: Assignment-01-[ຊື່ຂອງເຈົ້າ].html</li>
+      <li>ສົ່ງ ໃຫ້ Somphone ກ່ອນ 17:00 ມື້ນີ້</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong class="lao">ເຄັດລັບ: </strong>
+      <span class="lao">
+        ຖ້າ ໄຟລ໌ HTML ທີ່ ໄດ້ ຈາກ Claude ຍັງ ບໍ່ ສວຍ ຫຼ ບໍ່ ກົງ ຮູບແບບ EMI,
+        ໃຫ້ ບອກ Claude ວ່າ: <em>"ກະລຸນາ ປັບ ໃຫ້ ໃຊ້ ສີ EMI ແລະ ເພີ່ມ ສ່ວນຫົວ ທີ່ ສະງ່າງາມ ກວ່ານີ້"</em>
+        — ບໍ່ ຕ້ອງ ເລີ່ມ ໃໝ່.
+      </span>
+    </div>
+  </section>
+
+  <!-- ===== TROUBLESHOOTING ===== -->
+  <section>
+    <h2><span class="num">?</span><span class="lao">ບັນຫາ ທີ່ ອາດ ພົບ</span> · Common issues</h2>
+    <table>
+      <tr>
+        <th class="lao" style="width:42%">ບັນຫາ</th>
+        <th class="lao">ວິທີ ແກ້</th>
+      </tr>
+      <tr>
+        <td class="lao">Claude ຕອບ ເປັນ ພາສາ ອັງກິດ</td>
+        <td class="lao">ບອກ ມັນ: "ກະລຸນາ ຕອບ ເປັນ ພາສາລາວ ທັງໝົດ ໂດຍ ບໍ່ ມີ ຄຳ ອັງກິດ"</td>
+      </tr>
+      <tr>
+        <td class="lao">Claude ບໍ່ ສ້າງ ໄຟລ໌ HTML</td>
+        <td class="lao">ບອກ: "ກະລຸນາ ສ້າງ ໄຟລ໌ HTML ໃຫ້ ຂ້ອຍ download ໄດ້"</td>
+      </tr>
+      <tr>
+        <td class="lao">ສີ ບໍ່ ກົງ EMI</td>
+        <td class="lao">ບອກ: "ໃຊ້ ສີ EMI Green #49C18E ແລະ Navy Blue #17335E ເທົ່ານັ້ນ"</td>
+      </tr>
+      <tr>
+        <td class="lao">ບໍ່ ຮູ້ ຈະ ບອກ ຫຍັງ</td>
+        <td class="lao">ບອກ Claude: "ກະລຸນາ ຖາມ ຂ້ອຍ ເທື່ອລະ ຄຳຖາມ" — ໃຫ້ Claude ນຳ ການສົນທະນາ</td>
+      </tr>
+      <tr>
+        <td class="lao">ຕິດຂັດ ບໍ່ ໄດ້ ຄຳຕອບ ທີ່ ດີ</td>
+        <td class="lao">ໂທ / ຂໍ້ຄວາມ ຫາ Somphone: somphone.si@gmail.com</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ===== WHY THIS HELPS YOU ===== -->
+  <section>
+    <h2><span class="num">★</span><span class="lao">ເຫດໃດ ບົດຝຶກນີ້ ມີ ຄຸນຄ່າ</span> · Why this assignment matters</h2>
+    <p class="lao">
+      ໄຟລ໌ HTML ທີ່ ເຈົ້າ ສ້າງ ມື້ນີ້ ຈະ ກາຍ ເປັນ <strong>"ບັດ ແນະນຳ ຕົວ"</strong> ຂອງ ເຈົ້າ ສຳລັບ Claude.
+      ໃນ ມື້ ຕໍ່ໄປ, ເຈົ້າ ສາມາດ paste ໄຟລ໌ນີ້ ໃສ່ Claude ກ່ອນ ເລີ່ມ ວຽກ ໃໝ່ ໄດ້ —
+      Claude ຈະ ຮູ້ ທັນທີ ວ່າ ເຈົ້າ ແມ່ນ ໃຜ ແລະ ເຮັດ ວຽກ ຫຍັງ.
+    </p>
+    <p>
+      The HTML file you create today becomes your <strong>"introduction card"</strong> for Claude. On future days,
+      you can paste this file into Claude before starting any task — Claude will immediately know who you are
+      and what work you do. This is the foundation for everything else in the 15-day program.
+    </p>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div><strong>EMI Claude Training · 1st Batch</strong></div>
+    <div class="lao">ການຝຶກອົບຮົມ Claude · ຊຸດທີ 1 · 2026</div>
+    <div style="margin-top:6px">Trainer: Somphone · somphone.si@gmail.com</div>
+    <div class="tag">Better Together · ດີກວ່າ ເມື່ອ ຮ່ວມມືກັນ</div>
+  </footer>
+
+</div>
+</body>
+</html>

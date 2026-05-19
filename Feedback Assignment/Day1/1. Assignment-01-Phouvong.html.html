@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ໜ້າວຽກ ຫົວໜ້າ ໜ່ວຍງານ IT — EMI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --emi-green: #49C18E;
+    --emi-green-soft: #E8F7F0;
+    --emi-green-dark: #2B9E6E;
+    --emi-navy: #17335E;
+    --emi-navy-dark: #0E2348;
+    --emi-navy-soft: #EAEEF4;
+    --emi-orange: #F15A26;
+    --emi-black: #1a1a1a;
+    --emi-gray: #6B7280;
+    --emi-gray-soft: #F4F5F7;
+    --emi-border: #E5E7EB;
+    --emi-white: #FFFFFF;
+    --shadow-card: 0 1px 3px rgba(23, 51, 94, 0.06), 0 4px 12px rgba(23, 51, 94, 0.04);
+    --shadow-hover: 0 4px 16px rgba(23, 51, 94, 0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans Lao', 'Inter', system-ui, sans-serif;
+    color: var(--emi-black);
+    background: var(--emi-gray-soft);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ===== LAYOUT ===== */
+  .app {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+  }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar {
+    background: linear-gradient(180deg, var(--emi-navy) 0%, var(--emi-navy-dark) 100%);
+    color: var(--emi-white);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 24px rgba(23, 51, 94, 0.08);
+  }
+
+  .sidebar-brand {
+    padding: 28px 24px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sidebar-brand::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 24px; right: 24px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--emi-green) 0%, transparent 100%);
+  }
+
+  .sidebar-brand-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .brand-mark {
+    width: 46px; height: 46px;
+    background: linear-gradient(135deg, var(--emi-green) 0%, var(--emi-green-dark) 100%);
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--emi-white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(73, 193, 142, 0.35);
+    position: relative;
+  }
+
+  .brand-mark::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 11px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .brand-text-block { line-height: 1.2; }
+  .brand-name-en {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    color: var(--emi-white);
+    font-size: 16px;
+    letter-spacing: 1.2px;
+  }
+  .brand-tag-lao {
+    color: var(--emi-green);
+    font-size: 10.5px;
+    font-weight: 600;
+    font-style: italic;
+    margin-top: 3px;
+    letter-spacing: 0.3px;
+  }
+
+  .brand-divider {
+    margin: 20px 24px 4px;
+    padding: 10px 14px;
+    background: rgba(73, 193, 142, 0.08);
+    border-left: 3px solid var(--emi-green);
+    border-radius: 6px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
+  }
+  .brand-divider strong { color: var(--emi-green); font-weight: 700; }
+
+  .nav-section {
+    padding: 16px 0;
+  }
+
+  .nav-label {
+    padding: 0 24px 8px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition: all 0.18s ease;
+    border-left: 3px solid transparent;
+    font-size: 14.5px;
+    font-weight: 500;
+    user-select: none;
+  }
+
+  .nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--emi-white);
+  }
+
+  .nav-item.active {
+    background: rgba(73, 193, 142, 0.12);
+    border-left-color: var(--emi-green);
+    color: var(--emi-white);
+    font-weight: 700;
+  }
+
+  .nav-icon {
+    width: 26px; height: 26px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+  }
+
+  .nav-item.active .nav-icon {
+    background: var(--emi-green);
+    color: var(--emi-navy);
+  }
+
+  .nav-item .nav-count {
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 999px;
+    padding: 2px 9px;
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  .nav-item.active .nav-count {
+    background: var(--emi-green);
+    color: var(--emi-navy);
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+  }
+
+  .sidebar-footer strong { color: var(--emi-green); }
+
+  /* ===== MAIN CONTENT ===== */
+  .main {
+    padding: 40px 48px 60px;
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 32px;
+    padding: 28px 32px;
+    background: var(--emi-white);
+    border-radius: 18px;
+    border: 1px solid var(--emi-border);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, var(--emi-green) 0%, var(--emi-green-dark) 100%);
+  }
+
+  .page-icon-block {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--emi-navy) 0%, var(--emi-navy-dark) 100%);
+    color: var(--emi-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    flex-shrink: 0;
+    box-shadow: 0 6px 18px rgba(23, 51, 94, 0.20);
+    position: relative;
+  }
+  .page-icon-block::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 13px;
+    border: 1px solid rgba(73, 193, 142, 0.4);
+  }
+
+  .page-title-block { flex: 1; min-width: 0; }
+
+  .page-eyebrow {
+    color: var(--emi-green-dark);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 4px;
+  }
+
+  .page-title {
+    font-size: 28px;
+    color: var(--emi-navy);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+  }
+
+  .page-subtitle {
+    color: var(--emi-gray);
+    font-size: 14px;
+  }
+
+  .breadcrumb {
+    color: var(--emi-gray);
+    font-size: 12.5px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+  }
+  .breadcrumb strong { color: var(--emi-navy); font-weight: 600; }
+  .breadcrumb-sep {
+    color: var(--emi-green);
+    font-size: 10px;
+  }
+
+  /* Hide all panels by default — JS shows the active one */
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== HOME / PROFILE PANEL ===== */
+  .profile-hero {
+    background: linear-gradient(135deg, var(--emi-navy) 0%, #0A1E3F 100%);
+    color: var(--emi-white);
+    border-radius: 24px;
+    padding: 48px 52px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 32px;
+    box-shadow: 0 10px 40px rgba(23, 51, 94, 0.20);
+  }
+
+  /* EMI Heart Forward decorative shapes (large, soft) */
+  .profile-hero .deco-1 {
+    position: absolute;
+    top: -60px; right: -40px;
+    width: 320px; height: 320px;
+    background: var(--emi-green);
+    opacity: 0.10;
+    border-radius: 65% 35% 50% 50% / 50% 50% 70% 30%;
+    transform: rotate(20deg);
+  }
+  .profile-hero .deco-2 {
+    position: absolute;
+    bottom: -130px; right: 140px;
+    width: 220px; height: 220px;
+    background: var(--emi-green);
+    opacity: 0.06;
+    border-radius: 50% 50% 30% 70% / 60% 40% 60% 40%;
+    transform: rotate(-15deg);
+  }
+  .profile-hero .deco-3 {
+    position: absolute;
+    top: 30px; right: 30px;
+    width: 90px; height: 90px;
+    border: 2px solid rgba(73, 193, 142, 0.25);
+    border-radius: 50%;
+  }
+
+  .profile-hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+
+  @media (max-width: 720px) {
+    .profile-hero { padding: 32px 28px; border-radius: 18px; }
+    .profile-hero-grid { grid-template-columns: 1fr; gap: 20px; text-align: left; }
+  }
+
+  /* Avatar / initials circle */
+  .profile-avatar {
+    width: 96px; height: 96px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, var(--emi-green) 0%, var(--emi-green-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--emi-white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: -1px;
+    box-shadow: 0 8px 24px rgba(73, 193, 142, 0.35), inset 0 0 0 3px rgba(255, 255, 255, 0.2);
+    position: relative;
+  }
+
+  .profile-avatar::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 26px;
+    border: 1.5px dashed rgba(73, 193, 142, 0.35);
+  }
+
+  .profile-content { min-width: 0; }
+
+  .profile-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--emi-green);
+    font-size: 11.5px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    background: rgba(73, 193, 142, 0.12);
+    border: 1px solid rgba(73, 193, 142, 0.25);
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+  .profile-eyebrow::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--emi-green);
+    box-shadow: 0 0 0 3px rgba(73, 193, 142, 0.3);
+  }
+
+  .profile-name {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .profile-role {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.90);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  .profile-dept {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.60);
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+
+  .profile-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+  }
+  .meta-item-icon {
+    width: 30px; height: 30px;
+    background: rgba(73, 193, 142, 0.15);
+    color: var(--emi-green);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .meta-item-text { line-height: 1.3; }
+  .meta-item-label {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-family: 'Inter', sans-serif;
+  }
+  .meta-item-value { color: var(--emi-white); font-weight: 500; }
+
+  /* Stats grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 720px) { .stats-grid { grid-template-columns: 1fr; } }
+
+  .stat-card {
+    background: var(--emi-white);
+    border-radius: 16px;
+    padding: 26px;
+    border: 1px solid var(--emi-border);
+    box-shadow: var(--shadow-card);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--emi-navy) 0%, var(--emi-green) 100%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--emi-green);
+  }
+  .stat-card:hover::before { opacity: 1; }
+
+  .stat-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--emi-green-soft) 0%, rgba(73, 193, 142, 0.18) 100%);
+    color: var(--emi-green-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 16px;
+    border: 1px solid rgba(73, 193, 142, 0.2);
+  }
+
+  .stat-label {
+    color: var(--emi-navy);
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .stat-desc {
+    color: var(--emi-gray);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .stat-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--emi-green-dark);
+    font-size: 12.5px;
+    font-weight: 700;
+    margin-top: 12px;
+  }
+  .stat-link::after {
+    content: "→";
+    transition: transform 0.2s ease;
+  }
+  .stat-card:hover .stat-link::after { transform: translateX(4px); }
+
+  .intro-card {
+    background: linear-gradient(135deg, var(--emi-white) 0%, var(--emi-green-soft) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--emi-border);
+    border-left: 5px solid var(--emi-green);
+    padding: 26px 32px;
+    color: var(--emi-black);
+    line-height: 1.8;
+    position: relative;
+    box-shadow: var(--shadow-card);
+  }
+  .intro-card strong { color: var(--emi-navy); font-weight: 700; }
+  .intro-card::before {
+    content: "❝";
+    position: absolute;
+    top: 8px; right: 24px;
+    font-size: 56px;
+    color: var(--emi-green);
+    opacity: 0.18;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  /* ===== TASK CARDS (used in Daily/Weekly/Monthly panels) ===== */
+  .task-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .task-card {
+    background: var(--emi-white);
+    border: 1px solid var(--emi-border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    box-shadow: var(--shadow-card);
+    transition: all 0.2s ease;
+  }
+
+  .task-card:hover {
+    border-color: var(--emi-green);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .task-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .task-num {
+    width: 32px; height: 32px;
+    background: var(--emi-navy);
+    color: var(--emi-white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .task-title {
+    color: var(--emi-navy);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+
+  .task-desc-full {
+    color: var(--emi-black);
+    line-height: 1.75;
+    padding-left: 46px;
+  }
+
+  .task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+    padding-left: 46px;
+  }
+
+  .meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--emi-green-soft);
+    color: var(--emi-green-dark);
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 700;
+  }
+  .meta-chip.navy {
+    background: var(--emi-navy-soft);
+    color: var(--emi-navy);
+  }
+
+  /* ===== CLAUDE HELP PANEL ===== */
+  .claude-hero {
+    background: linear-gradient(135deg, var(--emi-navy) 0%, var(--emi-navy-dark) 100%);
+    color: var(--emi-white);
+    border-radius: 20px;
+    padding: 36px 40px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .claude-hero::before {
+    content: "";
+    position: absolute;
+    top: -90px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: var(--emi-green);
+    opacity: 0.12;
+  }
+
+  .claude-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .claude-icon-lg {
+    width: 56px; height: 56px;
+    background: var(--emi-green);
+    color: var(--emi-navy);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+  }
+
+  .claude-hero-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .claude-hero-sub {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+  }
+
+  .help-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 880px) { .help-grid { grid-template-columns: 1fr; } }
+
+  .help-card {
+    background: var(--emi-white);
+    border: 1px solid var(--emi-border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow-card);
+    transition: all 0.2s ease;
+  }
+  .help-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--emi-green);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .help-card-icon {
+    width: 38px; height: 38px;
+    background: var(--emi-green-soft);
+    color: var(--emi-green-dark);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .help-card-title {
+    color: var(--emi-navy);
+    font-weight: 700;
+    font-size: 15.5px;
+    margin-bottom: 6px;
+  }
+
+  .help-card-desc {
+    color: var(--emi-gray);
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+
+  .help-card-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--emi-green-dark);
+    font-size: 11.5px;
+    font-weight: 700;
+    margin-top: 10px;
+    background: var(--emi-green-soft);
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .help-card-status::before {
+    content: "✓";
+    font-weight: 700;
+  }
+
+  /* ===== MOBILE TOGGLE ===== */
+  .mobile-toggle {
+    display: none;
+    position: fixed;
+    top: 16px; left: 16px;
+    z-index: 100;
+    background: var(--emi-navy);
+    color: var(--emi-white);
+    border: none;
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: var(--shadow-hover);
+  }
+
+  @media (max-width: 880px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar {
+      position: fixed;
+      top: 0; left: -300px;
+      width: 300px;
+      z-index: 99;
+      transition: left 0.3s ease;
+    }
+    .sidebar.open { left: 0; }
+    .main { padding: 80px 20px 40px; }
+    .mobile-toggle { display: block; }
+    .profile-name { font-size: 26px; }
+  }
+
+  /* Print */
+  @media print {
+    .sidebar, .mobile-toggle { display: none; }
+    .app { grid-template-columns: 1fr; }
+    .panel { display: block !important; page-break-after: always; }
+    .main { padding: 20px; max-width: 100%; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">☰</button>
+
+<div class="app">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-inner">
+        <div class="brand-mark">e</div>
+        <div class="brand-text-block">
+          <div class="brand-name-en">EMI</div>
+          <div class="brand-tag-lao">Better Together</div>
+        </div>
+      </div>
+    </div>
+    <div class="brand-divider">
+      <strong>ໜ່ວຍງານ IT</strong><br>
+      Information Technology Department
+    </div>
+
+    <nav class="nav-section" id="nav">
+      <div class="nav-label">ໜ້າຫຼັກ</div>
+      <div class="nav-item active" data-panel="home">
+        <div class="nav-icon">⌂</div>
+        <span>ໂປຣໄຟລ໌</span>
+      </div>
+
+      <div class="nav-label" style="margin-top: 12px;">ໜ້າວຽກ ຫຼັກ</div>
+      <div class="nav-item" data-panel="daily">
+        <div class="nav-icon">D</div>
+        <span>ວຽກປະຈຳວັນ</span>
+        <span class="nav-count">4</span>
+      </div>
+      <div class="nav-item" data-panel="weekly">
+        <div class="nav-icon">W</div>
+        <span>ວຽກປະຈຳອາທິດ</span>
+        <span class="nav-count">4</span>
+      </div>
+      <div class="nav-item" data-panel="monthly">
+        <div class="nav-icon">M</div>
+        <span>ວຽກປະຈຳເດືອນ</span>
+        <span class="nav-count">4</span>
+      </div>
+
+      <div class="nav-label" style="margin-top: 12px;">ການ ສະໜັບສະໜູນ</div>
+      <div class="nav-item" data-panel="claude">
+        <div class="nav-icon">✦</div>
+        <span>Claude ຊ່ວຍ</span>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <strong>EMI Pathway 2030</strong><br>
+      Digital Transformation Initiative<br>
+      <span style="opacity: 0.6;">v1.0 · ພຶດສະພາ 2026</span>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main">
+
+    <!-- ============================= -->
+    <!-- HOME PANEL                    -->
+    <!-- ============================= -->
+    <section class="panel active" id="panel-home">
+      <div class="profile-hero">
+        <div class="deco-1"></div>
+        <div class="deco-2"></div>
+        <div class="deco-3"></div>
+
+        <div class="profile-hero-grid">
+          <div class="profile-avatar">PM</div>
+
+          <div class="profile-content">
+            <div class="profile-eyebrow">Head of IT · ໜ່ວຍງານ IT</div>
+            <h1 class="profile-name">ທ່ານ Phouvong Meksavanh</h1>
+            <div class="profile-role">ຫົວໜ້າ ໜ່ວຍງານ ເຕັກໂນໂລຊີ ຂໍ້ມູນຂ່າວສານ</div>
+            <div class="profile-dept">ສະຖາບັນ ການເງິນ ຈຸລະພາກ ເອັກພັດທະນາ ທີ່ ຮັບ ເງິນ ຝາກ (EMI) · ນະຄອນຫຼວງ ວຽງຈັນ, ສປປ ລາວ</div>
+
+            <div class="profile-meta-row">
+              <div class="meta-item">
+                <div class="meta-item-icon">✦</div>
+                <div class="meta-item-text">
+                  <div class="meta-item-label">ຍຸດທະສາດ</div>
+                  <div class="meta-item-value">EMI Pathway 2030</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-item-icon">@</div>
+                <div class="meta-item-text">
+                  <div class="meta-item-label">Email</div>
+                  <div class="meta-item-value">Emi-ai@emimfi.com</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-item-icon">◷</div>
+                <div class="meta-item-text">
+                  <div class="meta-item-label">ປັບປຸງ</div>
+                  <div class="meta-item-value">ພຶດສະພາ 2026</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="intro-card" style="margin-bottom: 28px;">
+        ເອກະສານ ສະບັບ ນີ້ ສະຫຼຸບ <strong>ໜ້າທີ່ ຄວາມ ຮັບຜິດຊອບ ຫຼັກ</strong> ຂອງ ຫົວໜ້າ ໜ່ວຍງານ IT ປະຈຳ EMI ໂດຍ ຈັດແບ່ງ ອອກ ເປັນ ສາມ ໝວດ ຕາມ ຮອບ ການ ດຳເນີນ ງານ. ກະລຸນາ <strong>ກົດ ເລືອກ ຫົວ ຂໍ້</strong> ໃນ ແຖບ ດ້ານ ຊ້າຍ ມື ເພື່ອ ອ່ານ ລາຍ ລະອຽດ ຂອງ ແຕ່ ລະ ໝວດ.
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card" data-go="daily">
+          <div class="stat-icon">D</div>
+          <div class="stat-label">ວຽກປະຈຳວັນ</div>
+          <div class="stat-desc">Operation &amp; Monitoring — ການ ຕິດຕາມ ແລະ ຮັບມື ທັນທີ</div>
+          <span class="stat-link">ເບິ່ງ ລາຍ ລະອຽດ</span>
+        </div>
+
+        <div class="stat-card" data-go="weekly">
+          <div class="stat-icon">W</div>
+          <div class="stat-label">ວຽກປະຈຳອາທິດ</div>
+          <div class="stat-desc">Maintenance &amp; Alignment — ການ ບຳລຸງຮັກສາ ແລະ ປະສານ ງານ</div>
+          <span class="stat-link">ເບິ່ງ ລາຍ ລະອຽດ</span>
+        </div>
+
+        <div class="stat-card" data-go="monthly">
+          <div class="stat-icon">M</div>
+          <div class="stat-label">ວຽກປະຈຳເດືອນ</div>
+          <div class="stat-desc">Strategy &amp; Reporting — ການ ວາງ ແຜນ ຍຸດທະສາດ ແລະ ສະຫຼຸບ ຜົນ</div>
+          <span class="stat-link">ເບິ່ງ ລາຍ ລະອຽດ</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- DAILY PANEL                   -->
+    <!-- ============================= -->
+    <section class="panel" id="panel-daily">
+      <div class="breadcrumb">ໜ້າຫຼັກ <span class="breadcrumb-sep">▸</span> <strong>ວຽກປະຈຳວັນ</strong></div>
+      <div class="page-header">
+        <div class="page-icon-block">D</div>
+        <div class="page-title-block">
+          <div class="page-eyebrow">Operation &amp; Monitoring</div>
+          <h1 class="page-title">ວຽກປະຈຳວັນ</h1>
+          <div class="page-subtitle">ການ ຕິດຕາມ ແລະ ຮັບມື ທັນທີ — 4 ໜ້າວຽກ ຫຼັກ</div>
+        </div>
+      </div>
+
+      <div class="task-grid">
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">1</div>
+            <div class="task-title">ກວດສອບ ຄວາມ ປອດໄພ ແລະ ລະບົບ (Daily Health Check)</div>
+          </div>
+          <div class="task-desc-full">
+            ດຳເນີນ ການ ຕິດຕາມ ລະບົບ ເຄືອຂ່າຍ (Network), Cloud Infrastructure ແລະ Server (AWS EC2, Windows Servers) ປະຈຳ ວັນ ເພື່ອ ຮັບປະກັນ ສະຖຽນລະພາບ ໃນ ການ ດຳເນີນ ງານ ແລະ ເຝົ້າ ລະວັງ ໄພຄຸກຄາມ ທາງ ໄຊເບີ (Cyber Security) ຢ່າງ ໃກ້ ຊິດ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">AWS EC2</span>
+            <span class="meta-chip">Windows Server</span>
+            <span class="meta-chip">Network</span>
+            <span class="meta-chip navy">Cyber Security</span>
+          </div>
+        </div>
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">2</div>
+            <div class="task-title">ບໍລິຫານ ຈັດການ ທີມ Support</div>
+          </div>
+          <div class="task-desc-full">
+            ກວດສອບ ຄວາມ ຄືບໜ້າ ຂອງ IT Helpdesk, ຕິດຕາມ ເຄດວຽກ (Tickets) ທີ່ ຄ້າງຄາ ຢ່າງ ເປັນ ປະຈຳ ແລະ ໃຫ້ ການ ສະໜັບສະໜູນ ທີມງານ ໃນ ການ ແກ້ໄຂ ບັນຫາ ເຕັກນິກ ທີ່ ມີ ຄວາມ ຊັບຊ້ອນ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">Helpdesk</span>
+            <span class="meta-chip">Tickets</span>
+            <span class="meta-chip navy">SLA Monitoring</span>
+          </div>
+        </div>
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">3</div>
+            <div class="task-title">ຄຸ້ມຄອງ ສິດ ຜູ້ໃຊ້ ງານ (User Access Control)</div>
+          </div>
+          <div class="task-desc-full">
+            ດຳເນີນ ການ ອະນຸມັດ ແລະ ບໍລິຫານ ຈັດການ ບັນຊີ ຜູ້ໃຊ້ ງານ (User Access Control) ພ້ອມ ທັງ ລະບົບ ອີເມວ (Email Administrator) ໃຫ້ ແກ່ ພະນັກງານ ທີ່ ເຂົ້າ-ອອກ ໃໝ່ ໂດຍ ສອດຄ່ອງ ກັບ ນະໂຍບາຍ ດ້ານ ຄວາມ ປອດໄພ ຂອງ ອົງກອນ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">User Access</span>
+            <span class="meta-chip">Email Admin</span>
+            <span class="meta-chip navy">Security Policy</span>
+          </div>
+        </div>
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">4</div>
+            <div class="task-title">Brief ງານ ຕອນ ເຊົ້າ (Stand-up Meeting)</div>
+          </div>
+          <div class="task-desc-full">
+            ປະຊຸມ ສັ້ນ ຮ່ວມ ກັບ ທີມງານ ໃນ ຕອນ ເຊົ້າ ເພື່ອ ແບ່ງ ງານ, ກຳນົດ ບູລິມະສິດ ໃນ ມື້ ນັ້ນ ແລະ ຮັບຟັງ ບັນຫາ ປະຈຳ ວັນ ທີ່ ທີມງານ ປະສົບ ເຫັນ ເພື່ອ ການ ປະສານ ງານ ໃຫ້ ມີ ປະສິດທິພາບ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">Daily Standup</span>
+            <span class="meta-chip navy">Team Alignment</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- WEEKLY PANEL                  -->
+    <!-- ============================= -->
+    <section class="panel" id="panel-weekly">
+      <div class="breadcrumb">ໜ້າຫຼັກ <span class="breadcrumb-sep">▸</span> <strong>ວຽກປະຈຳອາທິດ</strong></div>
+      <div class="page-header">
+        <div class="page-icon-block">W</div>
+        <div class="page-title-block">
+          <div class="page-eyebrow">Maintenance &amp; Alignment</div>
+          <h1 class="page-title">ວຽກປະຈຳອາທິດ</h1>
+          <div class="page-subtitle">ການ ບຳລຸງຮັກສາ ແລະ ປະສານ ງານ — 4 ໜ້າວຽກ ຫຼັກ</div>
+        </div>
+      </div>
+
+      <div class="task-grid">
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">1</div>
+            <div class="task-title">ບຳລຸງຮັກສາ ລະບົບ (Weekly Maintenance)</div>
+          </div>
+          <div class="task-desc-full">
+            ປະສານ ງານ ກັບ ຜູ້ ຊ່ຽວຊານ ພາຍນອກ ຫຼື ທີມງານ ພາຍ ໃນ ເພື່ອ ດຳເນີນ ການ ອັບເດດ Patch ດ້ານ ຄວາມ ປອດໄພ, Backup ຂໍ້ມູນ Server ແລະ ກວດສອບ ປະສິດທິພາບ ຂອງ Network ໃຫ້ ຢູ່ ໃນ ມາດຕະຖານ ທີ່ ກຳນົດ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">Patch Management</span>
+            <span class="meta-chip">Server Backup</span>
+            <span class="meta-chip navy">Network Performance</span>
+          </div>
+        </div>
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">2</div>
+            <div class="task-title">ທົບທວນ ຜົນງານ ຂອງ ທີມ</div>
+          </div>
+          <div class="task-desc-full">
+            ກວດສອບ ຕົວ ຊີ້ວັດ (KPIs / SLA) ຂອງ ທີມ IT Helpdesk ປະຈຳ ອາທິດ ເພື່ອ ປະເມີນ ວ່າ ການ ໃຫ້ ບໍລິການ ເປັນ ໄປ ຕາມ ມາດຕະຖານ ທີ່ ກຳນົດ ໄວ້ ຫຼື ບໍ່ ແລະ ດຳເນີນ ການ ປັບປຸງ ຕາມ ຄວາມ ຈຳເປັນ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">KPI Review</span>
+            <span class="meta-chip">SLA Compliance</span>
+            <span class="meta-chip navy">Service Quality</span>
+          </div>
+        </div>
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">3</div>
+            <div class="task-title">ປະຊຸມ ວາງ ແຜນ ພາຍ ໃນ</div>
+          </div>
+          <div class="task-desc-full">
+            ຈັດ ການ ປະຊຸມ ປະຈຳ ອາທິດ ຮ່ວມ ກັບ ທີມງານ ເພື່ອ ຕິດຕາມ ຄວາມ ຄືບໜ້າ ຂອງ ໂຄງການ ພັດທະນາ ລະບົບ ພ້ອມ ທັງ ໃຫ້ ຄຳ ປຶກສາ ແລະ ຄຳ ແນະນຳ ແກ່ ພະນັກງານ ພາຍ ໃຕ້ ການ ຄຸ້ມຄອງ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">Weekly Planning</span>
+            <span class="meta-chip">Project Tracking</span>
+            <span class="meta-chip navy">Team Coaching</span>
+          </div>
+        </div>
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">4</div>
+            <div class="task-title">ກວດສອບ ແຜນ ຄວາມ ປອດໄພ</div>
+          </div>
+          <div class="task-desc-full">
+            ທົບທວນ ລາຍງານ ການ ກວດສອບ (Logs) ດ້ານ ຄວາມ ປອດໄພ ທາງ ໄຊເບີ ປະຈຳ ອາທິດ ເພື່ອ ວິເຄາະ ຄວາມ ສ່ຽງ ແລະ ປະຕິບັດ ມາດຕະການ ປ້ອງ ກັນ ລ່ວງ ໜ້າ ກ່ອນ ທີ່ ໄພຄຸກຄາມ ຈະ ສ້າງ ຄວາມ ເສຍຫາຍ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">Security Logs</span>
+            <span class="meta-chip">Risk Analysis</span>
+            <span class="meta-chip navy">Threat Prevention</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- MONTHLY PANEL                 -->
+    <!-- ============================= -->
+    <section class="panel" id="panel-monthly">
+      <div class="breadcrumb">ໜ້າຫຼັກ <span class="breadcrumb-sep">▸</span> <strong>ວຽກປະຈຳເດືອນ</strong></div>
+      <div class="page-header">
+        <div class="page-icon-block">M</div>
+        <div class="page-title-block">
+          <div class="page-eyebrow">Strategy &amp; Reporting</div>
+          <h1 class="page-title">ວຽກປະຈຳເດືອນ</h1>
+          <div class="page-subtitle">ການ ວາງ ແຜນ ຍຸດທະສາດ ແລະ ສະຫຼຸບ ຜົນ — 4 ໜ້າວຽກ ຫຼັກ</div>
+        </div>
+      </div>
+
+      <div class="task-grid">
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">1</div>
+            <div class="task-title">ລາຍງານ ຜົນງານ ຕໍ່ ຄະນະ ບໍລິຫານ</div>
+          </div>
+          <div class="task-desc-full">
+            ສ້າງ ບົດ ລາຍງານ ການ ດຳເນີນ ງານ (IT Infrastructure &amp; Support Performance) ນຳ ສະເໜີ ຕໍ່ ຄະນະ ບໍລິຫານ ປະຈຳ ເດືອນ ເພື່ອ ສະແດງ ເຖິງ ຄວາມ ພ້ອມ ໃນ ການ ຮອງຮັບ ຍຸດທະສາດ EMI Pathway 2030 ຂອງ ສະຖາບັນ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">Board Report</span>
+            <span class="meta-chip">Performance</span>
+            <span class="meta-chip navy">EMI Pathway 2030</span>
+          </div>
+        </div>
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">2</div>
+            <div class="task-title">ບໍລິຫານ ງົບປະມານ ແລະ ການ ຈັດຊື້</div>
+          </div>
+          <div class="task-desc-full">
+            ວາງ ແຜນ ງົບປະມານ ໄອທີ, ກວດສອບ ຄ່າ ໃຊ້ ຈ່າຍ Cloud (AWS) ປະຈຳ ເດືອນ ແລະ ວາງ ແຜນ ການ ຈັດຊື້ ອຸປະກອນ ໄອທີ ໃຫ້ ສອດຄ່ອງ ກັບ ຄວາມ ຕ້ອງການ ຂອງ ອົງກອນ ແລະ ກອບ ງົບປະມານ ປະຈຳ ປີ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">IT Budget</span>
+            <span class="meta-chip">AWS Cost</span>
+            <span class="meta-chip navy">Procurement</span>
+          </div>
+        </div>
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">3</div>
+            <div class="task-title">ທົດສອບ ແຜນ ກູ້ ຄືນ ລະບົບ (DRP Testing)</div>
+          </div>
+          <div class="task-desc-full">
+            ດຳເນີນ ການ ທົບທວນ ແລະ ທົດສອບ Disaster Recovery Plan (DRP) ປະຈຳ ເດືອນ ເພື່ອ ຮັບປະກັນ ວ່າ ອົງກອນ ສາມາດ ດຳເນີນ ທຸລະກິດ ໄດ້ ຢ່າງ ຕໍ່ ເນື່ອງ ໃນ ກໍລະນີ ເກີດ ເຫດ ສຸກ ເສີນ ຫຼື ໄພ ພິບັດ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">DRP Testing</span>
+            <span class="meta-chip">Business Continuity</span>
+            <span class="meta-chip navy">RTO / RPO</span>
+          </div>
+        </div>
+
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-num">4</div>
+            <div class="task-title">ປະເມີນ ຜົນງານ ແລະ ພັດທະນາ ບຸກຄະລາກອນ</div>
+          </div>
+          <div class="task-desc-full">
+            ດຳເນີນ ການ ປະເມີນ ຜົນງານ ປະຈຳ ເດືອນ ຂອງ ທີມງານ ພ້ອມ ທັງ ວາງ ແຜນ ການ ຍົກ ລະດັບ ທັກສະ (Upskilling) ດ້ານ Digital ໃຫ້ ແກ່ ພະນັກງານ ເພື່ອ ຕອບ ໂຈດ ການ ຫັນ ປ່ຽນ ສູ່ ດິຈິຕ້ອນ ຂອງ ສະຖາບັນ.
+          </div>
+          <div class="task-meta">
+            <span class="meta-chip">Performance Review</span>
+            <span class="meta-chip">Digital Upskilling</span>
+            <span class="meta-chip navy">Talent Development</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- CLAUDE PANEL                  -->
+    <!-- ============================= -->
+    <section class="panel" id="panel-claude">
+      <div class="breadcrumb">ໜ້າຫຼັກ <span class="breadcrumb-sep">▸</span> <strong>ສິ່ງ ທີ່ Claude ສາມາດ ຊ່ວຍ</strong></div>
+
+      <div class="claude-hero">
+        <div class="claude-hero-inner">
+          <div class="claude-icon-lg">✦</div>
+          <div>
+            <div class="claude-hero-title">ສິ່ງ ທີ່ Claude ສາມາດ ຊ່ວຍ</div>
+            <div class="claude-hero-sub">ປະຫຍັດ ເວລາ ໃນ ການ ດຳເນີນ ງານ ດ້ວຍ ການ ສະໜັບສະໜູນ ຈາກ AI</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="help-grid">
+
+        <div class="help-card">
+          <div class="help-card-icon">📊</div>
+          <div class="help-card-title">ສ້າງ ບົດລາຍງານ ປະຈຳ ເດືອນ</div>
+          <div class="help-card-desc">
+            ສ້າງ ບົດລາຍງານ IT Infrastructure &amp; Support Performance ໃນ ຮູບແບບ Word ສຳລັບ ນຳ ສະເໜີ ຕໍ່ ຄະນະ ບໍລິຫານ ໂດຍ ໃຊ້ EMI Brand Guidelines.
+          </div>
+          <span class="help-card-status">ສຳເລັດ ແລ້ວ — May 2026</span>
+        </div>
+
+        <div class="help-card">
+          <div class="help-card-icon">🛡️</div>
+          <div class="help-card-title">Template ການ ກວດສອບ DRP</div>
+          <div class="help-card-desc">
+            ສ້າງ ແບບ ຟອມ ມາດຕະຖານ ສຳລັບ ບັນທຶກ ຜົນ ການ ທົດສອບ Disaster Recovery Plan ປະຈຳ ເດືອນ ພ້ອມ KPI ດ້ານ RTO/RPO.
+          </div>
+        </div>
+
+        <div class="help-card">
+          <div class="help-card-icon">💰</div>
+          <div class="help-card-title">ວິເຄາະ ງົບປະມານ AWS</div>
+          <div class="help-card-desc">
+            ນຳ ເຂົ້າ Cost Report ຈາກ AWS ແລະ ສ້າງ Dashboard ສະຫຼຸບ ການ ໃຊ້ ຈ່າຍ ຕາມ ບໍລິການ ພ້ອມ ໂອກາດ ປະຢັດ ຄ່າ ໃຊ້ ຈ່າຍ.
+          </div>
+        </div>
+
+        <div class="help-card">
+          <div class="help-card-icon">🔒</div>
+          <div class="help-card-title">ວິເຄາະ Security Logs</div>
+          <div class="help-card-desc">
+            ສະຫຼຸບ ບົດລາຍງານ Logs ປະຈຳ ອາທິດ, ຈັດ ລຳດັບ ຄວາມ ສ່ຽງ ແລະ ສ້າງ ບົດ ສະຫຼຸບ ສຳລັບ ຄະນະ ບໍລິຫານ.
+          </div>
+        </div>
+
+        <div class="help-card">
+          <div class="help-card-icon">📝</div>
+          <div class="help-card-title">ສ້າງ ເອກະສານ ສຳລັບ ພະນັກງານ</div>
+          <div class="help-card-desc">
+            ສ້າງ ປະກາດ, ຄູ່ມື ການ ໃຊ້ ລະບົບ, ແບບ ຟອມ Onboarding / Offboarding ໃນ ຮູບແບບ EMI ທີ່ ເປັນ ທາງການ.
+          </div>
+        </div>
+
+        <div class="help-card">
+          <div class="help-card-icon">📈</div>
+          <div class="help-card-title">ສະຫຼຸບ KPI ທີມ Helpdesk</div>
+          <div class="help-card-desc">
+            ນຳ ເຂົ້າ ຂໍ້ມູນ Tickets, ຄຳນວນ SLA Compliance, ເວລາ ສະເລ່ຍ ການ ແກ້ໄຂ ແລະ ສ້າງ ບົດ ສະຫຼຸບ ປະຈຳ ອາທິດ / ເດືອນ.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // ===== Navigation =====
+  const navItems = document.querySelectorAll('.nav-item');
+  const panels = document.querySelectorAll('.panel');
+  const sidebar = document.getElementById('sidebar');
+  const mobileToggle = document.getElementById('mobileToggle');
+
+  function showPanel(name) {
+    // Switch active states
+    navItems.forEach(item => {
+      item.classList.toggle('active', item.dataset.panel === name);
+    });
+    panels.forEach(panel => {
+      panel.classList.toggle('active', panel.id === 'panel-' + name);
+    });
+    // Scroll main to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Close mobile menu
+    sidebar.classList.remove('open');
+  }
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => showPanel(item.dataset.panel));
+  });
+
+  // Stat cards on home → navigate
+  document.querySelectorAll('[data-go]').forEach(card => {
+    card.addEventListener('click', () => showPanel(card.dataset.go));
+  });
+
+  // Mobile toggle
+  mobileToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+  });
+
+  // Close mobile sidebar when clicking outside
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 880
+        && !sidebar.contains(e.target)
+        && !mobileToggle.contains(e.target)
+        && sidebar.classList.contains('open')) {
+      sidebar.classList.remove('open');
+    }
+  });
+
+  // Keyboard shortcuts (1-5)
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    const map = { '1': 'home', '2': 'daily', '3': 'weekly', '4': 'monthly', '5': 'claude' };
+    if (map[e.key]) showPanel(map[e.key]);
+  });
+</script>
+
+</body>
+</html>

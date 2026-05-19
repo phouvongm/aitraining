@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMI Claude Training — Assignment 2 · Job Description &amp; Balanced Scorecard</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --emi-green:#49C18E;
+    --emi-navy:#17335E;
+    --emi-orange:#F15A26;
+    --emi-bg:#F5F8FB;
+    --emi-card:#FFFFFF;
+    --emi-border:#E2E8F0;
+    --emi-soft-green:#E8F8F1;
+    --emi-soft-navy:#EAF0F8;
+    --emi-text:#1F2933;
+    --emi-muted:#5B6B7F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Noto Sans Lao',Arial,sans-serif;background:var(--emi-bg);color:var(--emi-text);line-height:1.7;font-size:14pt}
+  .lao{font-family:'Noto Sans Lao',Arial,sans-serif}
+  .page{max-width:1080px;margin:0 auto;padding:32px 24px 60px}
+
+  .topbar{background:var(--emi-navy);color:#fff;padding:18px 28px;border-radius:14px 14px 0 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand-mark{width:48px;height:48px;border-radius:12px;background:var(--emi-green);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;letter-spacing:1px}
+  .brand-text strong{display:block;font-size:16pt}
+  .brand-text span{font-size:11pt;opacity:.85}
+  .topbar .meta{font-size:11pt;opacity:.9;text-align:right}
+
+  .hero{background:var(--emi-card);padding:32px 28px;border-left:6px solid var(--emi-green);border-radius:0 0 14px 14px;box-shadow:0 1px 3px rgba(23,51,94,.06)}
+  .badge{display:inline-block;background:var(--emi-soft-green);color:var(--emi-navy);padding:5px 14px;border-radius:999px;font-size:11pt;font-weight:600;margin-bottom:10px}
+  h1{color:var(--emi-navy);font-size:24pt;font-weight:700;line-height:1.25;margin-bottom:8px}
+  .hero .sub{color:var(--emi-navy);font-size:14pt;font-weight:500;margin-bottom:14px}
+  .hero p{margin-bottom:10px}
+  .muted{color:var(--emi-muted);font-size:12pt}
+
+  .why-box{
+    margin-top:18px;background:#FFF7F1;
+    border-left:4px solid var(--emi-orange);
+    border-radius:10px;padding:16px 20px;
+  }
+  .why-box .title{color:#9C3A0F;font-weight:700;font-size:13pt;margin-bottom:6px}
+  .why-box p{font-size:12pt;color:var(--emi-text)}
+
+  section{background:var(--emi-card);border-radius:14px;padding:26px 28px;margin-top:22px;box-shadow:0 1px 3px rgba(23,51,94,.05)}
+  h2{color:var(--emi-navy);font-size:18pt;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  h2 .ico{width:34px;height:34px;border-radius:8px;background:var(--emi-green);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14pt;font-weight:700;flex-shrink:0}
+  h2.day .ico{background:var(--emi-navy)}
+  h3{color:var(--emi-navy);font-size:14pt;font-weight:700;margin-top:18px;margin-bottom:8px}
+  p{margin-bottom:10px}
+
+  /* STEP */
+  .step{display:flex;gap:14px;padding:14px 16px;border-radius:12px;background:#fff;border:1px solid var(--emi-border);margin-bottom:10px}
+  .step .n{width:34px;height:34px;border-radius:50%;background:var(--emi-navy);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13pt}
+  .step .body{flex:1}
+  .step h4{color:var(--emi-navy);font-size:13pt;margin-bottom:4px}
+  .step p{font-size:12pt;color:var(--emi-text);margin:0}
+
+  /* PROMPT BOX */
+  .prompt-box{background:var(--emi-navy);color:#fff;border-radius:10px;padding:16px 20px;margin:8px 0;font-size:12pt;line-height:1.65}
+  .prompt-box .label{display:inline-block;background:var(--emi-green);color:#fff;padding:3px 10px;border-radius:6px;font-size:10pt;font-weight:600;margin-bottom:8px;letter-spacing:.5px}
+  .prompt-box code{display:block;font-family:'Courier New',monospace;font-size:11pt;background:rgba(255,255,255,.08);padding:12px 14px;border-radius:8px;white-space:pre-wrap;margin-top:6px}
+
+  /* CHECKLIST */
+  .checklist{list-style:none;margin:8px 0 0 0;padding:0}
+  .checklist li{padding:10px 14px;margin-bottom:6px;background:#fff;border:1px solid var(--emi-border);border-radius:10px;display:flex;gap:12px;align-items:flex-start;font-size:12pt}
+  .checklist li::before{content:"";display:inline-block;width:18px;height:18px;border:2px solid var(--emi-green);border-radius:5px;flex-shrink:0;margin-top:3px}
+
+  /* PERSONALIZED TABLE */
+  table.personalize{width:100%;border-collapse:collapse;font-size:11.5pt;margin-top:8px}
+  table.personalize th{background:var(--emi-soft-navy);color:var(--emi-navy);font-weight:600;font-size:11pt;padding:9px 12px;text-align:left}
+  table.personalize td{padding:10px 12px;border-bottom:1px solid var(--emi-border);vertical-align:top}
+  table.personalize tr:last-child td{border-bottom:none}
+  table.personalize .name{font-weight:600;color:var(--emi-navy);white-space:nowrap}
+  table.personalize .role{font-size:10pt;color:var(--emi-muted);display:block;margin-top:2px}
+
+  /* BSC grid */
+  .bsc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
+  .bsc-card{background:#fff;border:1px solid var(--emi-border);border-radius:12px;padding:16px}
+  .bsc-card.financial{border-top:4px solid #49C18E}
+  .bsc-card.customer{border-top:4px solid #17335E}
+  .bsc-card.process{border-top:4px solid #F15A26}
+  .bsc-card.learning{border-top:4px solid #7B3FA0}
+  .bsc-card h4{color:var(--emi-navy);font-size:13pt;font-weight:700;margin-bottom:6px}
+  .bsc-card p{font-size:11.5pt;color:var(--emi-text);margin:0}
+  .bsc-card .examples{font-size:11pt;color:var(--emi-muted);margin-top:8px;font-style:italic}
+
+  .callout{background:var(--emi-soft-green);border-left:4px solid var(--emi-green);padding:14px 18px;border-radius:8px;margin-top:14px;font-size:12pt}
+  .callout strong{color:var(--emi-navy)}
+
+  footer{margin-top:30px;padding:22px;background:var(--emi-navy);color:#fff;border-radius:14px;text-align:center;font-size:11pt}
+  footer strong{color:var(--emi-green)}
+  footer .tag{display:inline-block;padding:4px 12px;background:rgba(73,193,142,.18);border-radius:999px;margin-top:8px;color:#fff;font-weight:500}
+
+  @media print{body{background:#fff;font-size:11pt}.page{padding:0}section{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid}.topbar,.hero,footer{border-radius:0}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-mark">EMI</div>
+      <div class="brand-text">
+        <strong>Ekphatthana Microfinance Institution</strong>
+        <span class="lao">ສະຖາບັນການເງິນຈຸລະພາກ ເອັກພັດທະນາ</span>
+      </div>
+    </div>
+    <div class="meta">
+      <div>Claude Training · 1st Batch</div>
+      <div class="lao">Assignment 2 · ບົດຝຶກທີ 2</div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="badge">Day 2–3 · Job Description &amp; Balanced Scorecard</span>
+    <h1 class="lao">ບົດຝຶກທີ 2: ສ້າງ Job Description ແລະ KPI Balanced Scorecard ຂອງ ເຈົ້າ ເອງ</h1>
+    <div class="sub">Build your own Job Description and Balanced Scorecard with Claude as your HR JD Expert</div>
+
+    <p class="lao">
+      ບົດຝຶກນີ້ <strong>ບໍ່ ແມ່ນ ການຝຶກ AI</strong> — ແມ່ນ ການຝຶກ ໃຫ້ ເຈົ້າ <strong>ເຂົ້າໃຈ ໜ້າທີ່ ຂອງ ເຈົ້າ</strong> ໃຫ້ ຈັດເຈນ.
+      ໃນ 2 ມື້ ນີ້, ເຮົາ ຈະ ໃຊ້ Claude ເປັນ "ຜູ້ຊ່ຽວຊານ HR" ເພື່ອ ຊ່ວຍ ເຈົ້າ ສ້າງ ສອງ ເອກະສານ ສຳຄັນ:
+    </p>
+    <p class="lao">
+      <strong>ມື້ 2 · Job Description (JD)</strong> — ບອກ ໃຫ້ ຈັດເຈນ ວ່າ ໜ້າທີ່ ຂອງ ເຈົ້າ ແມ່ນ ຫຍັງ, ຄວາມ ຮັບຜິດຊອບ ໃດ, ກ່ຽວຂ້ອງ ກັບ ໃຜ.<br>
+      <strong>ມື້ 3 · Balanced Scorecard (BSC)</strong> — ບອກ ໃຫ້ ຈັດເຈນ ວ່າ ເຈົ້າ ຖືກ ວັດແທກ ດ້ວຍ KPI ຫຍັງ ໃນ 4 ມຸມມອງ.
+    </p>
+    <p>
+      This is <strong>not AI training</strong> — it's professional development. Over two days you'll use Claude as your
+      <strong>HR JD Expert</strong> to build two important documents: your formal Job Description (Day 2) and your KPI
+      Balanced Scorecard with 4 perspectives (Day 3).
+    </p>
+
+    <div class="why-box">
+      <div class="title lao">ເຫດໃດ ບົດຝຶກນີ້ ສຳຄັນ · Why this matters</div>
+      <p class="lao">
+        ຫຼາຍ ຄົນ ໃນ EMI ເຮັດ ວຽກ ມາ ດົນ ແຕ່ ບໍ່ ມີ JD ທີ່ ຂຽນ ໄວ້ ຢ່າງ ຈັດເຈນ — ບໍ່ ຮູ້ ແທ້ໆ ວ່າ ຕົນ ຮັບຜິດຊອບ ສິ່ງ ໃດ ແທ້,
+        ແລະ ບໍ່ ຮູ້ ວ່າ ຄວາມ ສຳເລັດ ຂອງ ຕົນ ຖືກ ວັດແທກ ແບບ ໃດ. ບົດຝຶກນີ້ ຈະ ຊ່ວຍ ໃຫ້ ເຈົ້າ ມີ ເອກະສານ ທີ່ ຊັດເຈນ
+        ໃຊ້ ໃນ ການ ປະເມີນ ປະຈຳ ປີ, ການ ສະເໜີ ຂຶ້ນ ຕຳແໜ່ງ, ແລະ ການ ສື່ສານ ກັບ ຫົວໜ້າ ຂອງ ເຈົ້າ.
+      </p>
+      <p>
+        Many EMI staff have been in their role for years without a clear written JD — not sure exactly what they're
+        responsible for, or how their performance is measured. This assignment gives you concrete documents you can
+        use in your annual review, your promotion case, and your conversations with your manager.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== SETUP — HR JD EXPERT ===== -->
+  <section>
+    <h2><span class="ico">⚙</span><span class="lao">ການກຽມຕົວ — ຕັ້ງ Claude ໃຫ້ ເປັນ HR JD Expert</span> · Setup</h2>
+    <p class="lao">
+      ກ່ອນ ເລີ່ມ ມື້ 2, ໃຫ້ ສ້າງ ການສົນທະນາ ໃໝ່ ໃນ Cowork. Paste prompt ດ້ານລຸ່ມ <strong>ກ່ອນ ສຸດ</strong> —
+      ຈະ ຕັ້ງ Claude ໃຫ້ ກາຍເປັນ "ຜູ້ຊ່ຽວຊານ HR" ທີ່ ຮູ້ ບໍລິບົດ EMI, ການເງິນ ຈຸລະພາກ, ແລະ BOL.
+      ການສົນທະນາ ດຽວ ກັນ ນີ້ ໃຊ້ ໄດ້ ທັງ ມື້ 2 ແລະ ມື້ 3.
+    </p>
+
+    <div class="prompt-box">
+      <span class="label">SETUP PROMPT — ສຳເນົາ ໃສ່ Claude ກ່ອນ ສຸດ</span>
+<code class="lao">ສະບາຍດີ Claude,
+
+ມື້ນີ້ ຂ້ອຍ ຕ້ອງການ ໃຫ້ ເຈົ້າ ສະແດງ ບົດບາດ ເປັນ "ຜູ້ຊ່ຽວຊານ ດ້ານ HR ແລະ
+Job Description" ທີ່ ມີ ປະສົບການ ຫຼາຍ ປີ ໃນ ສະຖາບັນ ການເງິນ ຈຸລະພາກ (MFI)
+ໃນ ປະເທດ ກຳລັງ ພັດທະນາ.
+
+ບໍລິບົດ ການ ເຮັດວຽກ ຂອງ ຂ້ອຍ:
+- ສະຖາບັນ: Ekphatthana Microfinance Institution (EMI), ສປປ ລາວ
+- ປະເພດ ສະຖາບັນ: Deposit-Taking MFI, ຢູ່ ໃຕ້ ການ ກວດກາ ຂອງ ທະນາຄານ ແຫ່ງ ສປປ ລາວ (BOL)
+- ມີ ສຳນັກງານ ໃຫຍ່ ໃນ ນະຄອນຫຼວງ ວຽງຈັນ ແລະ ສາຂາ + ໜ່ວຍບໍລິການ ໃນ ຫຼາຍ ແຂວງ
+- ໃຊ້ ລະບົບ Core Banking (Optimal), Odoo, ແລະ ມີ ໂຄງການ ກັບ ADA, ICCAP
+
+ໜ້າທີ່ ຂອງ ເຈົ້າ ໃນ ການສົນທະນາ ນີ້:
+1. ຖາມ ຄຳຖາມ ຂ້ອຍ ເທື່ອລະ 2-3 ຄຳຖາມ ເພື່ອ ເຂົ້າໃຈ ໜ້າທີ່ ຂອງ ຂ້ອຍ
+2. ຊ່ວຍ ຂ້ອຍ ສ້າງ JD ທີ່ ມີ ໂຄງສ້າງ ມາດຕະຖານ ສາກົນ
+3. ມື້ ຕໍ່ໄປ ຈະ ສ້າງ Balanced Scorecard 4 ມຸມມອງ
+4. ບໍ່ ປ່ອຍ ຂ້ອຍ ບອກ ສິ່ງ ບໍ່ ຊັດເຈນ — ຖາມ ຊ້ຳ ຈົນ ໄດ້ ຄຳຕອບ ທີ່ ສະເພາະ
+5. ຖ້າ ຂ້ອຍ ບອກ "ບໍ່ ຮູ້" — ໃຫ້ ສະເໜີ ຕົວຢ່າງ ສຳລັບ ຕຳແໜ່ງ ຄື ຂອງ ຂ້ອຍ ໃນ MFI ອື່ນ
+6. ໃຊ້ ສຳນວນ ສຸພາບ ທາງການ — ແບບ EMI
+
+ສົນທະນາ ກັນ ເປັນ ພາສາລາວ ທັງໝົດ.
+
+ກ່ອນ ເລີ່ມ, ໃຫ້ ຂ້ອຍ ສົ່ງ ໂປຣໄຟລ໌ ໜ້າວຽກ ຂອງ ຂ້ອຍ (ບົດຝຶກ 1) ໃຫ້ ເຈົ້າ ກ່ອນ.
+ຈາກ ນັ້ນ ໃຫ້ ເຈົ້າ ເລີ່ມ ຖາມ ຄຳຖາມ.</code>
+    </div>
+    <p class="muted" style="margin-top:10px">After pasting this setup, paste your Assignment 1 profile HTML. Then let Claude start asking you questions.</p>
+  </section>
+
+  <!-- ===== DAY 2 — JOB DESCRIPTION ===== -->
+  <section>
+    <h2 class="day"><span class="ico">2</span><span class="lao">ມື້ ທີ 2 — ສ້າງ Job Description (JD) ຂອງ ເຈົ້າ</span></h2>
+    <p class="lao"><strong>ວັນທີ:</strong> ວັນອັງຄານ ທີ 19 ພຶດສະພາ 2026 · <strong>ກຳນົດສົ່ງ:</strong> ກ່ອນ 17:00 ມື້ນັ້ນ · <strong>ເວລາ:</strong> 60-90 ນາທີ</p>
+
+    <h3 class="lao">JD ດີ ມີ ສ່ວນ ໃດ ແດ່</h3>
+    <ul class="checklist lao">
+      <li><strong>1. ຂໍ້ມູນ ຕຳແໜ່ງ</strong> — ຊື່ ຕຳແໜ່ງ (ລາວ + ອັງກິດ), ພະແນກ, ສຳນັກງານ, ລະດັບ ຕຳແໜ່ງ</li>
+      <li><strong>2. ສາຍ ການ ລາຍງານ</strong> — ລາຍງານ ໃຫ້ ໃຜ, ມີ ໃຜ ລາຍງານ ໃຫ້ ເຈົ້າ (ຖ້າ ມີ)</li>
+      <li><strong>3. ຈຸດປະສົງ ຂອງ ຕຳແໜ່ງ (Job Purpose)</strong> — 2-3 ປະໂຫຍກ ບອກ ວ່າ ຕຳແໜ່ງ ນີ້ ມີ ໄວ້ ເພື່ອ ຫຍັງ</li>
+      <li><strong>4. ຄວາມ ຮັບຜິດຊອບ ຫຼັກ</strong> — 5-8 ຄວາມ ຮັບຜິດຊອບ ໃຫຍ່ (ຂຶ້ນຕົ້ນ ດ້ວຍ ຄຳ ກຳມະ: ກວດສອບ, ສ້າງ, ປະສານ, ບໍລິຫານ...)</li>
+      <li><strong>5. ຄຸນສົມບັດ ທີ່ ຕ້ອງການ</strong> — ການສຶກສາ, ໃບປະກາດ, ປະສົບການ ຫຼາຍ ປີ</li>
+      <li><strong>6. ທັກສະ ຕ້ອງການ</strong> — ທັກສະ ດ້ານ ວິຊາການ (technical) + ທັກສະ ສ່ວນຕົວ (soft skills)</li>
+      <li><strong>7. ຄວາມ ສຳພັນ ໃນ ການເຮັດວຽກ</strong> — ພະແນກ ໃດ ທີ່ ປະສານ ກັນ, ພາຍ ນອກ ມີ BOL / ADA / ທະນາຄານ</li>
+      <li><strong>8. ຂອບເຂດ ການ ຕັດສິນ ໃຈ</strong> — ສິ່ງ ໃດ ທີ່ ເຈົ້າ ຕັດສິນ ໄດ້ ເອງ, ສິ່ງ ໃດ ຕ້ອງ ຂໍ ອະນຸມັດ</li>
+      <li><strong>9. ສະຖານທີ່ ແລະ ການ ເດີນທາງ</strong> — ປະຈຳ HQ ຫຼ ສາຂາ, ຕ້ອງ ເດີນທາງ ບໍ່</li>
+    </ul>
+
+    <h3 class="lao">ຂັ້ນຕອນ ການ ເຮັດ</h3>
+    <div class="step"><div class="n">1</div><div class="body"><h4 class="lao">Paste setup prompt ແລະ ໂປຣໄຟລ໌ ບົດຝຶກ 1</h4><p class="lao">Claude ຈະ ເຂົ້າໃຈ ບໍລິບົດ ການເຮັດວຽກ ຂອງ ເຈົ້າ ກ່ອນ ເລີ່ມ ຖາມ.</p></div></div>
+    <div class="step"><div class="n">2</div><div class="body"><h4 class="lao">ໃຫ້ Claude ຖາມ ເຈົ້າ ທີລະ ສ່ວນ</h4><p class="lao">Claude ຈະ ຖາມ ເທື່ອລະ 2-3 ຄຳຖາມ — ຕອບ ໃຫ້ ລະອຽດ. ຖ້າ ບໍ່ ຮູ້, ບອກ "ບໍ່ ຮູ້" ແລະ ໃຫ້ Claude ສະເໜີ ຕົວຢ່າງ ສຳລັບ ຕຳແໜ່ງ ຄື ຂອງ ເຈົ້າ.</p></div></div>
+    <div class="step"><div class="n">3</div><div class="body"><h4 class="lao">ຖາມ ກັບ — ໃຫ້ ຈັດເຈນ</h4><p class="lao">ຖ້າ Claude ສະເໜີ ສິ່ງ ໃດ ທີ່ ບໍ່ ກົງ — ບອກ ມັນ ປັບ. ຖ້າ ບໍ່ ເຂົ້າໃຈ ຄຳ ໃດ — ໃຫ້ ມັນ ອະທິບາຍ. ການສົນທະນາ ນີ້ ແມ່ນ ບ່ອນ ທີ່ ການ ຮຽນຮູ້ ເກີດຂຶ້ນ.</p></div></div>
+    <div class="step"><div class="n">4</div><div class="body"><h4 class="lao">ຂໍ ໃຫ້ Claude ສ້າງ ໄຟລ໌ HTML</h4><p class="lao">ເມື່ອ ຄຸຍ ຄົບ ທຸກ ສ່ວນ ແລ້ວ, ບອກ Claude ສ້າງ ໄຟລ໌ HTML ໃນ ຮູບແບບ EMI (ສີ #49C18E ແລະ #17335E, Noto Sans Lao). ໃຫ້ ມີ ທຸກ 9 ສ່ວນ ດ້ານ ເທິງ.</p></div></div>
+    <div class="step"><div class="n">5</div><div class="body"><h4 class="lao">ບັນທຶກ ແລະ ສົ່ງ</h4><p class="lao">ບັນທຶກ ໄຟລ໌ ດ້ວຍ ຊື່: <code>Assignment-02-JD-[ຊື່ຂອງເຈົ້າ].html</code> ໃສ່ <code>Inbox/Assignment-02/</code>.</p></div></div>
+
+    <h3 class="lao">ສິ່ງທີ່ ເຈົ້າ ຄວນ ສຸມໃສ່ — ສະບັບ ສະເພາະ ຕຳແໜ່ງ</h3>
+    <table class="personalize">
+      <tr><th style="width:22%">ຊື່ · Role</th><th>ສິ່ງທີ່ ຕ້ອງ ຖາມ Claude ໃຫ້ ຈັດເຈນ</th></tr>
+      <tr><td class="name">Phasouk<span class="role lao">ຫົວໜ້າ ບັນຊີ</span></td><td class="lao">ຂອບເຂດ ການ ຕັດສິນ ໃຈ (ວົງເງິນ ການ ອະນຸມັດ), ການ ມອບໝາຍ ໃຫ້ ບັນຊີກອນ ສາຂາ, ການ ລາຍງານ ໃຫ້ BOL / ກົມ ບັນຊີ-ການເງິນ</td></tr>
+      <tr><td class="name">Anousone<span class="role lao">ຫົວໜ້າ Audit</span></td><td class="lao">ຄວາມ ເປັນ ອິດສະຫຼະ ຂອງ Internal Audit, ຄວາມ ສຳພັນ ກັບ ຄະນະ ບໍລິຫານ, ຂອບເຂດ ການ ກວດສອບ (14 ໜ່ວຍ + ICCAP / SPI5)</td></tr>
+      <tr><td class="name">Phithop<span class="role lao">Head of Marketing</span></td><td class="lao">ຄວາມ ສຳພັນ ກັບ ADA (ICCAP), ການ ບໍລິຫານ Smart Kids 20 ໂຮງຮຽນ, ການ ບໍລິຫານ ທີມ (Minly, Chilasack)</td></tr>
+      <tr><td class="name">Linda<span class="role lao">ບັນຊີ</span></td><td class="lao">ຂອບເຂດ ບັນຊີ ທີ່ ຮັບຜິດຊອບ (B4, B5, B10-B15...), ການ ສະລັບ ກັບ ນາງ ຄອນສະຫວັນ, ການ ກວດທຽບ GL</td></tr>
+      <tr><td class="name">BounKham<span class="role lao">HR</span></td><td class="lao">ຂອບເຂດ HR (recruitment, payroll, benefits, training), ການ ກວດ CCTV ສຳລັບ Uniform, ການ ປະສານ ກັບ ບໍລິຫານ + ບັນຊີ</td></tr>
+      <tr><td class="name">Tim<span class="role lao">ບໍລິຫານ</span></td><td class="lao">ຄວາມ ສຳພັນ ກັບ ຄະນະ ບໍລິຫານ, ການ ປະສານ ກັບ BOL, ການ ຈັດ ຊື້-ຈັດ ຈ້າງ, ການ ຄຸ້ມຄອງ ໜັງສື ອອກ-ເຂົ້າ</td></tr>
+      <tr><td class="name">Sukan<span class="role lao">Senior IT · ສະໜັບສະໜຸນ ທຸກ ພະແນກ</span></td><td class="lao">ການ ສະໜັບສະໜຸນ ທຸກ ພະແນກ (cross-functional), ການ ຄຸ້ມຄອງ Odoo + Server, ການ ບໍລິການ ສາຂາ ຕ່າງແຂວງ</td></tr>
+      <tr><td class="name">Chilasack<span class="role lao">Digital Media</span></td><td class="lao">ການ ສ້າງ content (output ປະຈຳ ອາທິດ/ເດືອນ), ການ ປະສານ ກັບ ທີມ Marketing, EMI Smart App promotion</td></tr>
+      <tr><td class="name">Minly<span class="role lao">Contact Center</span></td><td class="lao">ການ ສຳຫຼວດ ປະຈຳ ວັນ (10 ຄົນ/ວັນ), ການ ຕອບ Messenger / WhatsApp, ການ ສ້າງ content ໃນ ທີມ</td></tr>
+    </table>
+
+    <h3 class="lao">ກວດ ກ່ອນ ສົ່ງ ມື້ ທີ 2</h3>
+    <ul class="checklist lao">
+      <li>ມີ ທຸກ 9 ສ່ວນ ຂອງ JD ມາດຕະຖານ</li>
+      <li>ຄວາມ ຮັບຜິດຊອບ ຫຼັກ ຂຶ້ນຕົ້ນ ດ້ວຍ ຄຳ ກຳມະ ສະເພາະ (ບໍ່ ໃຊ້ "ຊ່ວຍ", "ສະໜັບສະໜຸນ" ກວ້າງ ໆ)</li>
+      <li>ສ່ວນ ການ ຕັດສິນ ໃຈ ມີ ຂອບເຂດ ສະເພາະ (ຕົວເລກ / ວົງເງິນ ຖ້າ ມີ)</li>
+      <li>ການ ປະສານ ກັບ ພາຍ ນອກ (BOL, ADA, ທະນາຄານ) ມີ ການ ລະບຸ</li>
+      <li>ໃຊ້ ສີ EMI ແລະ Noto Sans Lao</li>
+      <li>ຊື່ໄຟລ໌: <code>Assignment-02-JD-[ຊື່ຂອງເຈົ້າ].html</code></li>
+    </ul>
+  </section>
+
+  <!-- ===== DAY 3 — BSC ===== -->
+  <section>
+    <h2 class="day"><span class="ico">3</span><span class="lao">ມື້ ທີ 3 — ສ້າງ Balanced Scorecard (BSC) ຂອງ ເຈົ້າ</span></h2>
+    <p class="lao"><strong>ວັນທີ:</strong> ວັນພຸດ ທີ 20 ພຶດສະພາ 2026 · <strong>ກຳນົດສົ່ງ:</strong> ກ່ອນ 17:00 ມື້ນັ້ນ · <strong>ເວລາ:</strong> 60-90 ນາທີ</p>
+
+    <h3 class="lao">Balanced Scorecard ແມ່ນ ຫຍັງ</h3>
+    <p class="lao">
+      Balanced Scorecard (BSC) ແມ່ນ ກອບ ການ ວັດແທກ ຜົນງານ ທີ່ ນຳ ໃຊ້ ກ້ວາງຂວາງ ໃນ ສະຖາບັນ ການເງິນ ທົ່ວ ໂລກ.
+      ມັນ <strong>ບໍ່ ໃຊ່ ພຽງ ວັດແທກ ດ້ວຍ ເງິນ</strong> — ແຕ່ ໃຊ້ 4 ມຸມມອງ ສົມດຸນ ກັນ:
+    </p>
+    <p class="muted">A Balanced Scorecard measures performance across 4 perspectives — not just financial. It's the standard tool in MFIs globally.</p>
+
+    <div class="bsc-grid">
+      <div class="bsc-card financial">
+        <h4 class="lao">1. Financial · ການເງິນ</h4>
+        <p class="lao">ໝວດ ການ ໃຊ້ ຈ່າຍ, ລາຍຮັບ, ກຳໄລ, ການ ຄວບຄຸມ ຄ່າ ໃຊ້ ຈ່າຍ</p>
+        <div class="examples lao">ຕົວຢ່າງ: cost-to-income, GLP growth, ROA, ROE, budget variance</div>
+      </div>
+      <div class="bsc-card customer">
+        <h4 class="lao">2. Customer · ລູກຄ້າ</h4>
+        <p class="lao">ຄວາມ ເພິ່ງພໍໃຈ ລູກຄ້າ, ການຮັກສາ ລູກຄ້າ, ການ ເຂົ້າເຖິງ ກຸ່ມ ໃໝ່</p>
+        <div class="examples lao">ຕົວຢ່າງ: CSAT score, retention rate, new clients/month, complaint resolution time</div>
+      </div>
+      <div class="bsc-card process">
+        <h4 class="lao">3. Internal Process · ຂັ້ນຕອນ ພາຍໃນ</h4>
+        <p class="lao">ປະສິດທິພາບ ການ ເຮັດວຽກ, ຄຸນນະພາບ, ຄວາມ ສອດຄ່ອງ ກັບ ກົດລະບຽບ</p>
+        <div class="examples lao">ຕົວຢ່າງ: monthly close on time, error rate, audit findings, BOL compliance</div>
+      </div>
+      <div class="bsc-card learning">
+        <h4 class="lao">4. Learning &amp; Growth · ການຮຽນຮູ້</h4>
+        <p class="lao">ການ ພັດທະນາ ທັກສະ, ການຝຶກອົບຮົມ, ການ ປະດິດສ້າງ ໃໝ່</p>
+        <div class="examples lao">Examples: training hours, certifications, new processes built, mentoring hours</div>
+      </div>
+    </div>
+
+    <h3 class="lao">ໂຄງສ້າງ KPI ດີ</h3>
+    <p class="lao">ແຕ່ ລະ KPI ຄວນ ມີ 5 ສ່ວນ:</p>
+    <ul class="checklist lao">
+      <li><strong>ຊື່ KPI</strong> — ສະຫງ່າງາມ ສັ້ນ (ຕົວຢ່າງ: "ອັດຕາ ການ ປິດເດືອນ ທັນ ກຳນົດ")</li>
+      <li><strong>ນິຍາມ</strong> — ວັດແທກ ຫຍັງ ແທ້ ໆ (1 ປະໂຫຍກ)</li>
+      <li><strong>ເປົ້າໝາຍ</strong> — ຕົວເລກ ສະເພາະ (ຕົວຢ່າງ: "ສຳເລັດ 100% ກ່ອນ ວ.5 ຂອງ ເດືອນ ຕໍ່ໄປ")</li>
+      <li><strong>ຄວາມຖີ່ ການ ວັດແທກ</strong> — ປະຈຳເດືອນ / ໄຕມາດ / ປີ</li>
+      <li><strong>ແຫຼ່ງ ຂໍ້ມູນ</strong> — ດຶງ ຂໍ້ມູນ ມາ ຈາກ ໃສ (Odoo, Excel, ບົດລາຍງານ ສາຂາ)</li>
+    </ul>
+
+    <h3 class="lao">Prompt — ສຳເນົາ ໃສ່ ການສົນທະນາ ສືບຕໍ່ ຈາກ ມື້ 2</h3>
+    <div class="prompt-box">
+      <span class="label">DAY 3 PROMPT</span>
+<code class="lao">ດີຫຼາຍ Claude. ມື້ນີ້ ເຮົາ ຈະ ສ້າງ Balanced Scorecard ຂອງ ຂ້ອຍ.
+
+ໂດຍ ໃຊ້ JD ທີ່ ເຮົາ ສ້າງ ໄວ້ ມື້ ວານ, ກະລຸນາ ຊ່ວຍ ຂ້ອຍ ກຳນົດ KPI 12-16
+ຕົວ ໃນ 4 ມຸມມອງ Balanced Scorecard:
+
+1. Financial · ການເງິນ — 3-4 KPI
+2. Customer · ລູກຄ້າ — 3-4 KPI
+3. Internal Process · ຂັ້ນຕອນ ພາຍໃນ — 3-4 KPI
+4. Learning &amp; Growth · ການຮຽນຮູ້ — 3-4 KPI
+
+ສຳລັບ ແຕ່ ລະ KPI ໃຫ້ ມີ:
+- ຊື່
+- ນິຍາມ (ວັດແທກ ຫຍັງ)
+- ເປົ້າໝາຍ (ຕົວເລກ ສະເພາະ)
+- ຄວາມຖີ່ (ປະຈຳເດືອນ/ໄຕມາດ/ປີ)
+- ແຫຼ່ງ ຂໍ້ມູນ
+
+ກະລຸນາ ຖາມ ຂ້ອຍ ເທື່ອລະ 2-3 KPI ເພື່ອ ກວດ ວ່າ ກົງ ກັບ ໜ້າທີ່ ຂອງ ຂ້ອຍ ບໍ.
+ຖ້າ ຂ້ອຍ ບໍ່ ຮູ້ ເປົ້າໝາຍ — ໃຫ້ ສະເໜີ ຕົວເລກ ມາດຕະຖານ ສຳລັບ MFI ຄ້າຍຄື EMI.
+
+ເມື່ອ ສຳເລັດ, ສ້າງ ໄຟລ໌ HTML ໃນ ຮູບແບບ EMI:
+- ມີ ສ່ວນຫົວ ກັບ ຊື່, ຕຳແໜ່ງ, ພະແນກ
+- ມີ 4 ສ່ວນ ສຳລັບ 4 ມຸມມອງ
+- ແຕ່ ລະ KPI ໃນ ຕາຕະລາງ
+- ສີ EMI Green #49C18E ແລະ Navy #17335E</code>
+    </div>
+
+    <h3 class="lao">ສິ່ງທີ່ ເຈົ້າ ຄວນ ສຸມໃສ່ — KPI ເລີ່ມຕົ້ນ ສະເພາະ ຕຳແໜ່ງ</h3>
+    <table class="personalize">
+      <tr><th style="width:18%">ຊື່</th><th>KPI ທີ່ ຄວນ ມີ (ໃຫ້ Claude ປັບ ກັບ ເຈົ້າ)</th></tr>
+      <tr><td class="name">Phasouk<span class="role lao">ຫົວໜ້າ ບັນຊີ</span></td><td class="lao">F: cost-to-income ratio, budget variance · C: ການ ສະເໜີ Factsheet ທັນ ກຳນົດ · P: ປິດເດືອນ ກ່ອນ ວ.5, BOL ສົ່ງ ທັນ ກຳນົດ · L: ຝຶກອົບຮົມ ບັນຊີກອນ ສາຂາ</td></tr>
+      <tr><td class="name">Linda<span class="role lao">ບັນຊີ</span></td><td class="lao">F: ຄວາມ ຖືກຕ້ອງ ການ ກວດທຽບ ບັນຊີ · C: ການ ຕອບ ສາຂາ ໄວ · P: GL accuracy rate, deadline compliance · L: ການ ຮຽນຮູ້ IFRS / BOL ໃໝ່</td></tr>
+      <tr><td class="name">Anousone<span class="role lao">ຫົວໜ້າ Audit</span></td><td class="lao">F: ການ ກວດ ປະຢັດ ຄ່າໃຊ້ ຈ່າຍ · C: ICCAP / SPI5 score · P: ການ ກວດສຳເລັດ 14 ໜ່ວຍ, ການ ປັບປຸງ ຄູ່ມື · L: ການ ພັດທະນາ ທີມ 5 ຄົນ</td></tr>
+      <tr><td class="name">Phithop<span class="role lao">Head of Marketing</span></td><td class="lao">F: ESG / ICCAP funding utilization, Customer acquisition cost · C: ການ ເຂົ້າເຖິງ ສື່ສັງຄົມ, Smart Kids enrollment · P: campaign on-time delivery · L: ການ ພັດທະນາ ທີມ (Minly, Chilasack)</td></tr>
+      <tr><td class="name">BounKham<span class="role lao">HR</span></td><td class="lao">F: payroll accuracy · C: ຄວາມ ເພິ່ງພໍໃຈ ພະນັກງານ · P: time-to-hire, retention rate, training completion · L: ການ ຝຶກອົບຮົມ HR ໃໝ່</td></tr>
+      <tr><td class="name">Tim<span class="role lao">ບໍລິຫານ</span></td><td class="lao">F: ການ ຈັດ ຊື້-ຈັດ ຈ້າງ ປະຢັດ · C: BOL ການ ສົ່ງ ທັນ ກຳນົດ · P: ໜັງສື ອອກ-ເຂົ້າ ກວດ ໄດ້ ໄວ · L: ການ ຝຶກອົບຮົມ ສຳນວນ ທາງການ</td></tr>
+      <tr><td class="name">Sukan<span class="role lao">Senior IT</span></td><td class="lao">F: ການ ປະຢັດ ຄ່າ ສ້ອມແປງ · C: ticket resolution time, ຄວາມ ເພິ່ງພໍໃຈ ສາຂາ · P: system uptime %, Odoo dev progress · L: certifications ໃໝ່</td></tr>
+      <tr><td class="name">Chilasack<span class="role lao">Digital Media</span></td><td class="lao">F: cost per video · C: engagement rate, follower growth · P: content output (posts/videos per month) · L: ການ ຝຶກອົບຮົມ ການອອກແບບ</td></tr>
+      <tr><td class="name">Minly<span class="role lao">Contact Center</span></td><td class="lao">F: ການ ຫຼຸດ ການ ໂທ ຊ້ຳ · C: CSAT, response time · P: 10 ສຳຫຼວດ / ວັນ, Messenger ຕອບ ໃນ 1 ຊົ່ວໂມງ · L: ການ ຝຶກອົບຮົມ ການ ສື່ສານ</td></tr>
+    </table>
+
+    <div class="callout lao">
+      <strong>ເຄັດລັບ:</strong> ບໍ່ ໃຫ້ ກັງວົນ ຖ້າ ບໍ່ ຮູ້ ເປົ້າໝາຍ ຕົວເລກ — ຖາມ Claude ໃຫ້ ສະເໜີ ມາດຕະຖານ MFI ສາກົນ
+      (CGAP, MIX Market, SPTF). ຫຼັງຈາກ ນັ້ນ ສາມາດ ປຶກສາ ກັບ ຫົວໜ້າ ຂອງ ເຈົ້າ ເພື່ອ ປັບ.
+    </div>
+
+    <h3 class="lao">ກວດ ກ່ອນ ສົ່ງ ມື້ ທີ 3</h3>
+    <ul class="checklist lao">
+      <li>ມີ ທຸກ 4 ມຸມມອງ ຂອງ BSC (Financial / Customer / Internal Process / Learning &amp; Growth)</li>
+      <li>ມີ KPI 12-16 ຕົວ — 3-4 ຕົວ ຕໍ່ ມຸມມອງ</li>
+      <li>ແຕ່ ລະ KPI ມີ 5 ສ່ວນ (ຊື່ / ນິຍາມ / ເປົ້າໝາຍ / ຄວາມຖີ່ / ແຫຼ່ງ ຂໍ້ມູນ)</li>
+      <li>ເປົ້າໝາຍ ມີ ຕົວເລກ ສະເພາະ — ບໍ່ ໃຊ້ ຄຳ ກວ້າງ ໆ ເຊັ່ນ "ດີຂຶ້ນ"</li>
+      <li>ໃຊ້ ສີ EMI ແລະ Noto Sans Lao</li>
+      <li>ຊື່ໄຟລ໌: <code>Assignment-02-BSC-[ຊື່ຂອງເຈົ້າ].html</code></li>
+    </ul>
+  </section>
+
+  <!-- ===== HOW TO SUBMIT ===== -->
+  <section>
+    <h2><span class="ico">✉</span><span class="lao">ການ ສົ່ງ ໄຟລ໌</span> · How to submit</h2>
+    <p class="lao">ສົ່ງ 2 ໄຟລ໌ ໄປ ທີ່ <code>Inbox/Assignment-02/</code> ຫຼ ສົ່ງ ໃຫ້ Somphone ໂດຍ ກົງ:</p>
+    <div class="prompt-box">
+<code class="lao">ມື້ ທີ 2 (19 ພຶດສະພາ): Assignment-02-JD-[ຊື່ຂອງເຈົ້າ].html
+ມື້ ທີ 3 (20 ພຶດສະພາ): Assignment-02-BSC-[ຊື່ຂອງເຈົ້າ].html</code>
+    </div>
+    <p class="muted" style="margin-top:10px">After both files are submitted, set up a 30-min call with your manager to review them together. The point of this assignment is to spark that conversation.</p>
+  </section>
+
+  <!-- ===== WHY DEEP ===== -->
+  <section>
+    <h2><span class="ico">★</span><span class="lao">ເຫດໃດ ບົດຝຶກ ນີ້ ມີ ຄຸນຄ່າ</span> · Why this matters (long version)</h2>
+    <p class="lao">
+      ໃນ ສະຖາບັນ ການເງິນ ທີ່ ກຳລັງ ເຕີບໃຫຍ່ ຢ່າງ EMI, ຄວາມ ສຳເລັດ ບໍ່ ໄດ້ ມາ ຈາກ ການ ເຮັດ ວຽກ ໜັກ ເທົ່ານັ້ນ —
+      ມັນ ມາ ຈາກ ການ ເຮັດ <strong>ວຽກ ທີ່ ຖືກຕ້ອງ</strong>. JD ທີ່ ຊັດເຈນ + KPI ທີ່ ສະເພາະ ຊ່ວຍ ໃຫ້ ເຈົ້າ:
+    </p>
+    <ul style="margin-left:24px;font-size:13pt" class="lao">
+      <li>ຮູ້ ວ່າ ຄວາມ ສຳເລັດ ສຳລັບ ຕຳແໜ່ງ ຂອງ ເຈົ້າ ໝາຍ ເຖິງ ຫຍັງ</li>
+      <li>ມີ ຫຼັກຖານ ໃນ ການ ສະເໜີ ຂຶ້ນ ຕຳແໜ່ງ / ປັບ ເງິນເດືອນ</li>
+      <li>ສື່ສານ ກັບ ຫົວໜ້າ ໄດ້ ຈັດເຈນ ກວ່ານີ້</li>
+      <li>ມອບໝາຍ ວຽກ ໃຫ້ ທີມ ໄດ້ ດີຂຶ້ນ (ສຳລັບ ຫົວໜ້າ ພະແນກ)</li>
+      <li>ປ້ອງກັນ ການ "ເຮັດ ວຽກ ທີ່ ບໍ່ ໃຊ່ ໜ້າທີ່ ຂອງ ຕົນ"</li>
+    </ul>
+    <p style="margin-top:14px">
+      In a growing institution like EMI, success doesn't come from working hard alone — it comes from
+      <strong>working on the right things</strong>. A clear JD plus specific KPIs help you know what success looks like
+      for your role, give you evidence for promotion conversations, sharpen communication with your manager,
+      improve how you delegate (if you lead a team), and prevent scope creep into work that isn't yours.
+    </p>
+
+    <div class="callout lao" style="margin-top:18px">
+      <strong>ສຳຄັນ:</strong> ໄຟລ໌ ທີ່ ເຈົ້າ ສ້າງ ບໍ່ ແມ່ນ ສຸດທ້າຍ — ມັນ ແມ່ນ <strong>ການເລີ່ມຕົ້ນ ການສົນທະນາ</strong>
+      ກັບ ຫົວໜ້າ ຂອງ ເຈົ້າ. ຫຼັງ ສົ່ງ ແລ້ວ, ນັດ ປະຊຸມ 30 ນາທີ ກັບ ຫົວໜ້າ ເພື່ອ ກວດ JD + BSC ກັນ.
+      ນັ້ນ ແມ່ນ ບ່ອນ ທີ່ ການ ຮຽນຮູ້ ແທ້ ໆ ເກີດຂຶ້ນ.
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div><strong>EMI Claude Training · 1st Batch · Assignment 2</strong></div>
+    <div class="lao">JD + Balanced Scorecard · Day 2-3 · 19-20 May 2026</div>
+    <div style="margin-top:6px">Trainer: Somphone · somphone.si@gmail.com</div>
+    <div class="tag lao">Better Together · ດີກວ່າ ເມື່ອ ຮ່ວມມືກັນ</div>
+  </footer>
+
+</div>
+</body>
+</html>
